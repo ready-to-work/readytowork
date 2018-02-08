@@ -1,14 +1,12 @@
 {
   "name": "ReadyToWork",
   "version": "0.0.1",
-  "author": "Zi Long Pan, Timothy Bian, Alina Chin",
-
+  "author": "Alina Chin, Timothy Bian, Zi Long Pan",
   "repository": {
     "type": "git",
     "url": "https://github.com/ready-to-work/readytowork"
   },
   "license": "MIT",
-
   "private": true,
   "scripts": {
     "start": "node app.js"
@@ -21,5 +19,8 @@
   },
   "engines": {
     "node": "0.10.x"
-  }  
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.12"
+  }
 }
