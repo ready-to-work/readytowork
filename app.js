@@ -11,6 +11,12 @@ var handlebars = require('express3-handlebars')
 // Routes
 var index = require('./routes/index');
 var home = require('./routes/home');
+var teamlist = require('./routes/teamlist');
+var profile = require('./routes/profile');
+var settings = require('./routes/settings');
+var team = require('./routes/team');
+var calendar = require('./routes/calendar');
+var tasks = require('./routes/tasks');
 
 var app = express();
 
@@ -37,6 +43,12 @@ if ('development' == app.get('env')) {
 // Route requests
 app.get('/', index.view);
 app.get('/home', home.view);
+app.get('/teamlist', teamlist.view);
+app.get('/profile', profile.view);
+app.get('/settings', settings.view);
+app.get('/teamlist/team', team.view);
+app.get('/teamlist/team/calendar', calendar.view);
+app.get('/teamlist/team/tasks', tasks.view);
 
 // Start server
 http.createServer(app).listen(app.get('port'), function(){
