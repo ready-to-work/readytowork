@@ -15,7 +15,7 @@
     "autoprefixer": "postcss -u autoprefixer -r public/css/*",
     "build-css": "npm run scss && npm run autoprefixer",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
-    "dev": "npm run start-watch | npm run watch-css"
+    "dev": "concurrently --kill-others \"npm run start-watch\" \"npm run watch-css\""
   },
   "dependencies": {
     "express": "3.x",
@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^7.2.5",
+    "concurrently": "^3.5.1",
     "node-sass": "^4.7.2",
     "nodemon": "^1.14.12",
     "postcss-cli": "^5.0.0"
