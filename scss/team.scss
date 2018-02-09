@@ -3,12 +3,43 @@
 @import "main";
 
 .card-box {
-	color: $color-primary;
-	background-color: $color-black;
+	color: $color-dark;
+	background-color: $color-primary;
 
 	margin-top: 1.5rem;
 
 	.card-text {
 		padding: 1.25rem;
+	}
+}
+
+#calendar-box, #task-box {
+	background-color: $color-primary;
+	border-radius: 0;
+
+	a, a:link, a:visited, a:hover, a:active {
+		color: $color-dark;
+	}
+
+	.card-block {
+		background-color: $color-dark;
+		padding-top: 1rem;
+		padding-right: 1rem;
+		padding-left: 1rem;
+		padding-bottom: 0.7rem;
+	}
+
+	.item {
+		background-color: $color-black;
+		padding: 1rem;
+		margin-bottom: 0.3rem;
+
+		.item-title {
+			color: $color-primary;
+		}
+
+		.item-info {
+			color: $color-white;
+		}
 	}
 }
