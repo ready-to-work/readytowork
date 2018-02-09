@@ -9,7 +9,13 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "start-watch": "nodemon app.js",
+    "scss": "node-sass --output-style compressed -o public/css scss",
+    "autoprefixer": "postcss -u autoprefixer -r public/css/*",
+    "build-css": "npm run scss && npm run autoprefixer",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\"",
+    "dev": "npm run start-watch | npm run watch-css"
   },
   "dependencies": {
     "express": "3.x",
@@ -21,6 +27,9 @@
     "node": "0.10.x"
   },
   "devDependencies": {
-    "nodemon": "^1.14.12"
+    "autoprefixer": "^7.2.5",
+    "node-sass": "^4.7.2",
+    "nodemon": "^1.14.12",
+    "postcss-cli": "^5.0.0"
   }
 }
