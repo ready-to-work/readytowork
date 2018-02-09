@@ -17,12 +17,12 @@
 
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,600">
-	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/css/team.css">
 </head>
 
 <body>
 	<!-- Navbar -->
-	<nav class="navbar fixed-top navbar-light navbar-expand-md">
+	<nav class="navbar fixed-top navbar-light">
 		<div class="container">
 			<!-- "ready to work." -->
 			<a class="navbar-brand font-bold" href="/home">ready to work.</a>
@@ -56,20 +56,33 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<h1>This is a page for a team.</h1>
-				<a href="/teamlist/team/calendar">
-					<h4>Team Calendar</h4>
-				</a>
-				<a href="/teamlist/team/tasks">
-					<h4>Team Tasks</h4>
-				</a>
-				<hr>
-				<a href="/teamlist">
-					<h4>Back</h4>
-				</a>
-				<a href="/">
-					<h4>Logout</h4>
-				</a>
+				<h1>TeamName</h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<div class="card card-box">
+					<a href="/teamlist/team/calendar">
+						<h2 class="card-header">Team Calendar</h2>
+					</a>
+					<div class="card-block">
+						<p class="card-text">No upcoming events.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<div class="card card-box">
+					<a href="/teamlist/team/tasks">
+						<h2 class="card-header">Team Tasks</h2>
+					</a>
+					<div class="card-block">
+						<p class="card-text">No tasks due.</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

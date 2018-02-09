@@ -1,0 +1,14 @@
+// CSS for team.handlebars
+
+@import "main";
+
+.card-box {
+	color: $color-primary;
+	background-color: $color-black;
+
+	margin-top: 1.5rem;
+
+	.card-text {
+		padding: 1.25rem;
+	}
+}
