@@ -1,0 +1,83 @@
+// Themed CSS, @import "main" in each SCSS file.
+
+$color-white: #fff0f3;
+$color-grey: #c4b2bc;
+$color-primary: #ffcad4;
+$color-secondary: #81667a;
+$color-dark: #332e3c;
+$color-black: #28252e;
+
+$font: 'Raleway', sans-serif;
+$font-size-big: 2.4rem;
+$font-size-mid: 2.0rem;
+$font-size-norm: 1.8rem;
+
+html {
+	// For most, should be 10px. Scale rems off of 10px.
+	font-size: 62.5%;
+}
+
+body {
+	// Default font
+	font-family: $font;
+	font-size: $font-size-norm;
+
+	// Default colors
+	color: $color-white;
+	background-color: $color-dark;
+
+	// Padding for fixed-top navbar
+	margin-top: 6.5rem;
+}
+
+*:focus {
+	// Change default focus color
+	border-color: $color-secondary !important;
+	outline: 0 !important;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(129, 102, 122, 0.6) !important;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(129, 102, 122, 0.6) !important;
+}
+
+.font-bold {
+	font-weight: 600;
+}
+
+.font-light {
+	font-weight: 300;
+}
+
+.font-italic {
+	font-style: italic;
+}
+
+a, a:link, a:visited, a:hover, a:active {
+	// Links maintain color and have underline
+	color: $color-primary;
+	text-decoration: underline;
+}
+
+.navbar {
+	background-color: $color-primary;
+
+	.navbar-brand {
+		// "ready to work."
+		color: $color-dark;
+		font-size: $font-size-big;
+	}
+
+	a, a:link, a:visited, a:hover, a:active {
+		// Links maintain color and have underline
+		color: $color-dark;
+		text-decoration: none;
+	}
+}
+
+#footer {
+	color: $color-secondary;
+	background-color: $color-black;
+
+	p {
+		margin-top: 1.5rem;
+		margin-bottom: 1.5rem;
+	}
+}

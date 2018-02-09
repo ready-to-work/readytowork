@@ -16,70 +16,67 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="/css/main.css">
-	<link href="/css/home.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,600">
+	<link rel="stylesheet" href="/css/home.css">
 </head>
 
 <body>
+	<!-- Navbar -->
+	<nav class="navbar fixed-top navbar-light navbar-expand-md">
+		<div class="container">
+			<!-- "ready to work." -->
+			<a class="navbar-brand font-bold" href="/home">ready to work.</a>
 
-	<nav class="navbar navbar-toggleable-md navbar-dark">
+			<!-- Hamburger menu -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+		    	<span class="navbar-toggler-icon"></span>
+		  	</button>
 
-		<a class="navbar-brand" href="#">ready to work.</a>
-
-		<button class="navbar-toggler navbar-toggler-left rounded" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<div class="navbar-collapse collapse justify-content-end" id="navbarNavDropdown">
-			<ul class="navbar-nav mr-auto navbar-right">
-				<li class="nav-item active">
-					<a class="nav-link text-primary" href="/">
-						<h4>Logout</h4>
-					</a>
-				</li>
-			</ul>
+			<!-- Menu items -->
+			<div class="navbar-collapse collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+					<li class="nav-item ml-auto">
+						<a class="nav-link" href="/teamlist">Teams</a>
+					</li>
+					<li class="nav-item ml-auto">
+						<a class="nav-link" href="/profile">Profile</a>
+					</li>
+					<li class="nav-item ml-auto">
+						<a class="nav-link" href="/settings">Settings</a>
+					</li>
+					<li class="nav-item ml-auto">
+						<a class="nav-link" href="/">Logout</a>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</nav>
 
+	<!-- Page -->
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<h1>This is the home screen.</h1>
-
-				<div class="card">
-				  <h4 class="card-header">alerts</h4>
-				  <div class="card-block">
-				  	<hr>
-				  	<p class="card-text">No alerts right now</p>
-				  	<hr>
-				  </div>
-				</div>
-
-				<div class="panel panel-info">
-					<div class="panel-body"> 
-						<h4>alerts</h4>
+				<div class="card" id="alerts-box">
+					<h2 class="card-header">Alerts</h2>
+					<div class="card-block">
+						<p class="card-text">No alerts right now.</p>
 					</div>
 				</div>
-				<div class="panel panel-default">
-					<a href="/teamlist">
-						<h4>Teams</h4>
-					</a>
-				</div>
-
-				<div class="panel panel-default">
-					<a href="/profile">
-						<h4>Profile</h4>
-					</a>
-				</div>
-
-				<div class="panel panel-default">
-					<a href="/settings">
-						<h4>Settings</h4>
-					</a>
-				</div>
-
-				<hr>
 			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<a type="button" class="menu-item btn btn-primary btn-lg btn-block" href="/teamlist">Teams</a>
+		<a type="button" class="menu-item btn btn-primary btn-lg btn-block" href="/profile">Profile</a>
+		<a type="button" class="menu-item btn btn-primary btn-lg btn-block" href="/settings">Settings</a>
+
+	</div>
+
+	<!-- Footer -->
+	<div class="fixed-bottom" id="footer">
+		<div class="container">
+			<p>ucsd &middot; cogs 120 &middot; ready to work</p>
 		</div>
 	</div>
 	
@@ -87,6 +84,9 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	<!-- Scripts -->
+	<script src="/js/home.js"></script>
 </body>
 
 </html>
