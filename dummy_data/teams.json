@@ -1,0 +1,55 @@
+{
+	"1": { // Team ID, access with teams[id]
+		"teamName": "TestTeam",
+		"members": [
+			{
+				"id": 1,
+				"role": "admin"
+			},
+			{
+				"id": 2,
+				"role": "member"
+			}
+		],
+		"nextID": 3,
+		"calendar": {},
+		"tasks": [
+			{
+				"title": "Example Task",
+				"priority": "1",
+				"description": "This is a sample task.",
+				"assigned": [1, 2]
+			}
+		]
+	},
+	"2": {
+		"teamName": "TestTeam2",
+		"members": [
+			{
+				"id": 1,
+				"role": "pending"
+			},
+			{
+				"id": 2,
+				"role": "admin"
+			}
+		],
+		"nextID": 3,
+		"calendar": {},
+		"tasks": [
+		]
+	},
+	"3": {
+		"teamName": "TestTeam3",
+		"members": [
+			{
+				"id": 1,
+				"role": "admin"
+			},
+		],
+		"nextID": 2,
+		"calendar": {},
+		"tasks": [
+		]
+	}
+}

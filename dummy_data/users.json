@@ -1,0 +1,16 @@
+{
+	"1": { // User ID, access with users[id]
+		"firstName": "John",
+		"lastName": "Smith",
+		"teams": [1, 2, 3],
+		"calendar": {},
+		"settings": {}
+	},
+	"2": {
+		"firstName": "Jane",
+		"lastName": "Doe",
+		"teams": [1, 2],
+		"calendar": {},
+		"settings": {}
+	},
+}
