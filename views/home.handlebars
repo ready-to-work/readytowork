@@ -22,35 +22,7 @@
 
 <body>
 	<!-- Navbar -->
-	<nav class="navbar fixed-top navbar-light">
-		<div class="container">
-			<!-- "ready to work." -->
-			<a class="navbar-brand font-bold" href="/home">ready to work.</a>
-
-			<!-- Hamburger menu -->
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-		    	<span class="navbar-toggler-icon"></span>
-		  	</button>
-
-			<!-- Menu items -->
-			<div class="navbar-collapse collapse" id="navbarNavDropdown">
-				<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-					<li class="nav-item ml-auto">
-						<a class="nav-link" href="/teamlist">teams</a>
-					</li>
-					<li class="nav-item ml-auto">
-						<a class="nav-link" href="/profile">profile</a>
-					</li>
-					<li class="nav-item ml-auto">
-						<a class="nav-link" href="/settings">settings</a>
-					</li>
-					<li class="nav-item ml-auto">
-						<a class="nav-link" href="/">logout</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	{{> navbar}}
 
 	<!-- Page -->
 	<div class="container">
@@ -85,11 +57,7 @@
 	</div>
 
 	<!-- Footer -->
-	<div class="fixed-bottom" id="footer">
-		<div class="container">
-			<p>ucsd &middot; cogs 120 &middot; ready to work™</p>
-		</div>
-	</div>
+	{{> footer}}
 	
 	<!-- Bootstrap JS -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
