@@ -37,14 +37,16 @@
 				      <input type="text" class="form-control" id="name" placeholder="Name" name="name">
 				    </div>
 				    <div class="form-group">
-				      <label for="task">Initial Task:</label>
-				      <input type="text" class="form-control" id="task" placeholder="Task name" name="task">		      
+				      <label for="description">Description:</label>
+				      <input type="text" class="form-control" id="task" placeholder="Tell me about your team" name="description">		      
 				    </div>
+				    <!--
 				    <div class="form-group">
 					    <input type="text" class="form-control" id="priority" placeholder="priority" name="priority">
 					    <input type="text" class="form-control" id="description" placeholder="description" name="description">
 					    <input type="text" class="form-control" id="assigned" placeholder="assigned memeber" name="assigned">					    
 					</div>
+					-->
 				    <input type="submit" id="submitBtn" class="btn btn-default" value="Add the friend"></input>
 				</form>
 			</div>
@@ -59,6 +61,14 @@
 						<h2 class="card-header font-bold">{{teamName}}</h2>
 					</a> 
 					<div class="card-block">
+						<div class="item">
+							<div class="item-title">About Us</div>
+							<div class="item-info font-italic">
+								<h4>
+								{{description}}
+								</h4>
+							</div>
+						</div>
 						<div class="item">
 							<div class="item-title mb-1">team members</div>
 							<div class="item-info">

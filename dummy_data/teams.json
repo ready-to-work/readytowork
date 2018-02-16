@@ -1,4 +1,10 @@
 {
+	"nextIds": [
+		{
+			"nextTeamId": 4,
+			"nextCalendarId": 6
+		}
+	],
 	"teamlist": [
 		{ 
 			"teamID": 1,
@@ -29,7 +35,8 @@
 					"description": "This is a sample task.",
 					"assigned": [1, 2]
 				}
-			]
+			],
+			"description": "Pretty relaxing bunch"
 		},
 		{
 			"teamID": 2,
@@ -48,7 +55,8 @@
 			],
 			"calenID": 4,
 			"tasks": [
-			]
+			],
+			"description": ""
 		},
 		{
 			"teamID": 3,
@@ -72,7 +80,8 @@
 			],
 			"calenID": 5,
 			"tasks": [
-			]
+			],
+			"description": "We need to plan out the chores and we should clean up after the house!"
 		}
 	]
 }
