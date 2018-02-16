@@ -33,5 +33,6 @@ h1 {
 }
 
 #error {
-	max-width: inherit;
+	font-size: $font-size-small;
+	color: $color-white;
 }
