@@ -11,7 +11,9 @@ var data = {
 
 exports.addTeam = function(req, res) { 
 	console.log("Adding a new team");
-
+	var currCount = data.teams.nextIds.nextTeamId + 1;
+	var currCountCalen = data.teams.nextIds.nextCalendarId + 1;
+	/*
 	var newTeam = {
 	    "teamName": req.query.name,
 	   	"members": [
@@ -32,8 +34,27 @@ exports.addTeam = function(req, res) { 
 				}
 			]
 	  };
-	 console.log(newTeam);
-	data.teams.teamlist.push(newTeam);
+	  */
 
+	var newTeam = {
+		"teamID": currCount,
+		"teamName": req.query.name,
+		"members": [
+	   		{
+				"name": "tester", //this will have to be user id later on!
+				"id": 1,
+				"role": "admin"
+			}
+		],
+	   	"calenID": currCountCalen,
+	   	"tasks": [],
+	   	"description": req.query.description
+	};
+
+	console.log(currCount);
+	console.log(currCountCalen);
+	data.teams.teamlist.push(newTeam);
+	data.teams.nextIds.nextTeamId = currCount;
+	data.teams.nextIds.nextCalendarId = currCountCalen;
   	res.render("teamlist", data);
 };
