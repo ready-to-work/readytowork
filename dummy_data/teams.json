@@ -1,6 +1,6 @@
 {
 	"1": { // Team ID, access with teams[id]
-		"teamName": "TestTeam",
+		"teamName": "TestTeam1",
 		"members": [
 			{
 				"id": 1,
@@ -12,7 +12,7 @@
 			}
 		],
 		"nextID": 3,
-		"calendar": {},
+		"calendar": 3,
 		"tasks": [
 			{
 				"title": "Example Task",
@@ -35,7 +35,7 @@
 			}
 		],
 		"nextID": 3,
-		"calendar": {},
+		"calendar": 4,
 		"tasks": [
 		]
 	},
@@ -48,7 +48,7 @@
 			},
 		],
 		"nextID": 2,
-		"calendar": {},
+		"calendar": 5,
 		"tasks": [
 		]
 	}

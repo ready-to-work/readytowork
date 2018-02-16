@@ -3,14 +3,14 @@
 		"firstName": "John",
 		"lastName": "Smith",
 		"teams": [1, 2, 3],
-		"calendar": {},
+		"calendar": 1,
 		"settings": {}
 	},
 	"2": {
 		"firstName": "Jane",
 		"lastName": "Doe",
 		"teams": [1, 2],
-		"calendar": {},
+		"calendar": 2,
 		"settings": {}
 	}
 }
