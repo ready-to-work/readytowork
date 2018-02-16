@@ -1,55 +1,77 @@
 {
-	"1": { // Team ID, access with teams[id]
-		"teamName": "TestTeam1",
-		"members": [
-			{
-				"id": 1,
-				"role": "admin"
-			},
-			{
-				"id": 2,
-				"role": "member"
-			}
-		],
-		"nextID": 3,
-		"calendar": 3,
-		"tasks": [
-			{
-				"title": "Example Task",
-				"priority": "1",
-				"description": "This is a sample task.",
-				"assigned": [1, 2]
-			}
-		]
-	},
-	"2": {
-		"teamName": "TestTeam2",
-		"members": [
-			{
-				"id": 1,
-				"role": "pending"
-			},
-			{
-				"id": 2,
-				"role": "admin"
-			}
-		],
-		"nextID": 3,
-		"calendar": 4,
-		"tasks": [
-		]
-	},
-	"3": {
-		"teamName": "TestTeam3",
-		"members": [
-			{
-				"id": 1,
-				"role": "admin"
-			},
-		],
-		"nextID": 2,
-		"calendar": 5,
-		"tasks": [
-		]
-	}
+	"teams": [
+		{ 
+			"teamName": "Team ReadyToWork",
+			"members": [
+				{
+					"name": "Tim",
+					"id": 1,
+					"role": "admin"
+				},
+				{
+					"name": "Kelvin",
+					"id": 2,
+					"role": "member"
+				},
+				{
+					"name": "Alina",
+					"id": 3,
+					"role": "member"
+				}
+			],
+			"nextID": 3,
+			"calendar": 3,
+			"tasks": [
+				{
+					"title": "Example Task",
+					"priority": "1",
+					"description": "This is a sample task.",
+					"assigned": [1, 2]
+				}
+			]
+		},
+		{
+			"teamName": "CSE 169 Studying/Crying Group",
+			"members": [
+				{
+					"name": "Kelvin",
+					"id": 1,
+					"role": "pending"
+				},
+				{
+					"name": "Tim",
+					"id": 2,
+					"role": "admin"
+				}
+			],
+			"nextID": 3,
+			"calendar": 4,
+			"tasks": [
+			]
+		},
+		{
+			"teamName": "House Chat",
+			"members": [
+				{
+					"name": "Tim",
+					"id": 1,
+					"role": "admin"
+				},
+				{
+					"name": "Chandler",
+					"id": 2,
+					"role": "member"
+				},
+				{
+					"name": "Jerry",
+					"id": 3,
+					"role": "member"
+				}
+			],
+			"nextID": 2,
+			"calendar": 5,
+			"tasks": [
+			]
+		}
+	]
 }

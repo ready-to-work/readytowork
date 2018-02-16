@@ -1,5 +1,5 @@
 {
-	"1": { // Calendar ID, access with calendars[id]
+	"1": { 
 		"type": "personal",
 		"events": [
 			{
