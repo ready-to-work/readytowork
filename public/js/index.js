@@ -4,7 +4,7 @@
 
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
-	console.log("Currently on Home Page.");
+	console.log("Currently on Login Page.");
 });
 
 function userLoginAuth(form)
