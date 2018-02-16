@@ -17,7 +17,7 @@
 
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,600">
-	<link rel="stylesheet" href="/css/team.css">
+	<link rel="stylesheet" href="/css/tasks.css">
 </head>
 
 <body>
@@ -27,9 +27,22 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<h1>This is team tasks page.</h1>
+				<h1 class="mb-4">{{currTeam.teamName}} tasks</h1>
 			</div>
 		</div>
+
+		{{#each currTeam.tasks}}
+		<div class="row">
+			<div class="col">
+				<div class="task">
+					<h2>{{title}}</h2>
+					<p><span class="font-bold">priority: </span>{{priority}}</p>
+					<p><span class="font-bold">due: </span>{{due_date}}</p>
+					<p><span class="font-bold">description: </span>{{description}}</p>
+				</div>
+			</div>
+		</div>
+		{{/each}}
 	</div>
 
 	<!-- Footer -->
