@@ -12,6 +12,7 @@ var handlebars = require('express3-handlebars')
 var index = require('./routes/index');
 var home = require('./routes/home');
 var teamlist = require('./routes/teamlist');
+var teamlistAdd = require('./routes/teamlistAdd');
 var profile = require('./routes/profile');
 var settings = require('./routes/settings');
 var team = require('./routes/team');
@@ -44,6 +45,7 @@ if ('development' == app.get('env')) {
 app.get('/', index.view);
 app.get('/home', home.view);
 app.get('/teamlist', teamlist.view);
+app.get('/teamlist/add', teamlistAdd.addTeam);
 app.get('/profile', profile.view);
 app.get('/settings', settings.view);
 app.get('/teamlist/team', team.view);
