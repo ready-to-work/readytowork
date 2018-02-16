@@ -2,56 +2,36 @@
 
 @import "main";
 
-// Class
-.col-centered{
-    float: none;
-    margin: 0 auto;
+h1 {
+	font-size: $font-size-big * 2;
+	color: $color-primary;
 }
 
-.menu-item {
+::placeholder {
+	color: $color-secondary;
+	opacity: 1;
+}
+
+.form-box {
 	color: $color-primary;
-	background-color: $color-black;
-	border-color: $color-black;
-	border-radius: 0;
+	background-color: $color-dark;
+	border: 2px $color-primary solid !important;
+
+	padding: 1rem;
+}
+
+#login-button {
+	color: $color-dark;
+	background-color: $color-primary;
+	border: none;
 	-webkit-appearance: none !important;
 
 	font-size: $font-size-mid;
 	text-decoration: none !important;
 
-	margin-top: 1.5rem !important;
+	padding: 0.5rem;
 }
 
-.menu-item:active, .menu-item:focus, .menu-item:hover, .menu-item:not(:disabled):not(.disabled):active {
-	// Remove color changes on hover/click/press
-	color: $color-black;
-	background-color: $color-primary;
-	border-color: $color-primary;
-}
-
-#alert-box {
-	color: $color-dark;
-	background-color: $color-primary;
-	border-radius: 0;
-
-	.card-block {
-		background-color: $color-dark;
-		padding-top: 1rem;
-		padding-right: 1rem;
-		padding-left: 1rem;
-		padding-bottom: 0.7rem;
-	}
-
-	.item {
-		background-color: $color-black;
-		padding: 1rem;
-		margin-bottom: 0.3rem;
-
-		.item-title {
-			color: $color-primary;
-		}
-
-		.item-info {
-			color: $color-white;
-		}
-	}
+#error {
+	max-width: inherit;
 }

@@ -24,27 +24,31 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-3 col-centered" >
+			<div class="d-inline-block mx-auto">
 				<h1 class="font-bold">ready</h1>
 				<h1 class="font-bold">to</h1>
 				<h1 class="font-bold">work.</h1>
-				<div class="login">
-					<form class="login">
-						<input type="text" placeholder="username" name="userid"><br>
-						<input type="password" placeholder="password" name="pass"><br>
-						<input type="button" onclick="userLoginAuth(this.form)" value="Login"/>
-					</form>
-
-					<div id="error"></div>
-				</div>
+				<form class="login mt-1">
+					<div class="form-group">
+						<input type="text" placeholder="username" name="userid" class="form-box">
+					</div>
+					<div class="form-group">
+						<input type="password" placeholder="password" name="pass" class="form-box">
+					</div>
+					<input type="button" onclick="userLoginAuth(this.form)" value="sign in" class="btn-block font-bold" id="login-button"/>
+					
+					<div id="error" class="d-inline">
+						<!-- Populated by JS on error -->
+					</div>
+				</form>
 			</div>
 		</div>
 
-		<div class="row" style="padding-top: 20px;">
-			<div class="col-sm-3 col-centered">
+		<div class="row">
+			<div class="d-inline-block mx-auto mt-4 font-italic">
 				<a href="/home">
 					<h4>Quick Login for Devs</h4>
-				</a>				
+				</a>
 			</div>
 		</div>
 	</div>

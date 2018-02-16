@@ -9,7 +9,7 @@ $(document).ready(function() {
 
 function userLoginAuth(form)
 {
-	if(form.userid.value == "tester" && form.pass.value == "1234")
+	if(form.userid.value == "tester" && form.pass.value == "123")
 	{
 		window.location.href = "/home";
 		document.hide(document.getElementById("error"));
