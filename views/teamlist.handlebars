@@ -31,7 +31,7 @@
 		<div class="row">
 			<div class="col-sm-3 col-centered hidden">
 				<form id="addTeamForm" role="form" method="get" action="/teamlist/add">
-					<h3>Add your team</h3>
+					<h3>create a new team</h3>
 				    <div class="form-group">
 				      <label for="name">Name:</label>
 				      <input type="text" class="form-control" id="name" placeholder="Name" name="name">
@@ -60,17 +60,16 @@
 					</a> 
 					<div class="card-block">
 						<div class="item">
-							<div class="item-title">Team Members</div>
-							<div class="item-info font-italic">
-								<h5>
+							<div class="item-title mb-1">team members</div>
+							<div class="item-info">
 								{{#each members}}
-								{{name}}
+								<h5>{{name}} ({{role}})</h5>
 								{{/each}}
-								</h5>
 							</div>
 						</div>
+						<!--
 						<div class="item">
-							<div class="item-title">Upcoming Tasks</div>
+							<div class="item-title">upcoming tasks</div>
 							<div class="item-info">
 								{{#each tasks}}
 								<h4>Title: {{title}}</h5>
@@ -80,6 +79,7 @@
 								{{/each}}
 							</div>
 						</div>
+						-->
 					</div>
 				</div>
 				{{/each}}
