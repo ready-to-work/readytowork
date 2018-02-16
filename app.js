@@ -46,9 +46,9 @@ app.get('/home', home.view);
 app.get('/teamlist', teamlist.view);
 app.get('/profile', profile.view);
 app.get('/settings', settings.view);
-app.get('/teamlist/team', team.view);
-app.get('/teamlist/team/calendar', calendar.view);
-app.get('/teamlist/team/tasks', tasks.view);
+app.get('/teamlist/team/:teamid', team.view);
+app.get('/teamlist/team/:teamid/calendar', calendar.view);
+app.get('/teamlist/team/:teamid/tasks', tasks.view);
 
 // Start server
 http.createServer(app).listen(app.get('port'), function(){

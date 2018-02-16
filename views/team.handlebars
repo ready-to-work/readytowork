@@ -28,7 +28,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<h1>TeamName</h1> 
+				<h1>{{currTeam.teamName}}</h1> 
 			</div>
 		</div>
 
@@ -39,21 +39,13 @@
 						<h2 class="card-header font-bold">Team Calendar</h2>
 					</a>
 					<div class="card-block">
+						{{#each currTeam.events}}
 						<div class="item">
-							<div class="item-title">Event</div>
-							<div class="item-info font-italic">Weekday Date, Time</div>
-							<div class="item-info font-italic">Location</div>
+							<div class="item-title">{{title}}</div>
+							<div class="item-info font-italic">{{time}}</div>
+							<div class="item-info font-italic">{{location}}</div>
 						</div>
-						<div class="item">
-							<div class="item-title">Event</div>
-							<div class="item-info font-italic">Weekday Date, Time</div>
-							<div class="item-info font-italic">Location</div>
-						</div>
-						<div class="item">
-							<div class="item-title">Event</div>
-							<div class="item-info font-italic">Weekday Date, Time</div>
-							<div class="item-info font-italic">Location</div>
-						</div>
+						{{/each}}
 					</div>
 				</div>
 			</div>
@@ -66,18 +58,12 @@
 						<h2 class="card-header font-bold">Team Tasks</h2>
 					</a>
 					<div class="card-block">
+						{{#each currTeam.tasks}}
 						<div class="item">
-							<div class="item-title">Task</div>
-							<div class="item-info font-italic">priority, due date</div>
+							<div class="item-title">{{title}}</div>
+							<div class="item-info font-italic">priority: {{priority}}, due {{due_date}}</div>
 						</div>
-						<div class="item">
-							<div class="item-title">Task</div>
-							<div class="item-info font-italic">priority, due date</div>
-						</div>
-						<div class="item">
-							<div class="item-title">Task</div>
-							<div class="item-info font-italic">priority, due date</div>
-						</div>
+						{{/each}}
 					</div>
 				</div>
 			</div>

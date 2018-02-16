@@ -1,6 +1,7 @@
 {
 	"teamlist": [
 		{ 
+			"teamID": 1,
 			"teamName": "Team ReadyToWork",
 			"members": [
 				{
@@ -19,18 +20,19 @@
 					"role": "member"
 				}
 			],
-			"nextID": 3,
-			"calendar": 3,
+			"calenID": 3,
 			"tasks": [
 				{
 					"title": "Example Task",
 					"priority": "1",
+					"due_date": "Timestamp",
 					"description": "This is a sample task.",
 					"assigned": [1, 2]
 				}
 			]
 		},
 		{
+			"teamID": 2,
 			"teamName": "CSE 169 Studying/Crying Group",
 			"members": [
 				{
@@ -44,12 +46,12 @@
 					"role": "admin"
 				}
 			],
-			"nextID": 3,
-			"calendar": 4,
+			"calenID": 4,
 			"tasks": [
 			]
 		},
 		{
+			"teamID": 3,
 			"teamName": "House Chat",
 			"members": [
 				{
@@ -68,8 +70,7 @@
 					"role": "member"
 				}
 			],
-			"nextID": 2,
-			"calendar": 5,
+			"calenID": 5,
 			"tasks": [
 			]
 		}
