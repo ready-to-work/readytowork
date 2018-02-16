@@ -9,11 +9,7 @@ $(document).ready(function() {
 
 function userLoginAuth(form)
 {
-<<<<<<< HEAD
-	if(form.userid.value == "John Smith" && form.pass.value == "admin")
-=======
 	if(form.userid.value == "tester" && form.pass.value == "123")
->>>>>>> afc2acdacc1926b281057c4aa6b540a08748ae67
 	{
 		window.location.href = "/home";
 		document.hide(document.getElementById("error"));
