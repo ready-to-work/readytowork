@@ -12,16 +12,24 @@ var data = {
 exports.addTask = function(req, res) { 
 	console.log("Adding a new task");
 
+	var teamID = req.params.teamid;
+	var team;
+	for (var i in teams.teamlist)
+	{
+		var currTeam = teams.teamlist[i];
+		if( currTeam.teamID == teamID ) team = currTeam;
+	}
+
 	var newTask = {
-		"title": req.query.task,
-		"due_date": req.query.due,
+		"title": req.query.title,
+		"due_date": req.query.due_date,
 		"priority": req.query.priority,
 		"description": req.query.description,
 		"assigned": []
 	  };
 
-	data.teams.teamlist.push(newTeam);
-	data.teams.nextIds.nextTeamId = currCount;
-	data.teams.nextIds.nextCalendarId = currCountCalen;
-  	res.render("teamlist", data);
+	team.tasks.push(newTask);
+	data.currTeam = team;
+
+  	res.render("tasks", data);
 };
