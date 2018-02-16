@@ -31,10 +31,33 @@
 			</div>
 		</div>
 
+		<div>
+			<button type="button" class="btn-block" id="addButton">create task</button>
+		</div>
+		<div class="row">
+			<div class="col-sm-3 col-centered hidden">
+				<form id="addTeamForm" role="form" method="get" action="/tasks/add">
+				    <div class="form-group">
+					    <input type="text" class="form-control" id="title" placeholder="title" name="title">
+					</div>
+					<div class="form-group">
+					    <input type="text" class="form-control" id="due_date" placeholder="due_date" name="due date">
+					</div>
+				    <div class="form-group">
+					    <input type="text" class="form-control" id="priority" placeholder="priority" name="priority">
+					</div>
+					<div class="form-group">
+					    <input type="text" class="form-control" id="description" placeholder="description" name="description">				    
+					</div>
+				    <input type="submit" id="submitBtn" class="btn btn-default" value="create"></input>
+				</form>
+			</div>
+		</div>
+
 		{{#each currTeam.tasks}}
 		<div class="row">
 			<div class="col">
-				<div class="task">
+				<div class="task mt-4">
 					<h2>{{title}}</h2>
 					<p><span class="font-bold">priority: </span>{{priority}}</p>
 					<p><span class="font-bold">due: </span>{{due_date}}</p>
@@ -52,6 +75,10 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	<!-- Scripts -->
+	<script src="/js/tasks.js"></script>
+
 </body>
 
 </html>

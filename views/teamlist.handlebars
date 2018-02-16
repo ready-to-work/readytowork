@@ -26,12 +26,11 @@
 
 	<div class="container">
 		<div>
-			<button type="button" class="btn btn-danger btn-lg fixed-but" id="addButton">Create Teams</button>
+			<button type="button" class="btn-block" id="addButton">create teams</button>
 		</div>
 		<div class="row">
 			<div class="col-sm-3 col-centered hidden">
 				<form id="addTeamForm" role="form" method="get" action="/teamlist/add">
-					<h3>create a new team</h3>
 				    <div class="form-group">
 				      <label for="name">Name:</label>
 				      <input type="text" class="form-control" id="name" placeholder="Name" name="name">
@@ -47,7 +46,7 @@
 					    <input type="text" class="form-control" id="assigned" placeholder="assigned memeber" name="assigned">					    
 					</div>
 					-->
-				    <input type="submit" id="submitBtn" class="btn btn-default" value="Add the friend"></input>
+				    <input type="submit" id="submitBtn" class="btn btn-default" value="create"></input>
 				</form>
 			</div>
 		</div>
@@ -77,19 +76,6 @@
 								{{/each}}
 							</div>
 						</div>
-						<!--
-						<div class="item">
-							<div class="item-title">upcoming tasks</div>
-							<div class="item-info">
-								{{#each tasks}}
-								<h4>Title: {{title}}</h5>
-								<h4>Owner: {{assigned}}</h5>
-								<h5>Priority: {{priority}}</h5>
-								<h6>Description: {{description}}</h6>
-								{{/each}}
-							</div>
-						</div>
-						-->
 					</div>
 				</div>
 				{{/each}}
@@ -105,6 +91,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+	<!-- Scripts -->
 	<script src="/js/teamlist.js"></script>
 
 </body>

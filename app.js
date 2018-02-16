@@ -18,6 +18,7 @@ var settings = require('./routes/settings');
 var team = require('./routes/team');
 var calendar = require('./routes/calendar');
 var tasks = require('./routes/tasks');
+var tasksAdd = require('./routes/tasksAdd');
 
 var app = express();
 
@@ -51,6 +52,7 @@ app.get('/settings', settings.view);
 app.get('/teamlist/team/:teamid', team.view);
 app.get('/teamlist/team/:teamid/calendar', calendar.view);
 app.get('/teamlist/team/:teamid/tasks', tasks.view);
+app.get('/teamlist/team/:teamid/tasks/add', tasksAdd.addTask);
 
 // Start server
 http.createServer(app).listen(app.get('port'), function(){
