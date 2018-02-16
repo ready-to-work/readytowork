@@ -16,7 +16,6 @@ function userLoginAuth(form)
 	}
 	else
 	{
-		console.log("YREEEEe");
 		document.getElementById("error").innerHTML = "Incorrect Username or Password.";
 	}
 }
