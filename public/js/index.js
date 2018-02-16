@@ -9,14 +9,13 @@ $(document).ready(function() {
 
 function userLoginAuth(form)
 {
-	if(form.userid.value == "BestTA" && form.pass.value == "BestStudent")
+	if(form.userid.value == "tester" && form.pass.value == "1234")
 	{
 		window.location.href = "/home";
 		document.hide(document.getElementById("error"));
 	}
 	else
 	{
-		console.log("YREEEEe");
 		document.getElementById("error").innerHTML = "Incorrect Username or Password.";
 	}
 }

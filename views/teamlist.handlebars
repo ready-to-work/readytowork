@@ -27,7 +27,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				{{#each teams}}
+				{{#each teams.teamlist}}
 				<div class="card card-box" id="team-box">
 					<!-- should be a link to specific team but not gonna dynamically make it yet -->
 					<a href="/teamlist/team">
@@ -35,7 +35,7 @@
 					</a> 
 					<div class="card-block">
 						<div class="item">
-							<div class="item-title">Team Memebers</div>
+							<div class="item-title">Team Members</div>
 							<div class="item-info font-italic">
 								<h5>
 								{{#each members}}
@@ -58,27 +58,6 @@
 					</div>
 				</div>
 				{{/each}}
-
-				<!--
-				<h1>This is the list of teams.</h1>
-				<a href="/teamlist/team">
-					<h4>Example Team</h4>
-				</a>
-				<a href="/teamlist/team">
-					<h4>Example Team</h4>
-				</a>
-				<a href="/teamlist/team">
-					<h4>Example Team</h4>
-				</a>
-				-->
-
-				<hr>
-				<a href="/home">
-					<h4>Back</h4>
-				</a>
-				<a href="/">
-					<h4>Logout</h4>
-				</a>
 			</div>
 		</div>
 	</div>
