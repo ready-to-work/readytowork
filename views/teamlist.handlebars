@@ -12,11 +12,8 @@
 
 	<title>Ready to Work</title>
 
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,600">
+	{{> bootstrapCSS}}
 	<link rel="stylesheet" href="/css/teamlist.css">
 </head>
 
@@ -25,29 +22,22 @@
 	{{> navbar}}
 
 	<div class="container">
-		<div>
-			<button type="button" class="btn-block" id="addButton">create teams</button>
-		</div>
 		<div class="row">
-			<div class="col-sm-3 col-centered hidden">
-				<form id="addTeamForm" role="form" method="get" action="/teamlist/add">
-				    <div class="form-group">
-				      <label for="name">Name:</label>
-				      <input type="text" class="form-control" id="name" placeholder="Name" name="name">
-				    </div>
-				    <div class="form-group">
-				      <label for="description">Description:</label>
-				      <input type="text" class="form-control" id="task" placeholder="Tell me about your team" name="description">		      
-				    </div>
-				    <!--
-				    <div class="form-group">
-					    <input type="text" class="form-control" id="priority" placeholder="priority" name="priority">
-					    <input type="text" class="form-control" id="description" placeholder="description" name="description">
-					    <input type="text" class="form-control" id="assigned" placeholder="assigned memeber" name="assigned">					    
+			<div class="col">
+				<div class="card" id="addMenu">
+					<div class="card-header font-bold" id="addButton">create new team</div>
+					<div class="card-body" id="addTeamForm">
+						<form role="form" method="get" action="/teamlist/add">
+						    <div class="form-group">
+						      <input type="text" class="form-control" id="name" placeholder="team name" name="name">
+						    </div>
+						    <div class="form-group">
+						      <input type="text" class="form-control" id="task" placeholder="team description" name="description">
+						    </div>
+						    <input type="submit" id="submitBtn" class="btn-block" value="create"></input>
+						</form>
 					</div>
-					-->
-				    <input type="submit" id="submitBtn" class="btn btn-default" value="create"></input>
-				</form>
+				</div>
 			</div>
 		</div>
 
@@ -55,24 +45,21 @@
 			<div class="col">
 				{{#each teams.teamlist}}
 				<div class="card card-box" id="team-box">
-					<!-- should be a link to specific team but not gonna dynamically make it yet -->
 					<a href="/teamlist/team/{{teamID}}">
-						<h2 class="card-header font-bold">{{teamName}}</h2>
+						<p class="card-header">{{teamName}}</p>
 					</a> 
 					<div class="card-block">
 						<div class="item">
-							<div class="item-title">About Us</div>
-							<div class="item-info font-italic">
-								<h4>
-								{{description}}
-								</h4>
+							<div class="item-title">about us</div>
+							<div class="item-info">
+								<p>{{description}}</p>
 							</div>
 						</div>
 						<div class="item">
 							<div class="item-title mb-1">team members</div>
 							<div class="item-info">
 								{{#each members}}
-								<h5>{{name}} ({{role}})</h5>
+								<p>{{name}} ({{role}})</p>
 								{{/each}}
 							</div>
 						</div>
@@ -81,16 +68,12 @@
 				{{/each}}
 			</div>
 		</div>
-	</div>
-
-	<!-- Bootstrap JS -->
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	</div>	
 
 	<!-- Scripts -->
+	{{> bootstrapJS}}
+	<script src="/js/main.js"></script>
 	<script src="/js/teamlist.js"></script>
-
 </body>
 
 </html>

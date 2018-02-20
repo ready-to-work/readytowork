@@ -30,6 +30,20 @@ h1 {
 	text-decoration: none !important;
 
 	padding: 0.5rem;
+	margin-bottom: 1rem;
+}
+
+#signup-button {
+	color: $color-primary;
+	background-color: $color-secondary;
+	border: none;
+	-webkit-appearance: none !important;
+
+	font-size: $font-size-mid;
+	text-decoration: none !important;
+
+	padding: 0.5rem;
+	margin-bottom: 1rem;
 }
 
 #error {
