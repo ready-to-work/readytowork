@@ -4,7 +4,7 @@
 
 .menu-item {
 	color: $color-primary;
-	background-color: $color-black;
+	background-color: $color-secondary;
 	border-color: $color-black;
 	border-radius: 0;
 	-webkit-appearance: none !important;
@@ -12,7 +12,8 @@
 	font-size: $font-size-mid;
 	text-decoration: none !important;
 
-	margin-top: 1.5rem !important;
+	margin-top: 1rem !important;
+	margin-bottom: 0 !important;
 }
 
 .menu-item:active, .menu-item:focus, .menu-item:hover, .menu-item:not(:disabled):not(.disabled):active {
@@ -23,11 +24,21 @@
 }
 
 #alert-box {
-	color: $color-dark;
-	background-color: $color-primary;
+	color: $color-primary;
+	background-color: $color-secondary;
 	border-radius: 0;
 
-	.card-block {
+	font-size: $font-size-mid;
+
+	.card-header {
+		font-size: $font-size-mid;
+		text-align: center;
+
+		padding-top: 0.5rem;
+		padding-bottom: 0.5rem;
+	}
+;
+	.pre-scrollable {
 		background-color: $color-dark;
 		padding-top: 1rem;
 		padding-right: 1rem;
@@ -39,6 +50,8 @@
 		background-color: $color-black;
 		padding: 1rem;
 		margin-bottom: 0.3rem;
+
+		font-size: $font-size-norm;
 
 		.item-title {
 			color: $color-primary;
