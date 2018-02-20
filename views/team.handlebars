@@ -25,7 +25,32 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<h1>{{currTeam.teamName}}</h1> 
+				<p id="teamName">{{currTeam.teamName}}</p> 
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<div class="card">
+					<div class="card-header">
+						<ul class="nav nav-tabs card-header-tabs">
+					      <li class="nav-item" >
+					        <a class="nav-link active">Events</a>
+					      </li>
+					      <li class="nav-item">
+					        <a class="nav-link">Tasks</a>
+					      </li>
+					    </ul>
+					</div>
+					<div class="card-body">
+						<div id="eventsBody">
+							<p>Test Events</p>
+						</div>
+						<div id="tasksBody">
+							<p>Test Tasks</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 
