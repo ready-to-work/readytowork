@@ -13,6 +13,7 @@ exports.view = function(req, res){
 
 	data.currUser = USERS[userID];
 	data.currEvents = [];
+	data.currTasks = [];
 
 	for (var i in data.currUser.teams)
 	{
@@ -22,6 +23,12 @@ exports.view = function(req, res){
 			var currEvent = currTeam.events[j];
 			currEvent.teamName = currTeam.teamName;
 			data.currEvents.push(currEvent);
+		}
+		for (var j in currTeam.tasks)
+		{
+			var currTask = currTeam.tasks[j];
+			currTask.teamName = currTeam.teamName;
+			data.currTasks.push(currTask);
 		}
 	}
 

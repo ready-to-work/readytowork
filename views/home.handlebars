@@ -36,6 +36,12 @@
 									<div class="item-info font-italic">on {{startDate}}, {{startTime}} at {{location}}</div>
 								</div>
 								{{/each}}
+								{{#each currTasks}}
+								<div class="item">
+									<div class="item-title"><span class="font-bold">{{teamName}}:</span> {{title}}</div>
+									<div class="item-info font-italic">due {{dueDate}}, {{dueTime}} with priority {{priority}}</div>
+								</div>
+								{{/each}}
 							{{else}}
 								<div class="item">
 									<div class="item-info font-italic text-center">(no alerts found)</div>
