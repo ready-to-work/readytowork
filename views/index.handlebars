@@ -22,9 +22,32 @@
 	<div class="container">
 		<div class="row">
 			<div class="d-inline-block mx-auto">
-				<h1 class="font-bold">ready</h1>
-				<h1 class="font-bold">to</h1>
-				<h1 class="font-bold">work.</h1>
+				<h1 class="font-bold title">ready</h1>
+				<h1 class="font-bold title">to</h1>
+				<h1 class="font-bold title">work.</h1>
+				{{#if signup}}
+				<form class="login mt-1 form" method="get" action="/signupcomplete">
+					<div class="form-group">
+						<input type="text" placeholder="username" name="username" value="{{username}}" class="form-box">
+					</div>
+					<div class="form-group">
+						<input type="text" placeholder="password" name="password" class="form-box">
+					</div>
+					<div class="form-group">
+						<input type="text" placeholder="first name" name="firstName" value="{{firstName}}" class="form-box">
+					</div>
+					<div class="form-group">
+						<input type="text" placeholder="last name" name="lastName" value="{{lastName}}" class="form-box">
+					</div>
+					<input type="submit" value="sign up" class="btn-block font-bold" id="login-button"/>
+					{{#if usernameTaken}}
+					<div id="error" class="font-italic text-center mt-1">this username is taken</div>
+					{{/if}}
+				</form>
+			</div>
+		</div>
+
+		{{else}}
 				<form class="login mt-1 form" method="get" action="/login">
 					<div class="form-group">
 						<input type="text" placeholder="username" name="username" class="form-box">
@@ -48,6 +71,7 @@
 				</a>
 			</div>
 		</div>
+		{{/if}}
 	</div>
 	
 	<!-- Scripts -->

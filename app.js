@@ -43,6 +43,8 @@ if ('development' == app.get('env')) {
 // Route requests
 app.get('/', index.view);
 app.get('/login', index.login);
+app.get('/signup', index.signup);
+app.get('/signupcomplete', index.signupcomplete);
 app.get('/:userid/home', home.view);
 app.get('/:userid/teamlist', teamlist.view);
 app.get('/:userid/teamlist/add', teamlist.addTeam);
