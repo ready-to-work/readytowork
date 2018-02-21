@@ -6,16 +6,3 @@
 $(document).ready(function() {
 	console.log("Currently on Login Page.");
 });
-
-function userLoginAuth(form)
-{
-	if(form.userid.value == "tester" && form.pass.value == "123")
-	{
-		window.location.href = "/home";
-		document.hide(document.getElementById("error"));
-	}
-	else
-	{
-		document.getElementById("error").innerHTML = "incorrect login, try again";
-	}
-}

@@ -42,15 +42,16 @@ if ('development' == app.get('env')) {
 
 // Route requests
 app.get('/', index.view);
-app.get('/home', home.view);
-app.get('/teamlist', teamlist.view);
-app.get('/teamlist/add', teamlist.addTeam);
-app.get('/profile', profile.view);
-app.get('/settings', settings.view);
-app.get('/teamlist/team/:teamid', team.view);
-app.get('/teamlist/team/:teamid/calendar', calendar.view);
-app.get('/teamlist/team/:teamid/tasks', tasks.view);
-app.get('/teamlist/team/:teamid/tasks/add', tasks.addTask);
+app.get('/login', index.login);
+app.get('/:userid/home', home.view);
+app.get('/:userid/teamlist', teamlist.view);
+app.get('/:userid/teamlist/add', teamlist.addTeam);
+app.get('/:userid/profile', profile.view);
+app.get('/:userid/settings', settings.view);
+app.get('/:userid/teamlist/:teamid', team.view);
+app.get('/:userid/teamlist/:teamid/calendar', calendar.view);
+app.get('/:userid/teamlist/:teamid/tasks', tasks.view);
+app.get('/:userid/teamlist/:teamid/tasks/add', tasks.addTask);
 
 // Start server
 http.createServer(app).listen(app.get('port'), function(){

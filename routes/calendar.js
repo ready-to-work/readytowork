@@ -3,6 +3,14 @@
  * GET a calendar page.
  */
 
+var LOGINS = require('../dummy_data/logins.json');
+var USERS = require('../dummy_data/users.json');
+var TEAMS = require('../dummy_data/teams.json')
+var data = {};
+
 exports.view = function(req, res){
-  res.render('calendar');
+	var userID = req.params.userid;
+	data.userID = userID; // COPY PASTE FOR EVERY PAGE FOR NAVBAR
+
+	res.render('profile', data);
 };

@@ -27,7 +27,7 @@
 				<div class="card" id="addMenu">
 					<div class="card-header font-bold" id="addButton">create new team</div>
 					<div class="card-body" id="addTeamForm">
-						<form role="form" method="get" action="/teamlist/add">
+						<form role="form" method="get" action="/{{userID}}/teamlist/add">
 						    <div class="form-group">
 						      <input type="text" class="form-control" placeholder="team name" name="name">
 						    </div>
@@ -43,9 +43,9 @@
 
 		<div class="row">
 			<div class="col">
-				{{#each teams.teamlist}}
+				{{#each teamlist}}
 				<div class="card card-box" id="team-box">
-					<a href="/teamlist/team/{{teamID}}">
+					<a href="/{{../userID}}/teamlist/{{teamID}}">
 						<p class="card-header">{{teamName}}</p>
 					</a> 
 					<div class="card-block">
@@ -59,7 +59,7 @@
 							<div class="item-title mb-1">team members</div>
 							<div class="item-info">
 								{{#each members}}
-								<p>{{name}} ({{role}})</p>
+								<p>{{firstName}} {{lastName}} <span class="font-italic">({{role}})</span></p>
 								{{/each}}
 							</div>
 						</div>

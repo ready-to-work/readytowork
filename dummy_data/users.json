@@ -1,16 +1,38 @@
 {
-	"1": { 
+	"nextUserID": 6,
+	"1": {
 		"firstName": "John",
 		"lastName": "Smith",
-		"teams": [1, 2, 3],
-		"calendar": 1,
+		"userID": 1,
+		"teams": [2],
 		"settings": {}
 	},
 	"2": {
 		"firstName": "Jane",
 		"lastName": "Doe",
-		"teams": [1, 2],
-		"calendar": 2,
+		"userID": 2,
+		"teams": [2],
+		"settings": {}
+	},
+	"3": {
+		"firstName": "Kelvin",
+		"lastName": "Pan",
+		"userID": 3,
+		"teams": [1],
+		"settings": {}
+	},
+	"4": {
+		"firstName": "Timothy",
+		"lastName": "Bian",
+		"userID": 4,
+		"teams": [1],
+		"settings": {}
+	},
+	"5": {
+		"firstName": "Alina",
+		"lastName": "Chin",
+		"userID": 5,
+		"teams": [1],
 		"settings": {}
 	}
 }

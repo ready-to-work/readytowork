@@ -25,19 +25,18 @@
 				<h1 class="font-bold">ready</h1>
 				<h1 class="font-bold">to</h1>
 				<h1 class="font-bold">work.</h1>
-				<form class="login mt-1">
+				<form class="login mt-1 form" method="get" action="/login">
 					<div class="form-group">
-						<input type="text" placeholder="username" name="userid" class="form-box">
+						<input type="text" placeholder="username" name="username" class="form-box">
 					</div>
 					<div class="form-group">
-						<input type="password" placeholder="password" name="pass" class="form-box">
+						<input type="password" placeholder="password" name="password" class="form-box">
 					</div>
-					<input type="button" onclick="userLoginAuth(this.form)" value="login" class="btn-block font-bold" id="login-button"/>
+					<input type="submit" value="login" class="btn-block font-bold" id="login-button"/>
 					<input type="button" value="sign up" class="btn-block" id="signup-button"/>
-					
-					<div id="error" class="font-italic text-center mt-1">
-						<!-- Populated by JS on error -->
-					</div>
+					{{#if loginIncorrect}}
+					<div id="error" class="font-italic text-center mt-1">incorrect login, try again</div>
+					{{/if}}
 				</form>
 			</div>
 		</div>

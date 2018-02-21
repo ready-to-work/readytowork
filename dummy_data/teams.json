@@ -1,87 +1,81 @@
 {
-	"nextIds": [
-		{
-			"nextTeamId": 4,
-			"nextCalendarId": 6
-		}
-	],
-	"teamlist": [
-		{ 
-			"teamID": 1,
-			"teamName": "Team ReadyToWork",
-			"members": [
-				{
-					"name": "Tim",
-					"id": 1,
-					"role": "admin"
-				},
-				{
-					"name": "Kelvin",
-					"id": 2,
-					"role": "member"
-				},
-				{
-					"name": "Alina",
-					"id": 3,
-					"role": "member"
-				}
-			],
-			"calenID": 3,
-			"tasks": [
-				{
-					"title": "Example Task",
-					"priority": "1",
-					"due_date": "Timestamp",
-					"description": "This is a sample task.",
-					"assigned": [1, 2]
-				}
-			],
-			"description": "Pretty relaxing bunch"
-		},
-		{
-			"teamID": 2,
-			"teamName": "CSE 169 Studying/Crying Group",
-			"members": [
-				{
-					"name": "Kelvin",
-					"id": 1,
-					"role": "pending"
-				},
-				{
-					"name": "Tim",
-					"id": 2,
-					"role": "admin"
-				}
-			],
-			"calenID": 4,
-			"tasks": [
-			],
-			"description": ""
-		},
-		{
-			"teamID": 3,
-			"teamName": "House Chat",
-			"members": [
-				{
-					"name": "Tim",
-					"id": 1,
-					"role": "admin"
-				},
-				{
-					"name": "Chandler",
-					"id": 2,
-					"role": "member"
-				},
-				{
-					"name": "Jerry",
-					"id": 3,
-					"role": "member"
-				}
-			],
-			"calenID": 5,
-			"tasks": [
-			],
-			"description": "We need to plan out the chores and we should clean up after the house!"
-		}
-	]
+	"nextTeamID": 4,
+	"1":
+	{ 
+		"teamName": "Team ReadyToWork",
+		"teamID": 1,
+		"members": [
+			{
+				"userID": 4,
+				"role": "admin"
+			},
+			{
+				"userID": 3,
+				"role": "member"
+			},
+			{
+				"userID": 5,
+				"role": "member"
+			}
+		],
+		"events": [
+			{
+				"title": "Friday Studio",
+				"startDate": "2/23/2018",
+				"startTime": "11:30 AM",
+				"endDate": "2/23/2018",
+				"endTime": "12:40 PM",
+				"location": "CSB 272",
+				"description": "Studio for COGS 120."
+			}
+		],
+		"tasks": [
+			{
+				"title": "Complete Website",
+				"priority": "1",
+				"dueDate": "3/15/18",
+				"dueTime": "11:59 PM",
+				"description": "Finish building ReadyToWork website.",
+				"assigned": [3, 4, 5]
+			}
+		],
+		"description": "Team for COGS 120 project."
+	},
+	"2":
+	{ 
+		"teamName": "Tester Team",
+		"teamID": 2,
+		"members": [
+			{
+				"userID": 1,
+				"role": "admin"
+			},
+			{
+				"userID": 2,
+				"role": "member"
+			}
+		],
+		"events": [
+			{
+				"title": "Example Event",
+				"startDate": "MM/DD/YYYY",
+				"startTime": "HH:MM AP",
+				"endDate": "MM/DD/YYYY",
+				"endTime": "HH:MM AP",
+				"location": "Example Location",
+				"description": "This is an example event."
+			}
+		],
+		"tasks": [
+			{
+				"title": "Example Task",
+				"priority": "1",
+				"dueDate": "MM/DD/YYYY",
+				"dueTime": "HH:MM AP",
+				"description": "This is a sample task.",
+				"assigned": [1, 2]
+			}
+		],
+		"description": "Example team."
+	}
 }

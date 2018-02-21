@@ -2,51 +2,47 @@
  * GET a tasks page.
  */
 
-var logins = require('../dummy_data/logins.json');
-var users = require('../dummy_data/users.json');
-var teams = require('../dummy_data/teams.json');
-var calendars = require('../dummy_data/calendars.json');
-var data = {
-	"logins": logins,
-	"users": users,
-	"teams": teams,
-	"calendars": calendars
-}
+var LOGINS = require('../dummy_data/logins.json');
+var USERS = require('../dummy_data/users.json');
+var TEAMS = require('../dummy_data/teams.json')
+var data = {};
 
 exports.view = function(req, res){
-	var teamID = req.params.teamid;
-	var team;
-	for (var i in teams.teamlist)
-	{
-		var currTeam = teams.teamlist[i];
-		if( currTeam.teamID == teamID ) team = currTeam;
-	}
-	data.currTeam = team;
+	var userID = req.params.userid;
+	data.userID = userID; // COPY PASTE FOR EVERY PAGE FOR NAVBAR
 
-  res.render('tasks', data);
+	data.currTeam = TEAMS[req.params.teamid];
+
+	for (var i in data.currTeam.tasks)
+	{
+		data.currTeam.tasks[i].assignedNames = [];
+
+		for (var j in data.currTeam.tasks[i].assigned)
+		{
+			data.currTeam.tasks[i].assignedNames.push(
+				USERS[data.currTeam.tasks[i].assigned[j]].firstName + " " +
+				USERS[data.currTeam.tasks[i].assigned[j]].lastName);
+		}
+	}
+
+  	res.render('tasks', data);
 };
 
 exports.addTask = function(req, res) { 
 	console.log("Adding a new task");
-
+	var userID = req.params.userid;
 	var teamID = req.params.teamid;
-	var team;
-	for (var i in teams.teamlist)
-	{
-		var currTeam = teams.teamlist[i];
-		if( currTeam.teamID == teamID ) team = currTeam;
-	}
 
 	var newTask = {
 		"title": req.query.title,
 		"priority": req.query.priority,
-		"due_date": req.query.due_date,
+		"dueDate": req.query.dueDate,
+		"dueTime": req.query.dueTime,
 		"description": req.query.description,
-		"assigned": []
+		"assigned": [] // TODO
 	  };
 
-	team.tasks.push(newTask);
-	data.currTeam = team;
+	TEAMS[teamID].tasks.push(newTask);
 
-  	res.redirect("/teamlist/team/" + teamID + "/tasks");
+  	res.redirect("/" + userID + "/teamlist/" + teamID + "/tasks");
 };

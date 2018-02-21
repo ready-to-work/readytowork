@@ -1,10 +1,22 @@
 {
-	"johnsmith@mail.com": {
-		"password": "test1",
+	"johnsmith": {
+		"password": "test",
 		"userID": 1
 	},
-	"janedoe@mail.com": {
-		"password": "test2",
+	"janedoe": {
+		"password": "test",
 		"userID": 2
+	},
+	"kelvinpan": {
+		"password": "mynamekelvin",
+		"userID": 3
+	},
+	"timothybian": {
+		"password": "mynametimothy",
+		"userID": 4
+	},
+	"alinachin": {
+		"password": "mynamealina",
+		"userID": 5
 	}
 }

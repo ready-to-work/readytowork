@@ -26,38 +26,30 @@
 		<div class="row">
 			<div class="col">
 				<div class="card card-box" id="alert-box">
-					<p class="card-header">alerts</p>
+					<p class="card-header font-italic">alerts for {{currUser.firstName}}</p>
 					<div class="card-block">
 						<div class="pre-scrollable">
-							<div class="item">
-								<div class="item-title">TeamName: Event</div>
-								<div class="item-info font-italic">in Time at Location</div>
-							</div>
-							<div class="item">
-								<div class="item-title">TeamName: Event</div>
-								<div class="item-info font-italic">in Time at Location</div>
-							</div>
-							<div class="item">
-								<div class="item-title">TeamName: Event</div>
-								<div class="item-info font-italic">in Time at Location</div>
-							</div>
-							<div class="item">
-								<div class="item-title">TeamName: Event</div>
-								<div class="item-info font-italic">in Time at Location</div>
-							</div>
-							<div class="item">
-								<div class="item-title">TeamName: Event</div>
-								<div class="item-info font-italic">in Time at Location</div>
-							</div>
+							{{#if currEvents}}
+								{{#each currEvents}}
+								<div class="item">
+									<div class="item-title"><span class="font-bold">{{teamName}}:</span> {{title}}</div>
+									<div class="item-info font-italic">on {{startDate}}, {{startTime}} at {{location}}</div>
+								</div>
+								{{/each}}
+							{{else}}
+								<div class="item">
+									<div class="item-info font-italic text-center">(no alerts found)</div>
+								</div>
+							{{/if}}
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<a type="button" class="menu-item btn btn-primary btn-lg btn-block" href="/teamlist">teams</a>
-		<a type="button" class="menu-item btn btn-primary btn-lg btn-block" href="/profile">profile</a>
-		<a type="button" class="menu-item btn btn-primary btn-lg btn-block" href="/settings">settings</a>
+		<a type="button" class="menu-item btn btn-primary btn-lg btn-block" href="/{{userID}}/teamlist">teams</a>
+		<a type="button" class="menu-item btn btn-primary btn-lg btn-block" href="/{{userID}}/profile">profile</a>
+		<a type="button" class="menu-item btn btn-primary btn-lg btn-block" href="/{{userID}}/settings">settings</a>
 	</div>
 
 	<!-- Scripts -->

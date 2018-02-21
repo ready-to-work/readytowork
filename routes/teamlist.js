@@ -3,45 +3,56 @@
  * GET teamlist page.
  */
 
-var logins = require('../dummy_data/logins.json');
-var users = require('../dummy_data/users.json');
-var teams = require('../dummy_data/teams.json');
-var calendars = require('../dummy_data/calendars.json');
-var data = {
-	"logins": logins,
-	"users": users,
-	"teams": teams,
-	"calendars": calendars
-}
+var LOGINS = require('../dummy_data/logins.json');
+var USERS = require('../dummy_data/users.json');
+var TEAMS = require('../dummy_data/teams.json');
+var data = {};
 
 exports.view = function(req, res){
-  res.render('teamlist', data);
+	var userID = req.params.userid;
+	data.userID = userID; // COPY PASTE FOR EVERY PAGE FOR NAVBAR
+
+	var currUser = USERS[userID];
+	data.teamlist = [];
+
+	for (var i in currUser.teams)
+	{
+		var currTeam = TEAMS[currUser.teams[i]];
+
+		// Add on member names
+		for (var j in currTeam.members)
+		{
+			currTeam.members[j].firstName = USERS[currTeam.members[j].userID].firstName;
+			currTeam.members[j].lastName = USERS[currTeam.members[j].userID].lastName;
+		}
+
+		data.teamlist.push( currTeam );
+	}
+ 	
+ 	res.render('teamlist', data);
 };
 
 exports.addTeam = function(req, res) { 
 	console.log("Adding a new team");
-	var currCount = data.teams.nextIds.nextTeamId + 1;
-	var currCountCalen = data.teams.nextIds.nextCalendarId + 1;
+	var userID = req.params.userid;
 
 	var newTeam = {
-		"teamID": currCount,
 		"teamName": req.query.name,
+		"teamID": TEAMS.nextTeamID,
 		"members": [
 	   		{
-				"name": "tester", //this will have to be user id later on!
-				"id": 1,
+				"userID": userID,
 				"role": "admin"
 			}
 		],
-	   	"calenID": currCountCalen,
+		"events": [],
 	   	"tasks": [],
 	   	"description": req.query.description
 	};
 
-	console.log(currCount);
-	console.log(currCountCalen);
-	data.teams.teamlist.push(newTeam);
-	data.teams.nextIds.nextTeamId = currCount;
-	data.teams.nextIds.nextCalendarId = currCountCalen;
-  	res.redirect("/teamlist");
+	USERS[userID].teams.push(newTeam.teamID);
+
+	TEAMS[TEAMS.nextTeamID] = newTeam;
+	TEAMS.nextTeamID++;
+  	res.redirect("/" + userID + "/teamlist");
 };

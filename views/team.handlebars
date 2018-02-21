@@ -57,15 +57,17 @@
 		<div class="row">
 			<div class="col">
 				<div class="card card-box" id="calendar-box">
-					<a href="/teamlist/team/{{currTeam.teamID}}/calendar">
+					<a href="/{{userID}}/teamlist/{{currTeam.teamID}}/calendar">
 						<h2 class="card-header font-bold">Team Calendar</h2>
 					</a>
 					<div class="card-block">
 						{{#each currTeam.events}}
 						<div class="item">
 							<div class="item-title">{{title}}</div>
-							<div class="item-info font-italic">{{time}}</div>
-							<div class="item-info font-italic">{{location}}</div>
+							<div class="item-info"><span class="font-bold">starts:</span> {{startDate}}, {{startTime}}</div>
+							<div class="item-info"><span class="font-bold">ends:</span> {{endDate}}, {{endTime}}</div>
+							<div class="item-info"><span class="font-bold">location:</span> {{location}}</div>
+							<div class="item-info"><span class="font-bold">description:</span> {{description}}</div>
 						</div>
 						{{/each}}
 					</div>
@@ -76,14 +78,14 @@
 		<div class="row">
 			<div class="col">
 				<div class="card card-box" id="task-box">
-					<a href="/teamlist/team/{{currTeam.teamID}}/tasks">
+					<a href="/{{userID}}/teamlist/{{currTeam.teamID}}/tasks">
 						<h2 class="card-header font-bold">Team Tasks</h2>
 					</a>
 					<div class="card-block">
 						{{#each currTeam.tasks}}
 						<div class="item">
 							<div class="item-title">{{title}}</div>
-							<div class="item-info font-italic">priority: {{priority}}, due {{due_date}}</div>
+							<div class="item-info"><span class="font-bold">description:</span> {{description}}</div>
 						</div>
 						{{/each}}
 					</div>
