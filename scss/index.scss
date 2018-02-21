@@ -16,6 +16,7 @@ h1 {
 	color: $color-primary;
 	background-color: $color-dark;
 	border: 2px $color-primary solid !important;
+	border-radius: 0;
 
 	padding: 1rem;
 }
@@ -24,6 +25,7 @@ h1 {
 	color: $color-dark;
 	background-color: $color-primary;
 	border: none;
+	border-radius: 0;
 	-webkit-appearance: none !important;
 
 	font-size: $font-size-mid;
@@ -37,6 +39,7 @@ h1 {
 	color: $color-primary;
 	background-color: $color-secondary;
 	border: none;
+	border-radius: 0;
 	-webkit-appearance: none !important;
 
 	font-size: $font-size-mid;
