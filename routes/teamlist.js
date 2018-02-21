@@ -43,5 +43,5 @@ exports.addTeam = function(req, res) { 
 	data.teams.teamlist.push(newTeam);
 	data.teams.nextIds.nextTeamId = currCount;
 	data.teams.nextIds.nextCalendarId = currCountCalen;
-  	res.render("teamlist", data);
+  	res.redirect("/teamlist");
 };
