@@ -16,15 +16,15 @@ exports.view = function(req, res)
 
 exports.login = function(req, res)
 {
-	var username = req.query.username;
+	var email = req.query.email;
 	var password = req.query.password;
 
 	var userID = -1;
 
-	// Search for username
+	// Search for email
 	for (var key in LOGINS)
 	{
-		if (key === username)
+		if (key === email)
 		{
 			if (LOGINS[key].password === password)
 			{
@@ -38,8 +38,10 @@ exports.login = function(req, res)
 	if (userID === -1)
 	{
 		data.loginIncorrect = true;
+		data.email = email;
 		res.render('index', data);
 		data.loginIncorrect = false;
+		data.email = "";
 	}
 	// Match found
 	else
@@ -51,7 +53,7 @@ exports.login = function(req, res)
 exports.signup = function(req, res)
 {
 	data.signup = true;
-	data.usernameTaken = false;
+	data.emailTaken = false;
 	data.emptyField = false;
 	res.render('index', data);
 };
@@ -59,17 +61,20 @@ exports.signup = function(req, res)
 exports.signupcomplete = function(req, res)
 {
 	// User attempts to create a new account
-	var username = req.query.username;
+	var email = req.query.email;
 	var password = req.query.password;
 	var confirmPassword = req.query.confirmPassword;
 	var firstName = req.query.firstName;
 	var lastName = req.query.lastName;
 
-	data.usernameTaken = false;
-	if (LOGINS.hasOwnProperty(username)) data.usernameTaken = true;
+	data.emailTaken = false;
+	if (LOGINS.hasOwnProperty(email)) data.emailTaken = true;
+
+	data.invalidEmail = false;
+	if (!validateEmail(email)) data.invalidEmail = true;
 
 	data.emptyField = false;
-	if (username === "" ||
+	if (email === "" ||
 		password === "" ||
 		confirmPassword === "" ||
 		firstName === "" ||
@@ -78,20 +83,22 @@ exports.signupcomplete = function(req, res)
 	data.mismatchPassword = false;
 	if (password !== confirmPassword) data.mismatchPassword = true;
 	
-	if (data.usernameTaken || data.emptyField || data.mismatchPassword)
+	// Return to same signup form if failed registration
+	if (data.emailTaken || data.invalidEmail || data.emptyField || data.mismatchPassword)
 	{
 		// Keep fields on failed registration
 		data.signup = true;
-		data.username = username;
+		data.email = email;
 		data.firstName = firstName;
 		data.lastName = lastName;
 		res.render('index', data);
 
 		// Wipe fields after rendering
-		data.username = "";
+		data.email = "";
 		data.firstName = "";
 		data.lastName = "";
 	} 
+	// Successful registration, update data and redirect to home
 	else
 	{
 		var newLogin = {
@@ -99,7 +106,7 @@ exports.signupcomplete = function(req, res)
 			"userID": USERS.nextUserID
 		}
 
-		LOGINS[username] = newLogin;
+		LOGINS[email] = newLogin;
 
 		var newUser = {
 			"firstName": firstName,
@@ -115,3 +122,10 @@ exports.signupcomplete = function(req, res)
 		res.redirect('/' + newUser.userID + '/home');
 	}
 };
+
+// Validates email string using regex, works for string@string.string
+function validateEmail(email) 
+{
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}

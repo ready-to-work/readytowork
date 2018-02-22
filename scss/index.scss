@@ -2,7 +2,11 @@
 
 @import "main";
 
-$anim-time: 0.5s;
+$anim-time: 0.4s;
+
+body {
+	margin-bottom: 7rem;
+}
 
 h1 {
 	font-size: $font-size-big * 2;

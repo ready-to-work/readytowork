@@ -28,7 +28,7 @@
 				{{#if signup}}
 				<form class="login mt-1 form" method="get" action="/signupcomplete">
 					<div class="form-group">
-						<input type="text" placeholder="username" name="username" value="{{username}}" class="form-box">
+						<input type="text" placeholder="email" name="email" value="{{email}}" class="form-box">
 					</div>
 					<div class="form-group">
 						<input type="password" placeholder="password" name="password" class="form-box">
@@ -46,8 +46,11 @@
 					{{#if emptyField}}
 					<div id="error" class="font-italic text-center mt-1">all fields must be filled</div>
 					{{/if}}
-					{{#if usernameTaken}}
-					<div id="error" class="font-italic text-center mt-1">this username is taken</div>
+					{{#if emailTaken}}
+					<div id="error" class="font-italic text-center mt-1">this email is taken</div>
+					{{/if}}
+					{{#if invalidEmail}}
+					<div id="error" class="font-italic text-center mt-1">this email is not valid</div>
 					{{/if}}
 					{{#if mismatchPassword}}
 					<div id="error" class="font-italic text-center mt-1">passwords do not match</div>
@@ -59,7 +62,7 @@
 		{{else}}
 				<form class="login mt-1 form" method="get" action="/login">
 					<div class="form-group">
-						<input type="text" placeholder="username" name="username" class="form-box">
+						<input type="text" placeholder="email" name="email" value="{{email}}" class="form-box">
 					</div>
 					<div class="form-group">
 						<input type="password" placeholder="password" name="password" class="form-box">
