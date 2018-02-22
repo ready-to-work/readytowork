@@ -78,6 +78,16 @@
 
 		<div class="row">
 			<div class="d-inline-block mx-auto mt-4 font-italic">
+				<fb:login-button 
+				  scope="public_profile,email"
+				  onlogin="checkLoginState();"
+				  id="facebook-button">
+				</fb:login-button>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="d-inline-block mx-auto mt-4 font-italic">
 				<a href="/3/home">
 					<h3>dev login</h3>
 				</a>
@@ -87,9 +97,11 @@
 	</div>
 	
 	<!-- Scripts -->
+	{{> facebook}}
 	{{> bootstrapJS}}
 	<script src="/js/main.js"></script>
 	<script src="/js/index.js"></script>
+	<script src="/js/facebook.js"></script> 
 </body>
 
 </html>

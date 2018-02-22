@@ -123,9 +123,64 @@ exports.signupcomplete = function(req, res)
 	}
 };
 
+exports.facebook = function(req, res)
+{
+	checkLoginState(res);
+}
+
 // Validates email string using regex, works for string@string.string
 function validateEmail(email) 
 {
     var re = /\S+@\S+\.\S+/;
     return re.test(email);
+}
+
+function checkLoginState()
+{
+	FB.getLoginStatus(function(response) {
+	    statusChangeCallback(response);
+	}, {scope: 'email'});
+}
+
+function statusChangeCallback(response)
+{
+	if(response.status === "connected")
+	{
+		console.log("Successfully logged in with Facebook");
+		//FB.api('/me?fields=name,first_name,picture.width(480)', changeUser);
+		FB.api('/me?fields=first_name,last_name,email', FBMakeUser);
+		console.log(response.userID);
+	}
+	else
+	{
+		res.render('index', data);
+	}
+}
+
+function FBMakeUser(response)
+{
+	var firstName = response.first_name;
+	var lastName = response.last_name;
+	var email = response.email;
+
+	var fbPassWord = "FBauto";
+	var newLogin = {
+		"password": fbPassWord,
+		"userID": USERS.nextUserID
+	}
+
+	LOGINS[email] = newLogin;
+
+	var newUser = {
+		"firstName": firstName,
+		"lastName": lastName,
+		"userID": USERS.nextUserID,
+		"teams": [],
+		"settings": {}
+	}
+
+	USERS[newUser.userID] = newUser;
+	USERS.nextUserID++;
+
+	res.redirect('/' + newUser.userID + '/home');
 }
