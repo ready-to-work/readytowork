@@ -21,6 +21,7 @@ exports.login = function(req, res)
 
 	var userID = -1;
 
+	// Search for username
 	for (var key in LOGINS)
 	{
 		if (key === username)
@@ -57,6 +58,7 @@ exports.signup = function(req, res)
 
 exports.signupcomplete = function(req, res)
 {
+	// User attempts to create a new account
 	var username = req.query.username;
 	var password = req.query.password;
 	var confirmPassword = req.query.confirmPassword;
@@ -78,11 +80,17 @@ exports.signupcomplete = function(req, res)
 	
 	if (data.usernameTaken || data.emptyField || data.mismatchPassword)
 	{
+		// Keep fields on failed registration
 		data.signup = true;
 		data.username = username;
 		data.firstName = firstName;
 		data.lastName = lastName;
 		res.render('index', data);
+
+		// Wipe fields after rendering
+		data.username = "";
+		data.firstName = "";
+		data.lastName = "";
 	} 
 	else
 	{
