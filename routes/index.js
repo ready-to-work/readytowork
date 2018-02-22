@@ -51,6 +51,7 @@ exports.signup = function(req, res)
 {
 	data.signup = true;
 	data.usernameTaken = false;
+	data.emptyField = false;
 	res.render('index', data);
 };
 
@@ -58,21 +59,31 @@ exports.signupcomplete = function(req, res)
 {
 	var username = req.query.username;
 	var password = req.query.password;
+	var confirmPassword = req.query.confirmPassword;
 	var firstName = req.query.firstName;
 	var lastName = req.query.lastName;
 
-	var usernameIsTaken = false;
-	if (LOGINS.hasOwnProperty(username)) usernameIsTaken = true;
+	data.usernameTaken = false;
+	if (LOGINS.hasOwnProperty(username)) data.usernameTaken = true;
 
-	if (usernameIsTaken)
+	data.emptyField = false;
+	if (username === "" ||
+		password === "" ||
+		confirmPassword === "" ||
+		firstName === "" ||
+		lastName === "") data.emptyField = true;
+
+	data.mismatchPassword = false;
+	if (password !== confirmPassword) data.mismatchPassword = true;
+	
+	if (data.usernameTaken || data.emptyField || data.mismatchPassword)
 	{
 		data.signup = true;
-		data.usernameTaken = true;
 		data.username = username;
 		data.firstName = firstName;
 		data.lastName = lastName;
 		res.render('index', data);
-	}
+	} 
 	else
 	{
 		var newLogin = {

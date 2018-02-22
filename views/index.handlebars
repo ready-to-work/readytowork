@@ -31,7 +31,10 @@
 						<input type="text" placeholder="username" name="username" value="{{username}}" class="form-box">
 					</div>
 					<div class="form-group">
-						<input type="text" placeholder="password" name="password" class="form-box">
+						<input type="password" placeholder="password" name="password" class="form-box">
+					</div>
+					<div class="form-group">
+						<input type="password" placeholder="confirm password" name="confirmPassword" class="form-box">
 					</div>
 					<div class="form-group">
 						<input type="text" placeholder="first name" name="firstName" value="{{firstName}}" class="form-box">
@@ -40,8 +43,14 @@
 						<input type="text" placeholder="last name" name="lastName" value="{{lastName}}" class="form-box">
 					</div>
 					<input type="submit" value="sign up" class="btn-block font-bold" id="login-button"/>
+					{{#if emptyField}}
+					<div id="error" class="font-italic text-center mt-1">all fields must be filled</div>
+					{{/if}}
 					{{#if usernameTaken}}
 					<div id="error" class="font-italic text-center mt-1">this username is taken</div>
+					{{/if}}
+					{{#if mismatchPassword}}
+					<div id="error" class="font-italic text-center mt-1">passwords do not match</div>
 					{{/if}}
 				</form>
 			</div>
