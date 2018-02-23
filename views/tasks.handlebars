@@ -35,7 +35,7 @@
 					<div class="card-body" id="addTaskForm">
 						<form role="form" method="get" action="/{{userID}}/teamlist/{{currTeam.teamID}}/tasks/add">
 						    <div class="form-group">
-						      <input type="text" class="form-control"placeholder="task title" name="title">
+						      <input type="text" class="form-control" placeholder="task title" name="title">
 						    </div>
 						    <div class="form-group">
 						      <input type="text" class="form-control" placeholder="priority" name="priority">
@@ -85,31 +85,35 @@
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							</div>
 							<div class="modal-body">
-								<form name="editTasks">
-									<div class="form-group">
-							            <label for="taskTitle" class="form-control-label">Title:</label>
-							            <input type="text" class="form-control" id="taskTitle" value="{{title}}">
-							        </div>
-									<div class="form-group">
-							            <label for="taskPriority" class="form-control-label">Priority:</label>
-							            <input type="text" class="form-control" id="taskPriority" value="{{priority}}">
-							        </div>
-									<div class="form-group">
-							            <label for="taskDueDate" class="form-control-label">Due Date:</label>
-							            <input type="text" class="form-control" id="taskDueDate" value="{{dueDate}}">
-							            <label for="taskDueTime" class="form-control-label">Due Time:</label>
-							            <input type="text" class="form-control" id="taskDueTime" value="{{dueTime}}">
-							            <input type="hidden" id="taskid" value="{{id}}">
-							        </div>
-							        <div class="form-group">
-							            <label for="taskDescription" class="form-control-label">Description:</label>
-							            <input type="text" class="form-control" id="taskDescription" value="{{description}}">
-							        </div>
-						    	</form>	
+								<form role="form" method="get" action="/{{../userID}}/teamlist/{{../currTeam.teamID}}/tasks/edit">
+								    <div class="form-group">
+								    	<label for="taskTitle" class="form-control-label">Title:</label>
+								      	<input type="text" class="form-control" value="{{title}}" name="title">
+								    </div>
+								    <div class="form-group">
+								    	<label for="taskPriority" class="form-control-label">Priority:</label>
+								      	<input type="text" class="form-control" value="{{priority}}" name="priority">
+								    </div>
+								    <div class="form-group">
+								      	<label for="taskDueDate" class="form-control-label">Due Date:</label>
+								      	<input type="text" class="form-control" value="{{dueDate}}" name="dueDate">
+								    </div>
+								    <div class="form-group">
+								      	<label for="taskDueTime" class="form-control-label">Due Time:</label>
+								      	<input type="text" class="form-control" value="{{dueTime}}" name="dueTime">
+								    </div>
+								    <div class="form-group">
+								    	<label for="taskDescription" class="form-control-label">Description:</label>
+								      	<input type="text" class="form-control" value="{{description}}" name="description">
+								    </div>
+								    <div class="form-group">
+								    	<input type="hidden" class="form-control" name="id" value="{{id}}">
+								    </div>
+								    <input type="submit" id="submitBtn" class="btn-block" value="Submit Change"></input>
+								</form>
 							</div>	
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-								<button type="button" class="btn btn-primary" id="submitChange" data-dismiss="modal">Submit Changes</button>	
 							</div>
 						</div>
 					</div>		
