@@ -13,6 +13,7 @@ $(document).ready(function() {
 	});
 });
 
+/*
 $(".modal-footer button#submitChange").click(function(e){
 	e.preventDefault();
 	//console.log("its pressing changes");
@@ -39,4 +40,4 @@ $(".modal-footer button#submitChange").click(function(e){
 	//console.log(url); 
 	location.href = url;
 	//$.post(url, { userid: userId, teamid: teamId, title: newTitle, priority: newPriority, dueDate: newDueDate, dueTime: newDueTime, description: newDescription});
-});
+});*/
