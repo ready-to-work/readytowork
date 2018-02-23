@@ -23,20 +23,20 @@ $(".modal-footer button#submitChange").click(function(e){
 	var newDescription = document.getElementById('taskDescription').value;
 	var teamId = document.getElementById("currTeamId").value;
 	var userId = document.getElementById("currUserId").value;
-
-	/*console.log(newTitle);
+	var taskId = document.getElementById("taskid").value;
+	console.log(newTitle);
 	console.log(newPriority);
 	console.log(newDueDate);
 	console.log(newDueTime);
 	console.log(newDescription);
 	console.log(userId);
-	console.log(teamId);*/
-
+	console.log(teamId);
+	console.log(taskId);
 	//todo
 	//either do it like FB or do it like AJAX
 	var url = "/" + userId + "/teamlist/" + teamId + "/tasks/edit";
-	url = url + "?userid=" + userId + "&teamid=" + teamId + "&title=" + newTitle+ "&priority=" + newPriority + "&dueDate=" + newDueDate + "&dueTime=" + newDueTime + "&description=" + newDescription + "";
-	console.log(url); 
+	url = url + "?id=" + taskId + "&userid=" + userId + "&teamid=" + teamId + "&title=" + newTitle+ "&priority=" + newPriority + "&dueDate=" + newDueDate + "&dueTime=" + newDueTime + "&description=" + newDescription + "";
+	//console.log(url); 
 	location.href = url;
 	//$.post(url, { userid: userId, teamid: teamId, title: newTitle, priority: newPriority, dueDate: newDueDate, dueTime: newDueTime, description: newDescription});
 });

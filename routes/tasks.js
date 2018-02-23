@@ -34,6 +34,7 @@ exports.addTask = function(req, res) { 
 	var teamID = req.params.teamid;
 
 	var newTask = {
+		"id": TEAMS.nextTaskID,
 		"title": req.query.title,
 		"priority": req.query.priority,
 		"dueDate": req.query.dueDate,
@@ -42,6 +43,7 @@ exports.addTask = function(req, res) { 
 		"assigned": [] // TODO
 	};
 
+	TEAMS.nextTaskID++;
 	TEAMS[teamID].tasks.push(newTask);
 
   	res.redirect("/" + userID + "/teamlist/" + teamID + "/tasks");
@@ -54,9 +56,23 @@ exports.editTask = function(req, res) { 
 	var teamid = req.params.teamid;
 
 	var currTeam = TEAMS[teamid];
-	var currTask = TEAMS[teamid].tasks[1];
-	var currTaskIdx = 1;
-
+	var newTask = {
+		"id": req.query.id,
+		"title": req.query.title,
+		"priority": req.query.priority,
+		"dueDate": req.query.dueDate,
+		"dueTime": req.query.dueTime,
+		"description": req.query.description,
+		"assigned": [] // TODO
+	};
+	for(var i in currTeam.tasks)
+	{
+		if(req.query.id == currTeam.tasks[i].id)
+		{
+			currTeam.tasks[i] = newTask;
+		}
+	}
+	//currTeam.tasks.push(newTask);
 	/*
 	var found = false;
 	for(var i in currTeam.tasks)

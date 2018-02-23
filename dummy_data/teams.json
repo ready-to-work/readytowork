@@ -1,5 +1,6 @@
 {
 	"nextTeamID": 4,
+	"nextTaskID": 3,
 	"1":
 	{ 
 		"teamName": "Team ReadyToWork",
@@ -31,6 +32,7 @@
 		],
 		"tasks": [
 			{
+				"id": 1,
 				"title": "Complete Website",
 				"priority": "1",
 				"dueDate": "3/15/18",
@@ -68,6 +70,7 @@
 		],
 		"tasks": [
 			{
+				"id": 2,
 				"title": "Example Task",
 				"priority": "1",
 				"dueDate": "MM/DD/YYYY",

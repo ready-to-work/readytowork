@@ -73,7 +73,9 @@
 						<!--<p><span class="font-bold">assigned to:</span>{{#each assignedNames}}<br/>{{this}}{{/each}}</p>-->
 					</div>
 				</div>
+				{{/each}}
 				<!-- Modal popup form -->
+				{{#each currTeam.tasks}}
 				<div class="modal fade" id="{{title}}Edit" tabindex="-1" role="dialog"  aria-hidden="true">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
@@ -83,7 +85,7 @@
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							</div>
 							<div class="modal-body">
-								<form name="editTasks" method="get" action="/{{userID}}/teamlist/{{currTeam.teamID}}/tasks/edit">
+								<form name="editTasks">
 									<div class="form-group">
 							            <label for="taskTitle" class="form-control-label">Title:</label>
 							            <input type="text" class="form-control" id="taskTitle" value="{{title}}">
@@ -96,12 +98,12 @@
 							            <label for="taskDueDate" class="form-control-label">Due Date:</label>
 							            <input type="text" class="form-control" id="taskDueDate" value="{{dueDate}}">
 							            <label for="taskDueTime" class="form-control-label">Due Time:</label>
-							            <input type="text" class="form-control" id="taskDueTime" value="{{dueTime}}">	
+							            <input type="text" class="form-control" id="taskDueTime" value="{{dueTime}}">
+							            <input type="hidden" id="taskid" value="{{id}}">
 							        </div>
 							        <div class="form-group">
 							            <label for="taskDescription" class="form-control-label">Description:</label>
 							            <input type="text" class="form-control" id="taskDescription" value="{{description}}">
-							            <input type="submit" id="submitBtn" class="btn-block" value="Submit Change"></input>
 							        </div>
 						    	</form>	
 							</div>	
