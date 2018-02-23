@@ -22,6 +22,6 @@ function makeTeam(response)
 	var last_name = response.last_name;
 	var email = response.email;
 
-	location.href = "/signupcomplete?email=" + email + "&password=fblogins&confirmPassword=fblogins&firstName=" + first_name + "&lastName=" + last_name + "";
+	location.href = "/signupcomplete?email=" + email + "&password=fblogins&confirmPassword=fblogins&firstName=" + first_name + "&lastName=" + last_name + "&mode=fb";
 }
 

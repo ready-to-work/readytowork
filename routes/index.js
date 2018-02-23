@@ -66,6 +66,7 @@ exports.signupcomplete = function(req, res)
 	var confirmPassword = req.query.confirmPassword;
 	var firstName = req.query.firstName;
 	var lastName = req.query.lastName;
+	var isFacebook = req.query.mode;
 
 	data.emailTaken = false;
 	if (LOGINS.hasOwnProperty(email)) data.emailTaken = true;
@@ -84,7 +85,7 @@ exports.signupcomplete = function(req, res)
 	if (password !== confirmPassword) data.mismatchPassword = true;
 	
 	// Return to same signup form if failed registration
-	if (data.emailTaken || data.invalidEmail || data.emptyField || data.mismatchPassword)
+	if ( (isFacebook != "fb") && (data.emailTaken || data.invalidEmail || data.emptyField || data.mismatchPassword))
 	{
 		// Keep fields on failed registration
 		data.signup = true;

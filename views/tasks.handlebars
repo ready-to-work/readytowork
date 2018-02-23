@@ -60,7 +60,10 @@
 			<div class="col">
 				{{#each currTeam.tasks}}
 				<div class="card task-card">
-					<p class="card-header">{{title}}</p>
+					<!-- this makes the title a link that pops the modal -->
+					<a href="#{{title}}Edit" data-toggle="modal" data-target="#{{title}}Edit"> 
+						<p class="card-header">{{title}}</p> 
+					</a>
 					<div class="card-body">
 						<p><span class="font-bold">priority: </span>{{priority}}</p>
 						{{#if dueDate}}
@@ -70,11 +73,55 @@
 						<!--<p><span class="font-bold">assigned to:</span>{{#each assignedNames}}<br/>{{this}}{{/each}}</p>-->
 					</div>
 				</div>
+				<!-- Modal popup form -->
+				<div class="modal fade" id="{{title}}Edit" tabindex="-1" role="dialog"  aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title" id="exampleModalLabel">Edit "{{title}}"</h4>
+								<!-- the x btn to close -->
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							</div>
+							<div class="modal-body">
+								<form name="editTasks" method="get" action="/{{userID}}/teamlist/{{currTeam.teamID}}/tasks/edit">
+									<div class="form-group">
+							            <label for="taskTitle" class="form-control-label">Title:</label>
+							            <input type="text" class="form-control" id="taskTitle" value="{{title}}">
+							        </div>
+									<div class="form-group">
+							            <label for="taskPriority" class="form-control-label">Priority:</label>
+							            <input type="text" class="form-control" id="taskPriority" value="{{priority}}">
+							        </div>
+									<div class="form-group">
+							            <label for="taskDueDate" class="form-control-label">Due Date:</label>
+							            <input type="text" class="form-control" id="taskDueDate" value="{{dueDate}}">
+							            <label for="taskDueTime" class="form-control-label">Due Time:</label>
+							            <input type="text" class="form-control" id="taskDueTime" value="{{dueTime}}">	
+							        </div>
+							        <div class="form-group">
+							            <label for="taskDescription" class="form-control-label">Description:</label>
+							            <input type="text" class="form-control" id="taskDescription" value="{{description}}">
+							            <input type="submit" id="submitBtn" class="btn-block" value="Submit Change"></input>
+							        </div>
+						    	</form>	
+							</div>	
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-primary" id="submitChange" data-dismiss="modal">Submit Changes</button>	
+							</div>
+						</div>
+					</div>		
+				</div>
 				{{/each}}
 			</div>
 		</div>
 	</div>
-	
+
+	<div style="display:  none;">
+		<input type="hidden" id="currTeamId" value="{{currTeam.teamID}}">
+		<input type="hidden" id="currUserId" value="{{userID}}">
+	</div>
+
 	<!-- Scripts -->
 	{{> bootstrapJS}}
 	<script src="/js/main.js"></script>

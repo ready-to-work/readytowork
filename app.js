@@ -54,6 +54,7 @@ app.get('/:userid/teamlist/:teamid', team.view);
 app.get('/:userid/teamlist/:teamid/calendar', calendar.view);
 app.get('/:userid/teamlist/:teamid/tasks', tasks.view);
 app.get('/:userid/teamlist/:teamid/tasks/add', tasks.addTask);
+app.get('/:userid/teamlist/:teamid/tasks/edit', tasks.editTask);
 
 // Start server
 http.createServer(app).listen(app.get('port'), function(){

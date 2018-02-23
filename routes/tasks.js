@@ -40,9 +40,58 @@ exports.addTask = function(req, res) { 
 		"dueTime": req.query.dueTime,
 		"description": req.query.description,
 		"assigned": [] // TODO
-	  };
+	};
 
 	TEAMS[teamID].tasks.push(newTask);
 
   	res.redirect("/" + userID + "/teamlist/" + teamID + "/tasks");
+};
+
+exports.editTask = function(req, res) { 
+	console.log("Editing a new task");
+	
+	var userid = req.params.userid;
+	var teamid = req.params.teamid;
+
+	var currTeam = TEAMS[teamid];
+	var currTask = TEAMS[teamid].tasks[1];
+	var currTaskIdx = 1;
+
+	/*
+	var found = false;
+	for(var i in currTeam.tasks)
+	{
+		//need to make some sort of task id, or check by title
+		if(currTeam.tasks[i].title == req.query.title)
+		{
+			TEAMS[teamID].tasks.push(newTask);
+			currTask = currTeam.tasks[i];
+			currTaskIdx = i;
+			found = true;
+			break;
+		}
+	}
+	//console.log(currTeam.tasks[i].title);
+	
+	if(found == false)
+	{
+		console.log("oh no, an edited event isn't found in database");
+	}
+	if(found == true)
+	{
+		var newTask = {
+			"title": req.query.title,
+			"priority": req.query.priority,
+			"dueDate": req.query.dueDate,
+			"dueTime": req.query.dueTime,
+			"description": req.query.description,
+			"assigned":  currTask.assigned
+		};
+		//currTask = newTask;
+		currTeam[currTaskIdx] = newTask;
+	}
+	*/
+
+  	res.redirect("/" + userid + "/teamlist/" + teamid + "/tasks");
+	
 };
