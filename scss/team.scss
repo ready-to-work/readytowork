@@ -5,6 +5,53 @@
 #teamName {
 	font-size: $font-size-big;
 	margin: 0;
+	margin-bottom: 1.5rem;
+}
+
+#addMenu {
+	color: $color-dark;
+	background-color: $color-primary;
+	border-color: $color-primary;
+	border-radius: 0;
+	-webkit-appearance: none !important;
+
+	font-size: $font-size-mid;
+	text-decoration: none !important;
+
+	margin: 0;
+
+	.card-header {
+		text-align: center;
+	}
+
+	.card-body {
+		color: $color-primary;
+		background-color: $color-dark;
+	}
+
+	.form-control {
+		color: $color-primary;
+		background-color: $color-black;
+		border: 1px $color-primary solid;
+		border-radius: 0;
+
+		font-size: $font-size-norm;
+
+		padding: 1rem;
+	}
+
+	.btn-block {
+		color: $color-dark;
+		background-color: $color-primary;
+		border: none;
+		-webkit-appearance: none !important;
+
+		font-size: $font-size-mid;
+		text-decoration: none !important;
+
+		padding: 0.5rem;
+		border-radius: 0;
+	}
 }
 
 .card-box {

@@ -56,6 +56,23 @@
 		</div>
 		-->
 
+		<!-- Replace with actual team management later -->
+		<div class="row">
+			<div class="col">
+				<div class="card" id="addMenu">
+					<div class="card-header font-bold" id="addButton">invite user</div>
+					<div class="card-body" id="addTaskForm">
+						<form role="form" method="get" action="/{{userID}}/teamlist/{{currTeam.teamID}}/invite">
+						    <div class="form-group">
+						      <input type="text" class="form-control" placeholder="user email" name="email">
+						    </div>
+						    <input type="submit" id="submitBtn" class="btn-block" value="invite"></input>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<div class="row">
 			<div class="col">
 				<div class="card card-box" id="calendar-box">

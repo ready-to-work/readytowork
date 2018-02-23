@@ -5,7 +5,7 @@
 .menu-item {
 	color: $color-primary;
 	background-color: $color-secondary;
-	border-color: $color-black;
+	border-color: $color-secondary;
 	border-radius: 0;
 	-webkit-appearance: none !important;
 
@@ -14,11 +14,17 @@
 
 	margin-top: 1rem !important;
 	margin-bottom: 0 !important;
+
+	&:active, &:focus, &:hover, &:not(:disabled):not(.disabled):active {
+		// Remove color changes on hover/click/press
+		color: $color-dark;
+		background-color: $color-primary;
+		border-color: $color-primary;
+	}
 }
 
-.menu-item:active, .menu-item:focus, .menu-item:hover, .menu-item:not(:disabled):not(.disabled):active {
-	// Remove color changes on hover/click/press
-	color: $color-black;
+#acceptBtn {
+	color: $color-dark;
 	background-color: $color-primary;
 	border-color: $color-primary;
 }

@@ -1,4 +1,4 @@
-/*
+/*.
  * GET a team page.
  */
 
@@ -14,4 +14,53 @@ exports.view = function(req, res){
 	data.currTeam = TEAMS[req.params.teamid];
 
 	res.render('team', data);
+};
+
+exports.invite = function(req, res){
+	var userID = req.params.userid;
+	var teamID = req.params.teamid;
+	var inviteEmail = req.query.email;
+	var inviteID;
+	var alreadyInvited = false;
+	var prevRejected = false;
+
+	// Find user ID of the email
+	if(LOGINS.hasOwnProperty(inviteEmail)) inviteID = LOGINS[inviteEmail].userID;
+
+	// Add member to the team
+	if (inviteID)
+	{
+		for (var i in USERS[inviteID].teams)
+		{
+			if (USERS[inviteID].teams[i] == teamID)
+			{
+				alreadyInvited = true;
+			}
+		}
+
+		for (var j in TEAMS[teamID].members)
+		{
+			if (TEAMS[teamID].members[j].userID == inviteID)
+			{
+				prevRejected = true;
+			}
+		}
+
+		if (!prevRejected)
+		{
+			// Add to team's member list
+			TEAMS[teamID].members.push({
+				"userID": inviteID,
+				"role": "invited"
+			});
+		}
+
+		if (!alreadyInvited)
+		{
+			// Add to the user's teamlist
+			USERS[inviteID].teams.push(teamID);
+		}
+	}
+
+	res.redirect("/" + userID + "/teamlist/" + teamID);
 };
