@@ -55,6 +55,7 @@
 		text-decoration: none !important;
 
 		padding: 0.5rem;
+		border-radius: 0;
 	}
 }
 
@@ -69,6 +70,7 @@
 		background-color: $color-secondary;
 
 		font-size: $font-size-mid;
+		text-decoration: none;
 	}
 
 	.card-body {
@@ -77,4 +79,8 @@
 
 		font-size: $font-size-norm;
 	}
+}
+
+.modal {
+	color: $color-black;
 }

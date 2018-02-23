@@ -12,5 +12,5 @@ exports.view = function(req, res){
 	var userID = req.params.userid;
 	data.userID = userID; // COPY PASTE FOR EVERY PAGE FOR NAVBAR
 
-	res.render('profile', data);
+	res.render('calendar', data);
 };

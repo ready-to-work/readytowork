@@ -5,26 +5,18 @@
 #teamName {
 	font-size: $font-size-big;
 	margin: 0;
-	margin-bottom: 1.5rem;
 }
 
 .card-box {
-	color: $color-dark;
-	background-color: $color-primary;
+	color: $color-primary;
+	background-color: $color-secondary;
 
 	margin-top: 1.5rem;
 
-	.card-text {
-		padding: 1.25rem;
-	}
-}
-
-#calendar-box, #task-box {
-	background-color: $color-primary;
 	border-radius: 0;
 
 	a, a:link, a:visited, a:hover, a:active {
-		color: $color-dark;
+		text-decoration: none;
 	}
 
 	.card-block {

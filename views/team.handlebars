@@ -29,6 +29,7 @@
 			</div>
 		</div>
 
+		<!-- TODO
 		<div class="row">
 			<div class="col">
 				<div class="card">
@@ -53,12 +54,13 @@
 				</div>
 			</div>
 		</div>
+		-->
 
 		<div class="row">
 			<div class="col">
 				<div class="card card-box" id="calendar-box">
 					<a href="/{{userID}}/teamlist/{{currTeam.teamID}}/calendar">
-						<h2 class="card-header font-bold">Team Calendar</h2>
+						<h2 class="card-header">Team Calendar</h2>
 					</a>
 					<div class="card-block">
 						{{#each currTeam.events}}
@@ -79,7 +81,7 @@
 			<div class="col">
 				<div class="card card-box" id="task-box">
 					<a href="/{{userID}}/teamlist/{{currTeam.teamID}}/tasks">
-						<h2 class="card-header font-bold">Team Tasks</h2>
+						<h2 class="card-header">Team Tasks</h2>
 					</a>
 					<div class="card-block">
 						{{#each currTeam.tasks}}
