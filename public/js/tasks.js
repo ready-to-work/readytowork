@@ -13,6 +13,22 @@ $(document).ready(function() {
 	});
 });
 
+
+/*
+$('.datepicker').datepicker({
+	uiLibrary: 'bootstrap4'
+});
+
+$('.timepicker').timepicker({
+	uiLibrary: 'bootstrap4'
+});*/
+
+$('.datepicker').datepicker();
+
+$('.timepicker').timepicker({
+	modal: false
+});
+
 /*
 $(".modal-footer button#submitChange").click(function(e){
 	e.preventDefault();
