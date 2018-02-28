@@ -33,21 +33,36 @@
 				<div class="card" id="addMenu">
 					<div class="card-header font-bold pointer" id="addButton">create new task</div>
 					<div class="card-body" id="addTaskForm">
-						<form role="form" method="get" action="/{{userID}}/teamlist/{{currTeam.teamID}}/tasks/add">
+						<form role="form" method="get" id="createTaskForm" action="/{{userID}}/teamlist/{{currTeam.teamID}}/tasks/add">
 						    <div class="form-group">
 						      <input type="text" class="form-control" placeholder="task title" name="title">
 						    </div>
 						    <div class="form-group">
-						      <input type="text" class="form-control" placeholder="priority" name="priority">
+						      <input type="text" class="form-control" placeholder="description" name="description">
 						    </div>
+						    <!--
 						    <div class="form-group">
 						      <input type="text" class="form-control datepicker" placeholder="due date" name="dueDate">
-						    </div>
-						    <div class="form-group">
+						    </div> 
+							<div class="form-group">
 						      <input type="text" class="form-control timepicker" placeholder="due time" name="dueTime">
 						    </div>
+							-->
 						    <div class="form-group">
-						      <input type="text" class="form-control" placeholder="description" name="description">
+						      <input type="date" class="form-control" value="2018-04-20" name="dueDate">
+						    </div>
+						    <div class="form-group">
+						      <input type="time" class="form-control" value="12:00:00" name="dueTime">
+						    </div>
+						    <div class="form-group">
+						    	<label class="form-control-label">priority:</label>
+							    <select name="priority" form="createTaskForm">
+							    	<option>1</option>
+							    	<option>2</option>
+							    	<option>3</option>
+							    	<option>4</option>
+							    	<option>5</option>
+							    </select>
 						    </div>
 						    <input type="submit" id="submitBtn" class="btn btn-block" value="create"></input>
 						</form>
@@ -92,26 +107,32 @@
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							</div>
 							<div class="modal-body">
-								<form role="form" method="get" action="/{{../userID}}/teamlist/{{../currTeam.teamID}}/tasks/edit">
+								<form role="form" method="get" id="{{title}}form" action="/{{../userID}}/teamlist/{{../currTeam.teamID}}/tasks/edit">
 								    <div class="form-group">
 								    	<label for="title" class="form-control-label">title:</label>
 								      	<input type="text" class="form-control" value="{{title}}" name="title">
 								    </div>
 								    <div class="form-group">
-								    	<label class="form-control-label">priority:</label>
-								      	<input type="text" class="form-control" value="{{priority}}" name="priority">
+								    	<label class="form-control-label">description:</label>
+								      	<input type="text" class="form-control" value="{{description}}" name="description">
 								    </div>
 								    <div class="form-group">
 								      	<label class="form-control-label">due date:</label>
-								      	<input type="text" class="form-control datepicker" value="{{dueDate}}" name="dueDate">
+								      	<input type="date" class="form-control" value="{{dueDate}}" name="dueDate">
 								    </div>
 								    <div class="form-group">
 								      	<label class="form-control-label">due time:</label>
-								      	<input type="text" class="form-control timepicker" value="{{dueTime}}" name="dueTime">
+								      	<input type="time" class="form-control" value="{{dueTime}}" name="dueTime">
 								    </div>
 								    <div class="form-group">
-								    	<label class="form-control-label">description:</label>
-								      	<input type="text" class="form-control" value="{{description}}" name="description">
+								    	<label class="form-control-label">priority:</label>
+								      	<select name="priority" form="{{title}}form">
+									    	<option>1</option>
+									    	<option>2</option>
+									    	<option>3</option>
+									    	<option>4</option>
+									    	<option>5</option>
+									    </select>
 								    </div>
 								    <div class="form-group">
 								    	<input type="hidden" class="form-control" name="id" value="{{id}}">

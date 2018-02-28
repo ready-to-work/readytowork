@@ -13,7 +13,6 @@ $(document).ready(function() {
 	});
 });
 
-
 /*
 $('.datepicker').datepicker({
 	uiLibrary: 'bootstrap4'
@@ -26,6 +25,8 @@ $('.timepicker').timepicker({
 $('.datepicker').datepicker();
 
 $('.timepicker').timepicker({
-	modal: false
+	modal: false,
+	footer: false,
+	header: false
 });
 
