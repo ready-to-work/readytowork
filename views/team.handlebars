@@ -60,13 +60,13 @@
 		<div class="row">
 			<div class="col">
 				<div class="card" id="addMenu">
-					<div class="card-header font-bold" id="addButton">invite user</div>
+					<div class="card-header font-bold pointer" id="addButton">invite user</div>
 					<div class="card-body" id="addTaskForm">
 						<form role="form" method="get" action="/{{userID}}/teamlist/{{currTeam.teamID}}/invite">
 						    <div class="form-group">
 						      <input type="text" class="form-control" placeholder="user email" name="email">
 						    </div>
-						    <input type="submit" id="submitBtn" class="btn-block" value="invite"></input>
+						    <input type="submit" id="submitBtn" class="btn btn-block" value="invite"></input>
 						</form>
 					</div>
 				</div>
@@ -75,18 +75,15 @@
 
 		<div class="row">
 			<div class="col">
-				<div class="card card-box" id="calendar-box">
-					<a href="/{{userID}}/teamlist/{{currTeam.teamID}}/calendar">
-						<h2 class="card-header">Team Calendar</h2>
+				<div class="card card-box" id="event-box">
+					<a href="/{{userID}}/teamlist/{{currTeam.teamID}}/events">
+						<p class="card-header">Team Events</p>
 					</a>
 					<div class="card-block">
 						{{#each currTeam.events}}
 						<div class="item">
 							<div class="item-title">{{title}}</div>
-							<div class="item-info"><span class="font-bold">starts:</span> {{startDate}}, {{startTime}}</div>
-							<div class="item-info"><span class="font-bold">ends:</span> {{endDate}}, {{endTime}}</div>
-							<div class="item-info"><span class="font-bold">location:</span> {{location}}</div>
-							<div class="item-info"><span class="font-bold">description:</span> {{description}}</div>
+							<div class="item-info font-italic">{{description}}</div>
 						</div>
 						{{/each}}
 					</div>
@@ -98,13 +95,13 @@
 			<div class="col">
 				<div class="card card-box" id="task-box">
 					<a href="/{{userID}}/teamlist/{{currTeam.teamID}}/tasks">
-						<h2 class="card-header">Team Tasks</h2>
+						<p class="card-header">Team Tasks</p>
 					</a>
 					<div class="card-block">
 						{{#each currTeam.tasks}}
 						<div class="item">
 							<div class="item-title">{{title}}</div>
-							<div class="item-info"><span class="font-bold">description:</span> {{description}}</div>
+							<div class="item-info font-italic">{{description}}</div>
 						</div>
 						{{/each}}
 					</div>

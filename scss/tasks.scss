@@ -65,9 +65,19 @@
 
 	margin-top: 1.5rem;
 
+	.modal-link {
+		border-color: $color-secondary;
+		border-radius: 0;
+
+		text-decoration: none;
+	}
+
 	.card-header {
 		color: $color-primary;
 		background-color: $color-secondary;
+
+		border-color: $color-secondary;
+		border-radius: 0;
 
 		font-size: $font-size-mid;
 		text-decoration: none;
@@ -76,6 +86,9 @@
 	.card-body {
 		color: $color-white;
 		background-color: $color-black;
+
+		border-color: $color-secondary;
+		border-radius: 0;
 
 		font-size: $font-size-norm;
 	}

@@ -14,7 +14,7 @@
 
 	<!-- Stylesheets -->
 	{{> bootstrapCSS}}
-	<link rel="stylesheet" href="/css/tasks.css">
+	<link rel="stylesheet" href="/css/events.css">
 </head>
 
 <body>
@@ -24,27 +24,33 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<p id="teamName">{{currTeam.teamName}} tasks</p> 
+				<p id="teamName">{{currTeam.teamName}} events</p> 
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col">
 				<div class="card" id="addMenu">
-					<div class="card-header font-bold pointer" id="addButton">create new task</div>
-					<div class="card-body" id="addTaskForm">
-						<form role="form" method="get" action="/{{userID}}/teamlist/{{currTeam.teamID}}/tasks/add">
+					<div class="card-header font-bold pointer" id="addButton">create new event</div>
+					<div class="card-body" id="addEventForm">
+						<form role="form" method="get" action="/{{userID}}/teamlist/{{currTeam.teamID}}/events/add">
 						    <div class="form-group">
-						      <input type="text" class="form-control" placeholder="task title" name="title">
+						      <input type="text" class="form-control" placeholder="event title" name="title">
 						    </div>
 						    <div class="form-group">
-						      <input type="text" class="form-control" placeholder="priority" name="priority">
+						      <input type="text" class="form-control" placeholder="start date" name="startDate">
 						    </div>
 						    <div class="form-group">
-						      <input type="text" class="form-control" placeholder="due date" name="dueDate">
+						      <input type="text" class="form-control" placeholder="start time" name="startTime">
 						    </div>
 						    <div class="form-group">
-						      <input type="text" class="form-control" placeholder="due time" name="dueTime">
+						      <input type="text" class="form-control" placeholder="end date" name="endDate">
+						    </div>
+						    <div class="form-group">
+						      <input type="text" class="form-control" placeholder="end time" name="endTime">
+						    </div>
+						    <div class="form-group">
+						      <input type="text" class="form-control" placeholder="location" name="location">
 						    </div>
 						    <div class="form-group">
 						      <input type="text" class="form-control" placeholder="description" name="description">
@@ -58,31 +64,34 @@
 
 		<div class="row">
 			<div class="col">
-				{{#each currTeam.tasks}}
-				<div class="card task-card">
+				{{#each currTeam.events}}
+				<div class="card event-card">
 					<!-- this makes the title a link that pops the modal -->
 					<a href="#{{title}}Edit" data-toggle="modal" data-target="#{{title}}Edit" class="modal-link"> 
 						<p class="card-header">{{title}}</p> 
 					</a>
 					<div class="card-body">
-						{{#if priority}}
-						<p><span class="font-bold">priority: </span>{{priority}}</p>
+						{{#if startDate}}
+						<p><span class="font-bold">start: </span>{{startDate}}{{#if startTime}}, {{startTime}}{{/if}}</p>
 						{{/if}}
-						{{#if dueDate}}
-						<p><span class="font-bold">due: </span>{{dueDate}}{{#if dueTime}}, {{dueTime}}{{/if}}</p>
+						{{#if endDate}}
+						<p><span class="font-bold">end: </span>{{endDate}}{{#if endTime}}, {{endTime}}{{/if}}</p>
+						{{/if}}
+						{{#if location}}
+						<p><span class="font-bold">location: </span>{{location}}</p>
 						{{/if}}
 						{{#if description}}
 						<p class="font-italic">{{description}}</p>
 						{{/if}}
-						<!-- {{#if assignedNames}}
-						<p><span class="font-bold">assigned to:</span>{{#each assignedNames}}<br/>{{this}}{{/each}}</p>
+						<!-- {{#if goingNames}}
+						<p><span class="font-bold">going:</span>{{#each goingNames}}<br/>{{this}}{{/each}}</p>
 						{{/if}} -->
 					</div>
 				</div>
 				{{/each}}
 				
 				<!-- Modal popup form -->
-				{{#each currTeam.tasks}}
+				{{#each currTeam.events}}
 				<div class="modal fade" id="{{title}}Edit" tabindex="-1" role="dialog"  aria-hidden="true">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
@@ -92,22 +101,30 @@
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							</div>
 							<div class="modal-body">
-								<form role="form" method="get" action="/{{../userID}}/teamlist/{{../currTeam.teamID}}/tasks/edit">
+								<form role="form" method="get" action="/{{../userID}}/teamlist/{{../currTeam.teamID}}/events/edit">
 								    <div class="form-group">
 								    	<label for="title" class="form-control-label">title:</label>
 								      	<input type="text" class="form-control" value="{{title}}" name="title">
 								    </div>
 								    <div class="form-group">
-								    	<label for="priority" class="form-control-label">priority:</label>
-								      	<input type="text" class="form-control" value="{{priority}}" name="priority">
+								      	<label for="startDate" class="form-control-label">start date:</label>
+								      	<input type="text" class="form-control" value="{{startDate}}" name="startDate">
 								    </div>
 								    <div class="form-group">
-								      	<label for="dueDate" class="form-control-label">due date:</label>
-								      	<input type="text" class="form-control" value="{{dueDate}}" name="dueDate">
+								      	<label for="startTime" class="form-control-label">start time:</label>
+								      	<input type="text" class="form-control" value="{{startTime}}" name="startTime">
 								    </div>
 								    <div class="form-group">
-								      	<label for="dueTime" class="form-control-label">due time:</label>
-								      	<input type="text" class="form-control" value="{{dueTime}}" name="dueTime">
+								      	<label for="endDate" class="form-control-label">end date:</label>
+								      	<input type="text" class="form-control" value="{{endDate}}" name="endDate">
+								    </div>
+								    <div class="form-group">
+								      	<label for="endTime" class="form-control-label">end time:</label>
+								      	<input type="text" class="form-control" value="{{endTime}}" name="endTime">
+								    </div>
+								    <div class="form-group">
+								    	<label for="location" class="form-control-label">location:</label>
+								      	<input type="text" class="form-control" value="{{location}}" name="location">
 								    </div>
 								    <div class="form-group">
 								    	<label for="description" class="form-control-label">description:</label>
@@ -138,7 +155,7 @@
 	<!-- Scripts -->
 	{{> bootstrapJS}}
 	<script src="/js/main.js"></script>
-	<script src="/js/tasks.js"></script>
+	<script src="/js/events.js"></script>
 
 </body>
 
