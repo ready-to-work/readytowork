@@ -1,6 +1,7 @@
 {
 	"nextTeamID": 4,
 	"nextTaskID": 3,
+	"nextEventID": 3,
 	"1":
 	{ 
 		"teamName": "Team ReadyToWork",
@@ -21,13 +22,15 @@
 		],
 		"events": [
 			{
+				"id": 1,
 				"title": "Friday Studio",
 				"startDate": "2/23/2018",
 				"startTime": "11:30 AM",
 				"endDate": "2/23/2018",
 				"endTime": "12:40 PM",
 				"location": "CSB 272",
-				"description": "Studio for COGS 120."
+				"description": "Studio for COGS 120.",
+				"going":  [3, 4, 5]
 			}
 		],
 		"tasks": [
@@ -59,13 +62,15 @@
 		],
 		"events": [
 			{
+				"id": 2,
 				"title": "Example Event",
 				"startDate": "MM/DD/YYYY",
 				"startTime": "HH:MM AP",
 				"endDate": "MM/DD/YYYY",
 				"endTime": "HH:MM AP",
 				"location": "Example Location",
-				"description": "This is an example event."
+				"description": "This is an example event.",
+				"going": [1, 2]
 			}
 		],
 		"tasks": [
