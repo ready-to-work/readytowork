@@ -33,11 +33,17 @@ exports.addTask = function(req, res) { 
 	var userID = req.params.userid;
 	var teamID = req.params.teamid;
 
+	//date value is: YYYY-MM-DD
+	var year = req.query.dueDate.substring(0,4);
+	var month = req.query.dueDate.substring(5,7);
+	var day = req.query.dueDate.substring(8);
+	var newDate = month + "/" + day + "/" + year;
+
 	var newTask = {
 		"id": TEAMS.nextTaskID,
 		"title": req.query.title,
 		"priority": req.query.priority,
-		"dueDate": req.query.dueDate,
+		"dueDate": newDate,
 		"dueTime": req.query.dueTime,
 		"description": req.query.description,
 		"assigned": [] // TODO
@@ -55,12 +61,17 @@ exports.editTask = function(req, res) { 
 	var userid = req.params.userid;
 	var teamid = req.params.teamid;
 
+	var year = req.query.dueDate.substring(0,4);
+	var month = req.query.dueDate.substring(5,7);
+	var day = req.query.dueDate.substring(8);
+	var newDate = month + "/" + day + "/" + year;
+
 	var currTeam = TEAMS[teamid];
 	var newTask = {
 		"id": req.query.id,
 		"title": req.query.title,
 		"priority": req.query.priority,
-		"dueDate": req.query.dueDate,
+		"dueDate": newDate,
 		"dueTime": req.query.dueTime,
 		"description": req.query.description,
 		"assigned": [] // TODO
