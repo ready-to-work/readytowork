@@ -77,7 +77,7 @@
 			<div class="col">
 				<div class="card card-box" id="event-box">
 					<a href="/{{userID}}/teamlist/{{currTeam.teamID}}/events">
-						<p class="card-header">Team Events</p>
+						<p class="card-header">Team Events<i class="fa fa-caret-right float-right" id="arrowIcon"></i></p>
 					</a>
 					<div class="card-block">
 						{{#each currTeam.events}}
@@ -95,7 +95,7 @@
 			<div class="col">
 				<div class="card card-box" id="task-box">
 					<a href="/{{userID}}/teamlist/{{currTeam.teamID}}/tasks">
-						<p class="card-header">Team Tasks</p>
+						<p class="card-header">Team Tasks<i class="fa fa-caret-right float-right" id="arrowIcon"></i></p>
 					</a>
 					<div class="card-block">
 						{{#each currTeam.tasks}}

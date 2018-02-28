@@ -73,6 +73,15 @@
 		text-decoration: none;
 	}
 
+	#editBtn {
+		color: $color-primary;
+		background-color: $color-secondary;
+		font-size: $font-size-mid;
+
+		padding: 0;
+		border: 0;
+	}
+
 	.card-header {
 		color: $color-primary;
 		background-color: $color-secondary;
@@ -112,8 +121,6 @@
 
 		.modal-title {
 			font-size: $font-size-mid;
-
-			float: left;
 		}
 
 		.modal-close {
@@ -123,8 +130,6 @@
 
 			padding: 0;
 			border: 0;
-
-			float: right;
 		}
 	}
 
