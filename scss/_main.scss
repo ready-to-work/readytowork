@@ -13,6 +13,9 @@ $font-size-mid: 2.4rem;
 $font-size-norm: 2.2rem;
 $font-size-small: 1.8rem;
 
+$border-width: 0.3rem;
+$border-width-thin: 0.1rem;
+
 html {
 	// For most, should be 10px. Scale rems off of 10px.
 	font-size: 62.5%;
@@ -30,6 +33,15 @@ body {
 	// Spacing for fixed-top navbar
 	margin-top: 7rem;
 	margin-bottom: 1.5rem;
+
+	// No rounded corners
+	border-radius: 0;
+}
+
+::placeholder {
+	// Change default placeholder text color
+	color: $color-secondary !important;
+	opacity: 1;
 }
 
 *:focus {

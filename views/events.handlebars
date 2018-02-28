@@ -38,22 +38,24 @@
 						      <input type="text" class="form-control" placeholder="event title" name="title">
 						    </div>
 						    <div class="form-group">
-						      <input type="text" class="form-control" placeholder="start date" name="startDate">
-						    </div>
-						    <div class="form-group">
-						      <input type="text" class="form-control" placeholder="start time" name="startTime">
-						    </div>
-						    <div class="form-group">
-						      <input type="text" class="form-control" placeholder="end date" name="endDate">
-						    </div>
-						    <div class="form-group">
-						      <input type="text" class="form-control" placeholder="end time" name="endTime">
+						      <input type="text" class="form-control" placeholder="description" name="description">
 						    </div>
 						    <div class="form-group">
 						      <input type="text" class="form-control" placeholder="location" name="location">
 						    </div>
+						    <label class="form-control-label">start date and time:</label>
 						    <div class="form-group">
-						      <input type="text" class="form-control" placeholder="description" name="description">
+						      <input type="date" class="form-control" placeholder="start date" name="startDate">
+						    </div>
+						    <div class="form-group">
+						      <input type="time" class="form-control" placeholder="start time" name="startTime">
+						    </div>
+						    <label class="form-control-label">end date and time:</label>
+						    <div class="form-group">
+						      <input type="date" class="form-control" placeholder="end date" name="endDate">
+						    </div>
+						    <div class="form-group">
+						      <input type="time" class="form-control" placeholder="end time" name="endTime">
 						    </div>
 						    <input type="submit" id="submitBtn" class="btn btn-block" value="create"></input>
 						</form>
@@ -96,48 +98,46 @@
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h4 class="modal-title" id="exampleModalLabel">edit "{{title}}"</h4>
-								<!-- the x btn to close -->
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<button class="modal-close align-middle" type="button" data-dismiss="modal" aria-label="close"><span class="fa fa-times"></span></button>
+								<p class="modal-title font-bold" id="exampleModalLabel">edit "{{title}}"</p>
 							</div>
 							<div class="modal-body">
 								<form role="form" method="get" action="/{{../userID}}/teamlist/{{../currTeam.teamID}}/events/edit">
 								    <div class="form-group">
 								    	<label for="title" class="form-control-label">title:</label>
-								      	<input type="text" class="form-control" value="{{title}}" name="title">
-								    </div>
-								    <div class="form-group">
-								      	<label for="startDate" class="form-control-label">start date:</label>
-								      	<input type="text" class="form-control" value="{{startDate}}" name="startDate">
-								    </div>
-								    <div class="form-group">
-								      	<label for="startTime" class="form-control-label">start time:</label>
-								      	<input type="text" class="form-control" value="{{startTime}}" name="startTime">
-								    </div>
-								    <div class="form-group">
-								      	<label for="endDate" class="form-control-label">end date:</label>
-								      	<input type="text" class="form-control" value="{{endDate}}" name="endDate">
-								    </div>
-								    <div class="form-group">
-								      	<label for="endTime" class="form-control-label">end time:</label>
-								      	<input type="text" class="form-control" value="{{endTime}}" name="endTime">
-								    </div>
-								    <div class="form-group">
-								    	<label for="location" class="form-control-label">location:</label>
-								      	<input type="text" class="form-control" value="{{location}}" name="location">
+								      	<input type="text" class="form-control" placeholder="title" value="{{title}}" name="title">
 								    </div>
 								    <div class="form-group">
 								    	<label for="description" class="form-control-label">description:</label>
-								      	<input type="text" class="form-control" value="{{description}}" name="description">
+								      	<input type="text" class="form-control" placeholder="description" value="{{description}}" name="description">
+								    </div>
+								    <div class="form-group">
+								    	<label for="location" class="form-control-label">location:</label>
+								      	<input type="text" class="form-control" placeholder="location" value="{{location}}" name="location">
+								    </div>
+								    <div class="form-group">
+								      	<label for="startDate" class="form-control-label">start date:</label>
+								      	<input type="date" class="form-control" placeholder="start date" value="{{startDate}}" name="startDate">
+								    </div>
+								    <div class="form-group">
+								      	<label for="startTime" class="form-control-label">start time:</label>
+								      	<input type="time" class="form-control" placeholder="start time" value="{{startTime}}" name="startTime">
+								    </div>
+								    <div class="form-group">
+								      	<label for="endDate" class="form-control-label">end date:</label>
+								      	<input type="date" class="form-control" placeholder="end date" value="{{endDate}}" name="endDate">
+								    </div>
+								    <div class="form-group">
+								      	<label for="endTime" class="form-control-label">end time:</label>
+								      	<input type="time" class="form-control" placeholder="end time" value="{{endTime}}" name="endTime">
 								    </div>
 								    <div class="form-group">
 								    	<input type="hidden" class="form-control" name="id" value="{{id}}">
 								    </div>
-								    <input type="submit" id="submitBtn" class="btn-block" value="submit change"></input>
+								    <input type="submit" id="submitBtn" class="btn btn-block font-bold" value="submit change"></input>
 								</form>
-							</div>	
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
+
+								<button class="align-middle float-right" type="button" id="trashBtn"><i class="fa fa-trash"></i></button>
 							</div>
 						</div>
 					</div>		

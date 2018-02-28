@@ -20,8 +20,8 @@ h1 {
 
 .form-box {
 	color: $color-primary;
-	background-color: $color-dark;
-	border: 2px $color-primary solid !important;
+	background-color: $color-dark;	
+	border: $border-width $color-primary solid !important;
 	border-radius: 0;
 
 	padding: 1rem;

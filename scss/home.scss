@@ -5,7 +5,7 @@
 .menu-item {
 	color: $color-primary;
 	background-color: $color-secondary;
-	border-color: $color-secondary;
+	border: 0;
 	border-radius: 0;
 	-webkit-appearance: none !important;
 
@@ -30,8 +30,9 @@
 }
 
 #alert-box {
-	color: $color-primary;
-	background-color: $color-secondary;
+	color: $color-dark;
+	background-color: $color-primary;
+	border: $border-width $color-primary solid;
 	border-radius: 0;
 
 	font-size: $font-size-mid;
@@ -40,6 +41,7 @@
 		font-size: $font-size-mid;
 		text-align: center;
 
+		border: 0;
 		padding-top: 0.5rem;
 		padding-bottom: 0.5rem;
 	}

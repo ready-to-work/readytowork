@@ -48,6 +48,7 @@
 						      <input type="text" class="form-control timepicker" placeholder="due time" name="dueTime">
 						    </div>
 							-->
+							<label class="form-control-label">due date and time:</label>
 						    <div class="form-group">
 						      <input type="date" class="form-control" value="2018-04-20" name="dueDate">
 						    </div>
@@ -55,7 +56,7 @@
 						      <input type="time" class="form-control" value="12:00:00" name="dueTime">
 						    </div>
 						    <div class="form-group">
-						    	<label class="form-control-label">priority:</label>
+						    	<label class="form-control-label">priority:</label><br/>
 							    <select name="priority" form="createTaskForm">
 							    	<option>1</option>
 							    	<option>2</option>
@@ -102,30 +103,29 @@
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h4 class="modal-title" id="exampleModalLabel">edit "{{title}}"</h4>
-								<!-- the x btn to close -->
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<button class="modal-close align-middle" type="button" data-dismiss="modal" aria-label="close"><span class="fa fa-times"></span></button>
+								<h4 class="modal-title font-bold" id="exampleModalLabel">edit "{{title}}"</h4>
 							</div>
 							<div class="modal-body">
 								<form role="form" method="get" id="{{title}}form" action="/{{../userID}}/teamlist/{{../currTeam.teamID}}/tasks/edit">
 								    <div class="form-group">
 								    	<label for="title" class="form-control-label">title:</label>
-								      	<input type="text" class="form-control" value="{{title}}" name="title">
+								      	<input type="text" class="form-control" placeholder="title" value="{{title}}" name="title">
 								    </div>
 								    <div class="form-group">
 								    	<label class="form-control-label">description:</label>
-								      	<input type="text" class="form-control" value="{{description}}" name="description">
+								      	<input type="text" class="form-control" placeholder="description" value="{{description}}" name="description">
 								    </div>
 								    <div class="form-group">
 								      	<label class="form-control-label">due date:</label>
-								      	<input type="date" class="form-control" value="{{dueDate}}" name="dueDate">
+								      	<input type="date" class="form-control" placeholder="due date" value="{{dueDate}}" name="dueDate">
 								    </div>
 								    <div class="form-group">
 								      	<label class="form-control-label">due time:</label>
-								      	<input type="time" class="form-control" value="{{dueTime}}" name="dueTime">
+								      	<input type="time" class="form-control" placeholder="due time" value="{{dueTime}}" name="dueTime">
 								    </div>
 								    <div class="form-group">
-								    	<label class="form-control-label">priority:</label>
+								    	<label class="form-control-label">priority:</label><br/>
 								      	<select name="priority" form="{{title}}form">
 									    	<option>1</option>
 									    	<option>2</option>
@@ -138,10 +138,10 @@
 								    	<input type="hidden" class="form-control" name="id" value="{{id}}">
 								    </div>
 								    <input type="submit" id="submitBtn" class="btn-block" value="submit change"></input>
+
+								    <button class="float-left" type="button" id="doneBtn"><i class="far fa-check-square"></i></button>
+									<button class="float-right" type="button" id="trashBtn"><i class="fa fa-trash"></i></button>
 								</form>
-							</div>	
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
 							</div>
 						</div>
 					</div>		

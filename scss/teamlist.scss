@@ -2,15 +2,11 @@
 
 @import "main";
 
-::placeholder {
-	color: $color-secondary !important;
-	opacity: 1;
-}
-
 #addMenu {
 	color: $color-dark;
 	background-color: $color-primary;
 	border-color: $color-primary;
+	border: $border-width $color-primary solid;
 	border-radius: 0;
 	-webkit-appearance: none !important;
 
@@ -21,6 +17,7 @@
 
 	.card-header {
 		text-align: center;
+		border: 0;
 	}
 
 	.card-body {
@@ -31,7 +28,7 @@
 	.form-control {
 		color: $color-primary;
 		background-color: $color-black;
-		border: 1px $color-primary solid;
+		border: $border-width-thin $color-primary solid;
 		border-radius: 0;
 
 		font-size: $font-size-norm;
@@ -56,6 +53,8 @@
 .card-box {
 	color: $color-dark;
 	background-color: $color-primary;
+	border: $border-width $color-secondary solid;
+	border-radius: 0;
 
 	font-size: $font-size-mid;
 
@@ -66,13 +65,17 @@
 	}
 }
 
-#team-box, #task-box {
+#team-box {
 	background-color: $color-secondary;
 	border-radius: 0;
 
 	a, a:link, a:visited, a:hover, a:active {
 		color: $color-primary;
 		text-decoration: none;
+	}
+
+	.card-header {
+		border: 0;
 	}
 
 	.card-block {
