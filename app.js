@@ -53,6 +53,7 @@ app.get('/:userid/teamlist/add', teamlist.addTeam);
 app.get('/:userid/profile', profile.view);
 app.get('/:userid/settings', settings.view);
 app.get('/:userid/teamlist/:teamid', team.view);
+app.get('/:userid/teamlist/:teamid/b', team.viewB);
 app.get('/:userid/teamlist/:teamid/invite', team.invite);
 app.get('/:userid/teamlist/:teamid/events', events.view);
 app.get('/:userid/teamlist/:teamid/events/add', events.addEvent);

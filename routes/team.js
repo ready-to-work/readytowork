@@ -16,6 +16,15 @@ exports.view = function(req, res){
 	res.render('team', data);
 };
 
+exports.viewB = function(req, res){
+	var userID = req.params.userid;
+	data.userID = userID; // COPY PASTE FOR EVERY PAGE FOR NAVBAR
+
+	data.currTeam = TEAMS[req.params.teamid];
+
+	res.render('teamB', data);
+};
+
 exports.invite = function(req, res){
 	var userID = req.params.userid;
 	var teamID = req.params.teamid;

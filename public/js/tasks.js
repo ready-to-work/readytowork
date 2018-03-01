@@ -1,4 +1,4 @@
-// JS for tasks.js
+// JS for tasks.handlebars
 
 'use strict';
 var flag = true;

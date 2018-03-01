@@ -1,4 +1,4 @@
-// JS for team.handlebars
+// JS for teamB.handlebars
 
 'use strict';
 var flag = true;
