@@ -43,6 +43,35 @@
 		#addMenu {
 			border: 0;
 			border-radius: 0;
+
+			.card-body {
+				color: $color-primary;
+				background-color: $color-dark;
+			}
+
+			.form-control {
+				color: $color-primary;
+				background-color: $color-black;
+				border: $border-width-thin $color-primary solid;
+				border-radius: 0;
+
+				font-size: $font-size-norm;
+
+				padding: 1rem;
+			}
+
+			.btn-block {
+				color: $color-dark;
+				background-color: $color-primary;
+				border: none;
+				-webkit-appearance: none !important;
+
+				font-size: $font-size-mid;
+				text-decoration: none !important;
+
+				padding: 0.5rem;
+				border-radius: 0;
+			}
 		}
 
 		.btn, #addButton {

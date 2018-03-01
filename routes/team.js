@@ -71,5 +71,5 @@ exports.invite = function(req, res){
 		}
 	}
 
-	res.redirect("/" + userID + "/teamlist/" + teamID);
+	res.redirect("/" + userID + "/teamlist/" + teamID + "/page_A");
 };
