@@ -1,0 +1,74 @@
+// CSS for teamB.handlebars
+
+@import "main";
+
+#teamName {
+	font-size: $font-size-big;
+	margin: 0;
+	margin-bottom: 1rem;
+}
+
+#teamCard {
+	border: 0;
+	border-radius: 0;
+	background-color: $color-dark;
+
+	#navHeader {
+		border: 0;
+		border-radius: 0;
+		padding-top: 0;
+
+		.nav-link {
+			border: 0;
+			border-radius: 0;
+
+			color: $color-primary;
+			background-color: $color-black;
+
+			text-decoration: none;
+			font-size: $font-size-mid;
+		}
+
+		.nav-link.active {
+			color: $color-primary;
+			background-color: $color-secondary;
+			font-weight: bold;
+		}
+	}
+
+	.card-body {
+		background-color: $color-secondary;
+		padding: 1rem;
+
+		#addMenu {
+			border: 0;
+			border-radius: 0;
+		}
+
+		.btn, #addButton {
+			border: 0;
+			border-radius: 0;
+			color: $color-dark;
+			background-color: $color-primary;
+			text-decoration: none;
+			font-size: $font-size-norm;
+			padding: 1rem;
+			-webkit-appearance: none;
+		}
+
+		.item {
+			margin-top: 1rem;
+			padding: 1rem;
+			background-color: $color-dark;
+			font-size: $font-size-norm;
+
+			.item-title {
+				color: $color-primary;
+			}
+
+			.item-info {
+				color: $color-white;
+			}
+		}
+	}
+}

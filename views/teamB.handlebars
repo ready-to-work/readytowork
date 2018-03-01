@@ -14,7 +14,7 @@
 
 	<!-- Stylesheets -->
 	{{> bootstrapCSS}}
-	<link rel="stylesheet" href="/css/team.css">
+	<link rel="stylesheet" href="/css/teamB.css">
 </head>
 
 <body>
@@ -31,106 +31,54 @@
 
 		<div class="row">
 			<div class="col">
-				<div class="card">
-					<div class="card-header"> 
-						<ul class="nav nav-tabs card-header-tabs pull-right"  id="myTab" role="tablist">
+				<div class="card" id="teamCard">
+					<div class="card-header" id="navHeader"> 
+						<ul class="nav nav-fill nav-tabs card-header-tabs"  id="myTab" role="tablist">
 							<li class="nav-item">
-								<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+								<a class="nav-link mr-2 active" id="events-tab" data-toggle="tab" href="#events" role="tab" aria-controls="events" aria-selected="true">events</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+								<a class="nav-link mr-2" id="tasks-tab" data-toggle="tab" href="#tasks" role="tab" aria-controls="tasks" aria-selected="false">tasks</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+								<a class="nav-link" id="members-tab" data-toggle="tab" href="#members" role="tab" aria-controls="members" aria-selected="false">members</a>
 							</li>
 						</ul>
 					</div>
 					<div class="card-body">
 						<div class="tab-content" id="myTabContent">
-							<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
-							<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-							<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+							<div class="tab-pane fade show active" id="events" role="tabpanel" aria-labelledby="events-tab">
+								<a type="button" class="menu-item btn btn-primary btn-lg btn-block font-bold" href="/{{userID}}/teamlist/{{currTeam.teamID}}/events">manage events</a>
+								{{#each currTeam.events}}
+								<div class="item">
+									<div class="item-title">{{title}}</div>
+									<div class="item-info font-italic">{{description}}</div>
+								</div>
+								{{/each}}
+							</div>
+							<div class="tab-pane fade" id="tasks" role="tabpanel" aria-labelledby="tasks-tab">
+								<a type="button" class="menu-item btn btn-primary btn-lg btn-block font-bold" href="/{{userID}}/teamlist/{{currTeam.teamID}}/tasks">manage tasks</a>
+								{{#each currTeam.tasks}}
+								<div class="item">
+									<div class="item-title">{{title}}</div>
+									<div class="item-info font-italic">{{description}}</div>
+								</div>
+								{{/each}}
+							</div>
+							<div class="tab-pane fade" id="members" role="tabpanel" aria-labelledby="members-tab">
+								<div class="card" id="addMenu">
+									<div class="card-header text-center pointer font-bold" id="addButton">invite user</div>
+									<div class="card-body" id="addTaskForm">
+										<form role="form" method="get" action="/{{userID}}/teamlist/{{currTeam.teamID}}/invite">
+										    <div class="form-group">
+										      <input type="text" class="form-control" placeholder="user email" name="email">
+										    </div>
+										    <input type="submit" id="submitBtn" class="btn btn-block" value="invite"></input>
+										</form>
+									</div>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
-
-				<div class="card">
-					<div class="card-header">
-						<ul class="nav nav-tabs card-header-tabs">
-					      <li class="nav-item" >
-					        <a class="nav-link active" id="eventsTab">events</a>
-					      </li>
-					      <li class="nav-item">
-					        <a class="nav-link" id="tasksTab">tasks</a>
-					      </li>
-					      <li class="nav-item">
-					        <a class="nav-link" id="membersTab">members</a>
-					      </li>
-					    </ul>
-					</div>
-					<div class="card-body">
-						<div id="eventsBody">
-							<p>Test Events</p>
-						</div>
-						<div id="tasksBody">
-							<p>Test Tasks</p>
-						</div>
-						<div id="membersBody">
-							<p>Test Members</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Replace with actual team management later -->
-		<div class="row">
-			<div class="col">
-				<div class="card" id="addMenu">
-					<div class="card-header font-bold pointer" id="addButton">invite user</div>
-					<div class="card-body" id="addTaskForm">
-						<form role="form" method="get" action="/{{userID}}/teamlist/{{currTeam.teamID}}/invite">
-						    <div class="form-group">
-						      <input type="text" class="form-control" placeholder="user email" name="email">
-						    </div>
-						    <input type="submit" id="submitBtn" class="btn btn-block" value="invite"></input>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col">
-				<div class="card card-box" id="event-box">
-					<a href="/{{userID}}/teamlist/{{currTeam.teamID}}/events">
-						<p class="card-header">Team Events<i class="fa fa-caret-right float-right" id="arrowIcon"></i></p>
-					</a>
-					<div class="card-block">
-						{{#each currTeam.events}}
-						<div class="item">
-							<div class="item-title">{{title}}</div>
-							<div class="item-info font-italic">{{description}}</div>
-						</div>
-						{{/each}}
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col">
-				<div class="card card-box" id="task-box">
-					<a href="/{{userID}}/teamlist/{{currTeam.teamID}}/tasks">
-						<p class="card-header">Team Tasks<i class="fa fa-caret-right float-right" id="arrowIcon"></i></p>
-					</a>
-					<div class="card-block">
-						{{#each currTeam.tasks}}
-						<div class="item">
-							<div class="item-title">{{title}}</div>
-							<div class="item-info font-italic">{{description}}</div>
-						</div>
-						{{/each}}
 					</div>
 				</div>
 			</div>
