@@ -11,6 +11,7 @@ exports.view = function(req, res){
 	var userID = req.params.userid;
 	data.userID = userID; // COPY PASTE FOR EVERY PAGE FOR NAVBAR
 
+	data.viewingA = true;
 	data.currTeam = TEAMS[req.params.teamid];
 
 	res.render('team', data);
@@ -20,9 +21,10 @@ exports.viewB = function(req, res){
 	var userID = req.params.userid;
 	data.userID = userID; // COPY PASTE FOR EVERY PAGE FOR NAVBAR
 
+	data.viewingA = false;
 	data.currTeam = TEAMS[req.params.teamid];
 
-	res.render('teamB', data);
+	res.render('team', data);
 };
 
 exports.invite = function(req, res){

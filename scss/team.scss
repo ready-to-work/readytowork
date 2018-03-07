@@ -2,10 +2,24 @@
 
 @import "main";
 
+#backIcon {
+	display: table-cell;
+	vertical-align: middle;
+	
+	#backArrow {
+		font-size: $font-size-big;
+		float: left;
+		display: block;
+		margin-right: 1rem;
+
+		color: $color-white;
+		background-color: $color-dark;
+	}
+}
+
 #teamName {
+	display: table-cell;
 	font-size: $font-size-big;
-	margin: 0;
-	margin-bottom: 1.5rem;
 }
 
 #addMenu {

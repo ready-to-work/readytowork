@@ -14,7 +14,11 @@
 
 	<!-- Stylesheets -->
 	{{> bootstrapCSS}}
+	{{#if viewingA}}
 	<link rel="stylesheet" href="/css/team.css">
+	{{else}}
+	<link rel="stylesheet" href="/css/teamB.css">
+	{{/if}}
 </head>
 
 <body>
@@ -22,9 +26,11 @@
 	{{> navbar}}
 
 	<!-- Page -->
+	{{#if viewingA}}
 	<div class="container">
 		<div class="row">
-			<div class="col">
+			<div class="col mb-3">
+				<a href="/{{userID}}/teamlist/" id="backIcon"><i class="fa fa-caret-left" id="backArrow"></i></a>
 				<p id="teamName">{{currTeam.teamName}}</p> 
 			</div>
 		</div>
@@ -32,8 +38,8 @@
 		<div class="row">
 			<div class="col">
 				<div class="card" id="addMenu">
-					<div class="card-header font-bold pointer" id="addButton">invite user</div>
-					<div class="card-body" id="addTaskForm">
+					<div class="card-header font-bold pointer" id="inviteButton">invite user</div>
+					<div class="card-body" id="inviteUserForm">
 						<form role="form" method="get" action="/{{userID}}/teamlist/{{currTeam.teamID}}/invite">
 						    <div class="form-group">
 						      <input type="text" class="form-control" placeholder="user email" name="email">
@@ -81,11 +87,82 @@
 			</div>
 		</div>
 	</div>
+
+	{{else}}
+	<!-- Page -->
+	<div class="container">
+		<div class="row">
+			<div class="col mb-3">
+				<a href="/{{userID}}/teamlist/" id="backIcon"><i class="fa fa-caret-left" id="backArrow"></i></a>
+				<p id="teamName">{{currTeam.teamName}}</p> 
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<div class="card" id="teamCard">
+					<div class="card-header" id="navHeader"> 
+						<ul class="nav nav-fill nav-tabs card-header-tabs"  id="myTab" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link mr-2 active" id="events-tab" data-toggle="tab" href="#events" role="tab" aria-controls="events" aria-selected="true">events</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link mr-2" id="tasks-tab" data-toggle="tab" href="#tasks" role="tab" aria-controls="tasks" aria-selected="false">tasks</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" id="members-tab" data-toggle="tab" href="#members" role="tab" aria-controls="members" aria-selected="false">members</a>
+							</li>
+						</ul>
+					</div>
+					<div class="card-body">
+						<div class="tab-content" id="myTabContent">
+							<div class="tab-pane fade show active" id="events" role="tabpanel" aria-labelledby="events-tab">
+								<a type="button" class="menu-item btn btn-primary btn-lg btn-block font-bold" id="eventsButton" href="/{{userID}}/teamlist/{{currTeam.teamID}}/events">manage events</a>
+								{{#each currTeam.events}}
+								<div class="item">
+									<div class="item-title">{{title}}</div>
+									<div class="item-info font-italic">{{description}}</div>
+								</div>
+								{{/each}}
+							</div>
+							<div class="tab-pane fade" id="tasks" role="tabpanel" aria-labelledby="tasks-tab">
+								<a type="button" class="menu-item btn btn-primary btn-lg btn-block font-bold" id="tasksButton" href="/{{userID}}/teamlist/{{currTeam.teamID}}/tasks">manage tasks</a>
+								{{#each currTeam.tasks}}
+								<div class="item">
+									<div class="item-title">{{title}}</div>
+									<div class="item-info font-italic">{{description}}</div>
+								</div>
+								{{/each}}
+							</div>
+							<div class="tab-pane fade" id="members" role="tabpanel" aria-labelledby="members-tab">
+								<div class="card" id="addMenu">
+									<div class="card-header text-center pointer font-bold" id="inviteButton">invite user</div>
+									<div class="card-body" id="inviteUserForm">
+										<form role="form" method="get" action="/{{userID}}/teamlist/{{currTeam.teamID}}/invite">
+										    <div class="form-group">
+										      <input type="text" class="form-control" placeholder="user email" name="email">
+										    </div>
+										    <input type="submit" id="submitBtn" class="btn btn-block" value="invite"></input>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/if}}
 	
 	<!-- Scripts -->
 	{{> bootstrapJS}}
 	<script src="/js/main.js"></script>
+	{{#if viewingA}}
 	<script src="/js/team.js"></script>
+	{{else}}
+	<script src="/js/teamB.js"></script>
+	{{/if}}
 </body>
 
 </html>
