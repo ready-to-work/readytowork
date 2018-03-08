@@ -1,7 +1,7 @@
 {
 	"nextTeamID": 4,
-	"nextTaskID": 4,
-	"nextEventID": 4,
+	"nextTaskID": 6,
+	"nextEventID": 6,
 	"1":
 	{ 
 		"teamName": "Team ReadyToWork",
@@ -42,6 +42,28 @@
 				"location": "Price Center, Third Floor",
 				"description": "Meeting time for COGS 120.",
 				"going":  [3, 4, 5]
+			},
+			{
+				"id": 4,
+				"title": "Presentation",
+				"startDate": "3-16-2018",
+				"startTime": "4:30 PM",
+				"endDate": "3-16-2018",
+				"endTime": "6:45 PM",
+				"location": "Multipurpose Rooom",
+				"description": "Presenting our app, will have one slide, poster, and talking.",
+				"going":  [3, 4, 5]
+			},
+			{
+				"id": 5,
+				"title": "Hackathon",
+				"startDate": "3-10-2018",
+				"startTime": "9:00 PM",
+				"endDate": "3-11-2018",
+				"endTime": "3:00 AM",
+				"location": "Home",
+				"description": "Coding final touches. Should finish up on possible stretch goals and features.",
+				"going":  [3]
 			}
 		],
 		"tasks": [
@@ -57,10 +79,28 @@
 			{
 				"id": 3,
 				"title": "Submit Assignment",
-				"priority": "1",
-				"dueDate": "3/1/18",
+				"priority": "2",
+				"dueDate": "3/8/18",
 				"dueTime": "11:59 PM",
 				"description": "Submit assignment on Gradescope.",
+				"assigned": [3, 4, 5]
+			},
+			{
+				"id": 4,
+				"title": "Work on Branding",
+				"priority": "3",
+				"dueDate": "3/8/18",
+				"dueTime": "11:59 PM",
+				"description": "Make favicon, clean up styling. Double check if website styling is consistent.",
+				"assigned": [3, 4, 5]
+			},
+			{
+				"id": 5,
+				"title": "Last Minute Runthrough",
+				"priority": "2",
+				"dueDate": "3/15/18",
+				"dueTime": "5:00 PM",
+				"description": "Run through presentation and application. Check for bugs with the deployed site. Get some sleep.",
 				"assigned": [3, 4, 5]
 			}
 		],
