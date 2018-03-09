@@ -46,8 +46,9 @@
 			<div class="col">
 				{{#each teamlist}}
 				<div class="card card-box" id="team-box">
-					<a href="/{{../userID}}/teamlist/{{teamID}}/page_A">
-						<p class="card-header">{{teamName}}<i class="fa fa-caret-right float-right" id="arrowIcon"></i></p>
+					<a href="/{{../userID}}/teamlist/{{teamID}}/">
+						<div class="card-header" id="teamName">{{teamName}}</div>
+						<div id="nextIcon"><i class="fa fa-caret-right" id="nextArrow"></i></div>
 					</a> 
 					<div class="card-block">
 						<div class="item">

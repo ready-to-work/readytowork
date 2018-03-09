@@ -2,6 +2,27 @@
 
 @import "main";
 
+#nextIcon {
+	display: table-cell;
+	vertical-align: middle;
+	
+	#nextArrow {
+		font-size: $font-size-big;
+		float: right;
+		display: block;
+		margin-right: 1rem;
+
+		color: $color-primary;
+		background-color: $color-secondary;
+	}
+}
+
+#teamName {
+	display: table-cell;
+	font-size: $font-size-big;
+	background-color: $color-secondary;
+}
+
 #addMenu {
 	color: $color-dark;
 	background-color: $color-primary;
