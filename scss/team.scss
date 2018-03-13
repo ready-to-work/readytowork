@@ -1,4 +1,4 @@
-// CSS for team.handlebars
+// CSS for teamB.handlebars
 
 @import "main";
 
@@ -22,90 +22,96 @@
 	font-size: $font-size-big;
 }
 
-#addMenu {
-	color: $color-dark;
-	background-color: $color-primary;
-	border: $border-width $color-primary solid;
+#teamCard {
+	border: 0;
 	border-radius: 0;
-	-webkit-appearance: none !important;
+	background-color: $color-dark;
 
-	font-size: $font-size-mid;
-	text-decoration: none !important;
-
-	margin: 0;
-
-	.card-header {
-		text-align: center;
+	#navHeader {
 		border: 0;
+		border-radius: 0;
+		padding-top: 0;
+
+		.nav-link {
+			border: 0;
+			border-radius: 0;
+
+			color: $color-primary;
+			background-color: $color-black;
+
+			text-decoration: none;
+			font-size: $font-size-mid;
+		}
+
+		.nav-link.active {
+			color: $color-primary;
+			background-color: $color-secondary;
+			font-weight: bold;
+		}
 	}
 
 	.card-body {
-		color: $color-primary;
-		background-color: $color-dark;
-	}
-
-	.form-control {
-		color: $color-primary;
-		background-color: $color-black;
-		border: $border-width-thin $color-primary solid;
-		border-radius: 0;
-
-		font-size: $font-size-norm;
-
+		background-color: $color-secondary;
 		padding: 1rem;
-	}
 
-	.btn-block {
-		color: $color-dark;
-		background-color: $color-primary;
-		border: none;
-		-webkit-appearance: none !important;
+		#addMenu {
+			border: 0;
+			border-radius: 0;
 
-		font-size: $font-size-mid;
-		text-decoration: none !important;
+			.card-body {
+				color: $color-primary;
+				background-color: $color-dark;
+			}
 
-		padding: 0.5rem;
-		border-radius: 0;
-	}
-}
+			.form-control {
+				color: $color-primary;
+				background-color: $color-black;
+				border: $border-width-thin $color-primary solid;
+				border-radius: 0;
 
-.card-box {
-	color: $color-primary;
-	background-color: $color-secondary;
+				font-size: $font-size-norm;
 
-	margin-top: 1.5rem;
+				padding: 1rem;
+			}
 
-	border: $border-width $color-secondary solid;
-	border-radius: 0;
+			.btn-block {
+				color: $color-dark;
+				background-color: $color-primary;
+				border: none;
+				-webkit-appearance: none !important;
 
-	a, a:link, a:visited, a:hover, a:active {
-		text-decoration: none;
-	}
+				font-size: $font-size-mid;
+				text-decoration: none !important;
 
-	.card-header {
-		font-size: $font-size-mid;
-		border: 0;
-	}
-
-	.card-block {
-		background-color: $color-dark;
-		padding-top: 1rem;
-		padding-right: 1rem;
-		padding-left: 1rem;
-		padding-bottom: 0.7rem;
-	}
-
-	.item {
-		background-color: $color-black;
-		padding: 1rem;
-		margin-bottom: 0.3rem;
-
-		.item-title {
-			color: $color-primary;
+				padding: 0.5rem;
+				border-radius: 0;
+			}
 		}
 
-		.item-info {
-			color: $color-white;
+		.btn, #inviteButton {
+			border: 0;
+			border-radius: 0;
+			color: $color-dark;
+			background-color: $color-primary;
+			text-decoration: none;
+			font-size: $font-size-norm;
+			padding: 1rem;
+			-webkit-appearance: none;
+		}
+
+		.item {
+			margin-top: 1rem;
+			padding: 1rem;
+			background-color: $color-dark;
+			font-size: $font-size-norm;
+
+			.item-title {
+				color: $color-primary;
+			}
+
+			.item-info {
+				color: $color-white;
+			}
 		}
 	}
 }

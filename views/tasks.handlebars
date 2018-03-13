@@ -18,7 +18,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col mb-3">
-				<a href="/{{userID}}/teamlist/{{currTeam.teamID}}/" id="backIcon"><i class="fa fa-caret-left" id="backArrow"></i></a>
+				<a href="/teamlist/{{currTeam.teamID}}/" id="backIcon"><i class="fa fa-caret-left" id="backArrow"></i></a>
 				<p id="teamName">{{currTeam.teamName}} tasks</p> 
 			</div>
 		</div>
@@ -28,21 +28,13 @@
 				<div class="card" id="addMenu">
 					<div class="card-header font-bold pointer" id="addButton">create new task</div>
 					<div class="card-body" id="addTaskForm">
-						<form role="form" method="get" id="createTaskForm" action="/{{userID}}/teamlist/{{currTeam.teamID}}/tasks/add">
+						<form role="form" method="get" id="createTaskForm" action="/teamlist/{{currTeam.teamID}}/tasks/add">
 						    <div class="form-group">
 						      <input type="text" class="form-control" placeholder="task title" name="title">
 						    </div>
 						    <div class="form-group">
 						      <input type="text" class="form-control" placeholder="description" name="description">
 						    </div>
-						    <!--
-						    <div class="form-group">
-						      <input type="text" class="form-control datepicker" placeholder="due date" name="dueDate">
-						    </div> 
-							<div class="form-group">
-						      <input type="text" class="form-control timepicker" placeholder="due time" name="dueTime">
-						    </div>
-							-->
 							<label class="form-control-label">due date and time:</label>
 						    <div class="form-group">
 						      <input type="date" class="form-control" value="2018-04-20" name="dueDate">
@@ -102,7 +94,7 @@
 								<h4 class="modal-title font-bold" id="exampleModalLabel">edit "{{title}}"</h4>
 							</div>
 							<div class="modal-body">
-								<form role="form" method="get" id="{{title}}form" action="/{{../userID}}/teamlist/{{../currTeam.teamID}}/tasks/edit">
+								<form role="form" method="get" id="{{title}}form" action="/teamlist/{{../currTeam.teamID}}/tasks/edit">
 								    <div class="form-group">
 								    	<label for="title" class="form-control-label">title:</label>
 								      	<input type="text" class="form-control" placeholder="title" value="{{title}}" name="title">

@@ -9,10 +9,24 @@ var data = {};
 
 exports.view = function(req, res)
 {
+	if (req.session.userID) res.redirect('/home');
+
 	data.loginIncorrect = false;
 	data.signup = false;
 	res.render('index', data);
 };
+
+exports.devlogin = function(req, res)
+{
+	req.session.userID = 3; // Kelvin
+	res.redirect('/home');
+}
+
+exports.logout = function(req, res)
+{
+	req.session.userID = "";
+	res.redirect('/');
+}
 
 exports.login = function(req, res)
 {
@@ -46,7 +60,9 @@ exports.login = function(req, res)
 	// Match found
 	else
 	{
-		res.redirect('/' + userID + '/home');
+		req.session.userID = userID;
+
+		res.redirect('/home');
 	}
 };
 
@@ -120,7 +136,8 @@ exports.signupcomplete = function(req, res)
 		USERS[newUser.userID] = newUser;
 		USERS.nextUserID++;
 
-		res.redirect('/' + newUser.userID + '/home');
+		req.session.userID = newUser.userID;
+		res.redirect('/home');
 	}
 };
 
@@ -183,5 +200,6 @@ function FBMakeUser(response)
 	USERS[newUser.userID] = newUser;
 	USERS.nextUserID++;
 
-	res.redirect('/' + newUser.userID + '/home');
+	req.session.userID = newUser.userID;
+	res.redirect('/home');
 }

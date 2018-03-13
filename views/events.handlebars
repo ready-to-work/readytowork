@@ -18,7 +18,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col mb-3">
-				<a href="/{{userID}}/teamlist/{{currTeam.teamID}}/" id="backIcon"><i class="fa fa-caret-left" id="backArrow"></i></a>
+				<a href="/teamlist/{{currTeam.teamID}}/" id="backIcon"><i class="fa fa-caret-left" id="backArrow"></i></a>
 				<p id="teamName">{{currTeam.teamName}} events</p> 
 			</div>
 		</div>
@@ -28,7 +28,7 @@
 				<div class="card" id="addMenu">
 					<div class="card-header font-bold pointer" id="addButton">create new event</div>
 					<div class="card-body" id="addEventForm">
-						<form role="form" method="get" action="/{{userID}}/teamlist/{{currTeam.teamID}}/events/add">
+						<form role="form" method="get" action="/teamlist/{{currTeam.teamID}}/events/add">
 						    <div class="form-group">
 						      <input type="text" class="form-control" placeholder="event title" name="title">
 						    </div>
@@ -97,7 +97,7 @@
 								<p class="modal-title font-bold float-left" id="exampleModalLabel">edit "{{title}}"</p>
 							</div>
 							<div class="modal-body">
-								<form role="form" method="get" action="/{{../userID}}/teamlist/{{../currTeam.teamID}}/events/edit">
+								<form role="form" method="get" action="/teamlist/{{../currTeam.teamID}}/events/edit">
 								    <div class="form-group">
 								    	<label for="title" class="form-control-label">title:</label>
 								      	<input type="text" class="form-control" placeholder="title" value="{{title}}" name="title">

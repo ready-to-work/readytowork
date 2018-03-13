@@ -12,21 +12,3 @@ $(document).ready(function() {
 		$("#addTaskForm").slideToggle();
 	});
 });
-
-/*
-$('.datepicker').datepicker({
-	uiLibrary: 'bootstrap4'
-});
-
-$('.timepicker').timepicker({
-	uiLibrary: 'bootstrap4'
-});*/
-
-$('.datepicker').datepicker();
-
-$('.timepicker').timepicker({
-	modal: false,
-	footer: false,
-	header: false
-});
-

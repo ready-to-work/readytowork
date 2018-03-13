@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -30,10 +29,10 @@ app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
-app.use(express.cookieParser('IxD secret key'));
+app.use(express.cookieParser('TeeHeeExDee'));
 app.use(express.session());
-app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(app.router);
 
 // Development only
 if ('development' == app.get('env')) {
@@ -45,22 +44,28 @@ app.get('/', index.view);
 app.get('/login', index.login);
 app.get('/signup', index.signup);
 app.get('/signupcomplete', index.signupcomplete);
-app.get('/:userid/home', home.view);
-app.get('/:userid/accept/:teamid', home.accept);
-app.get('/:userid/reject/:teamid', home.reject);
-app.get('/:userid/teamlist', teamlist.view);
-app.get('/:userid/teamlist/add', teamlist.addTeam);
-app.get('/:userid/profile', profile.view);
-app.get('/:userid/settings', settings.view);
-app.get('/:userid/teamlist/:teamid/page_A', team.view);
-app.get('/:userid/teamlist/:teamid/', team.viewB);
-app.get('/:userid/teamlist/:teamid/invite', team.invite);
-app.get('/:userid/teamlist/:teamid/events', events.view);
-app.get('/:userid/teamlist/:teamid/events/add', events.addEvent);
-app.get('/:userid/teamlist/:teamid/events/edit', events.editEvent);
-app.get('/:userid/teamlist/:teamid/tasks', tasks.view);
-app.get('/:userid/teamlist/:teamid/tasks/add', tasks.addTask);
-app.get('/:userid/teamlist/:teamid/tasks/edit', tasks.editTask);
+app.get('/devlogin', index.devlogin);
+app.get('/logout', index.logout);
+app.get('/home', home.view);
+app.get('/home/accept/:teamid', home.accept);
+app.get('/home/reject/:teamid', home.reject);
+app.get('/teamlist', teamlist.view);
+app.get('/teamlist/add', teamlist.addTeam);
+app.get('/profile', profile.view);
+app.get('/settings', settings.view);
+app.get('/teamlist/:teamid/', team.view);
+app.get('/teamlist/:teamid/invite', team.invite);
+app.get('/teamlist/:teamid/events', events.view);
+app.get('/teamlist/:teamid/events/add', events.addEvent);
+app.get('/teamlist/:teamid/events/edit', events.editEvent);
+app.get('/teamlist/:teamid/tasks', tasks.view);
+app.get('/teamlist/:teamid/tasks/add', tasks.addTask);
+app.get('/teamlist/:teamid/tasks/edit', tasks.editTask);
+
+//The 404 Route (ALWAYS Keep this as the last route)
+app.get('*', function(req, res){
+  res.send('Error 404. Not a valid request!', 404);
+});
 
 // Start server
 http.createServer(app).listen(app.get('port'), function(){

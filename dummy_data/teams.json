@@ -24,9 +24,9 @@
 			{
 				"id": 1,
 				"title": "Friday Studio",
-				"startDate": "3-2-2018",
+				"startDate": "3/2/2018",
 				"startTime": "11:30 AM",
-				"endDate": "3-2-2018",
+				"endDate": "3/2/2018",
 				"endTime": "12:40 PM",
 				"location": "CSB 272",
 				"description": "Studio for COGS 120.",
@@ -35,9 +35,9 @@
 			{
 				"id": 3,
 				"title": "Team Meeting",
-				"startDate": "3-5-2018",
+				"startDate": "3/5/2018",
 				"startTime": "4:00 PM",
-				"endDate": "3-5-2018",
+				"endDate": "3/5/2018",
 				"endTime": "5:00 PM",
 				"location": "Price Center, Third Floor",
 				"description": "Meeting time for COGS 120.",
@@ -46,9 +46,9 @@
 			{
 				"id": 4,
 				"title": "Presentation",
-				"startDate": "3-16-2018",
+				"startDate": "3/16/2018",
 				"startTime": "4:30 PM",
-				"endDate": "3-16-2018",
+				"endDate": "3/16/2018",
 				"endTime": "6:45 PM",
 				"location": "Multipurpose Rooom",
 				"description": "Presenting our app, will have one slide, poster, and talking.",
@@ -57,9 +57,9 @@
 			{
 				"id": 5,
 				"title": "Hackathon",
-				"startDate": "3-10-2018",
+				"startDate": "3/10/2018",
 				"startTime": "9:00 PM",
-				"endDate": "3-11-2018",
+				"endDate": "3/11/2018",
 				"endTime": "3:00 AM",
 				"location": "Home",
 				"description": "Coding final touches. Should finish up on possible stretch goals and features.",
@@ -124,10 +124,10 @@
 			{
 				"id": 2,
 				"title": "Example Event",
-				"startDate": "MM-DD-YYYY",
-				"startTime": "HH:MM AP",
-				"endDate": "MM-DD-YYYY",
-				"endTime": "HH:MM AP",
+				"startDate": "1/1/2018",
+				"startTime": "1:00 AM",
+				"endDate": "1/1/2018",
+				"endTime": "1:00 PM",
 				"location": "Example Location",
 				"description": "This is an example event.",
 				"going": [1, 2]
@@ -138,8 +138,8 @@
 				"id": 2,
 				"title": "Example Task",
 				"priority": "1",
-				"dueDate": "MM-DD-YYYY",
-				"dueTime": "HH:MM AP",
+				"dueDate": "1/1/2018",
+				"dueTime": "1:00 AM",
 				"description": "This is a sample task.",
 				"assigned": [1, 2]
 			}

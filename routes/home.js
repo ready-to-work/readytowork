@@ -8,8 +8,8 @@ var TEAMS = require('../dummy_data/teams.json');
 var data = {};
 
 exports.view = function(req, res){
-	var userID = req.params.userid;
-	data.userID = userID; // COPY PASTE FOR EVERY PAGE FOR NAVBAR
+	if (!req.session.userID) res.redirect('/');
+	var userID = req.session.userID;
 
 	data.currUser = USERS[userID];
 	data.currEvents = [];
@@ -55,7 +55,7 @@ exports.view = function(req, res){
 };
 
 exports.accept = function(req, res){
-	var userID = req.params.userid;
+	var userID = req.session.userID;
 	var teamID = req.params.teamid;
 
 	for (var i in TEAMS[teamID].members)
@@ -69,11 +69,11 @@ exports.accept = function(req, res){
 		}
 	}
 
-	res.redirect('/' + userID + '/home');
+	res.redirect('/home');
 }
 
 exports.reject = function(req, res){
-	var userID = req.params.userid;
+	var userID = req.session.userID;
 	var teamID = req.params.teamid;
 
 	// Remove from user
@@ -90,5 +90,5 @@ exports.reject = function(req, res){
 		}
 	}
 
-	res.redirect('/' + userID + '/home');
+	res.redirect('/home');
 }

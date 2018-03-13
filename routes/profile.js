@@ -8,8 +8,7 @@ var TEAMS = require('../dummy_data/teams.json')
 var data = {};
 
 exports.view = function(req, res){
-	var userID = req.params.userid;
-	data.userID = userID; // COPY PASTE FOR EVERY PAGE FOR NAVBAR
-
+	if (!req.session.userID) res.redirect('/');
+	
 	res.render('profile', data);
 };

@@ -8,8 +8,17 @@ var TEAMS = require('../dummy_data/teams.json')
 var data = {};
 
 exports.view = function(req, res){
-	var userID = req.params.userid;
-	data.userID = userID; // COPY PASTE FOR EVERY PAGE FOR NAVBAR
+	if (!req.session.userID) res.redirect('/');
+	var userID = req.session.userID;
+	data.userID = userID;
+
+	// Check if they are actually a member of this team
+	var isMember = false;
+	for (var i in TEAMS[req.params.teamid].members)
+	{
+		if (TEAMS[req.params.teamid].members[i].userID == userID) isMember = true;
+	}
+	if (!isMember) res.redirect('/teamlist');
 
 	data.currTeam = TEAMS[req.params.teamid];
 
@@ -30,7 +39,8 @@ exports.view = function(req, res){
 
 exports.addTask = function(req, res) { 
 	console.log("Adding a new task");
-	var userID = req.params.userid;
+
+	var userID = req.session.userID;
 	var teamID = req.params.teamid;
 
 	//date value is: YYYY-MM-DD
@@ -52,21 +62,21 @@ exports.addTask = function(req, res) { 
 	TEAMS.nextTaskID++;
 	TEAMS[teamID].tasks.push(newTask);
 
-  	res.redirect("/" + userID + "/teamlist/" + teamID + "/tasks");
+  	res.redirect("/teamlist/" + teamID + "/tasks");
 };
 
 exports.editTask = function(req, res) { 
-	console.log("Editing a new task");
+	console.log("Editing a task");
 	
-	var userid = req.params.userid;
-	var teamid = req.params.teamid;
+	var userID = req.session.userID;
+	var teamID = req.params.teamid;
 
 	var year = req.query.dueDate.substring(0,4);
 	var month = req.query.dueDate.substring(5,7);
 	var day = req.query.dueDate.substring(8);
 	var newDate = month + "/" + day + "/" + year;
 
-	var currTeam = TEAMS[teamid];
+	var currTeam = TEAMS[teamID];
 	var newTask = {
 		"id": req.query.id,
 		"title": req.query.title,
@@ -84,6 +94,6 @@ exports.editTask = function(req, res) { 
 		}
 	}
 
-  	res.redirect("/" + userid + "/teamlist/" + teamid + "/tasks");
+  	res.redirect("/teamlist/" + teamID + "/tasks");
 	
 };

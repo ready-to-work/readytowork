@@ -9,8 +9,8 @@ var TEAMS = require('../dummy_data/teams.json');
 var data = {};
 
 exports.view = function(req, res){
-	var userID = req.params.userid;
-	data.userID = userID; // COPY PASTE FOR EVERY PAGE FOR NAVBAR
+	if (!req.session.userID) res.redirect('/');
+	var userID = req.session.userID;
 
 	var currUser = USERS[userID];
 	data.teamlist = [];
@@ -34,7 +34,7 @@ exports.view = function(req, res){
 
 exports.addTeam = function(req, res) { 
 	console.log("Adding a new team");
-	var userID = req.params.userid;
+	var userID = req.session.userID;
 
 	var newTeam = {
 		"teamName": req.query.name,
@@ -54,5 +54,5 @@ exports.addTeam = function(req, res) { 
 
 	TEAMS[TEAMS.nextTeamID] = newTeam;
 	TEAMS.nextTeamID++;
-  	res.redirect("/" + userID + "/teamlist");
+  	res.redirect("/teamlist");
 };

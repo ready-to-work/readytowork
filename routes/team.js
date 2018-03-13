@@ -8,27 +8,24 @@ var TEAMS = require('../dummy_data/teams.json');
 var data = {};
 
 exports.view = function(req, res){
-	var userID = req.params.userid;
-	data.userID = userID; // COPY PASTE FOR EVERY PAGE FOR NAVBAR
+	if (!req.session.userID) res.redirect('/');
+	var userID = req.session.userID;
 
-	data.viewingA = true;
-	data.currTeam = TEAMS[req.params.teamid];
+	// Check if they are actually a member of this team
+	var isMember = false;
+	for (var i in TEAMS[req.params.teamid].members)
+	{
+		if (TEAMS[req.params.teamid].members[i].userID == userID) isMember = true;
+	}
+	if (!isMember) res.redirect('/teamlist');
 
-	res.render('team', data);
-};
-
-exports.viewB = function(req, res){
-	var userID = req.params.userid;
-	data.userID = userID; // COPY PASTE FOR EVERY PAGE FOR NAVBAR
-
-	data.viewingA = false;
 	data.currTeam = TEAMS[req.params.teamid];
 
 	res.render('team', data);
 };
 
 exports.invite = function(req, res){
-	var userID = req.params.userid;
+	var userID = req.session.userID;
 	var teamID = req.params.teamid;
 	var inviteEmail = req.query.email;
 	var inviteID;
@@ -73,5 +70,5 @@ exports.invite = function(req, res){
 		}
 	}
 
-	res.redirect("/" + userID + "/teamlist/" + teamID + "/");
+	res.redirect("/teamlist/" + teamID + "/");
 };

@@ -2,109 +2,24 @@
 <html lang="en">
 
 <head>
-	<!-- GA Experiment turned off
-	{{#if viewingA}}
-	<script>function utmx_section(){}function utmx(){}(function(){var
-	k='170285009-1',d=document,l=d.location,c=d.cookie;
-	if(l.search.indexOf('utm_expid='+k)>0)return;
-	function f(n){if(c){var i=c.indexOf(n+'=');if(i>-1){var j=c.
-	indexOf(';',i);return escape(c.substring(i+n.length+1,j<0?c.
-	length:j))}}}var x=f('__utmx'),xx=f('__utmxx'),h=l.hash;d.write(
-	'<sc'+'ript src="'+'http'+(l.protocol=='https:'?'s://ssl':
-	'://www')+'.google-analytics.com/ga_exp.js?'+'utmxkey='+k+
-	'&utmx='+(x?x:'')+'&utmxx='+(xx?xx:'')+'&utmxtime='+new Date().
-	valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
-	'" type="text/javascript" charset="utf-8"><\/sc'+'ript>')})();
-	</script><script>utmx('url','A/B');</script>
-	{{/if}}
-	 -->
-
 	{{> head}}
 
 	<title>ready to work.</title>
 
 	<!-- Stylesheets -->
 	{{> bootstrapCSS}}
-	{{#if viewingA}}
 	<link rel="stylesheet" href="/css/team.css">
-	{{else}}
-	<link rel="stylesheet" href="/css/teamB.css">
-	{{/if}}
 </head>
 
 <body>
 	<!-- Navbar -->
 	{{> navbar}}
 
-	<!-- Page A, IGNORE THIS AND SCROLL TO PAGE B UNDER -->
-	{{#if viewingA}}
+	<!-- Page -->
 	<div class="container">
 		<div class="row">
 			<div class="col mb-3">
-				<a href="/{{userID}}/teamlist/{{currTeam.teamID}}/" id="backIcon"><i class="fa fa-caret-left" id="backArrow"></i></a>
-				<p id="teamName">{{currTeam.teamName}}</p> 
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col">
-				<div class="card" id="addMenu">
-					<div class="card-header font-bold pointer" id="inviteButton">invite user</div>
-					<div class="card-body" id="inviteUserForm">
-						<form role="form" method="get" action="/{{userID}}/teamlist/{{currTeam.teamID}}/invite">
-						    <div class="form-group">
-						      <input type="text" class="form-control" placeholder="user email" name="email">
-						    </div>
-						    <input type="submit" id="submitBtn" class="btn btn-block" value="invite"></input>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col">
-				<div class="card card-box" id="event-box">
-					<a href="/{{userID}}/teamlist/{{currTeam.teamID}}/events">
-						<p class="card-header">Team Events<i class="fa fa-caret-right float-right" id="arrowIcon"></i></p>
-					</a>
-					<div class="card-block">
-						{{#each currTeam.events}}
-						<div class="item">
-							<div class="item-title">{{title}}</div>
-							<div class="item-info font-italic">{{description}}</div>
-						</div>
-						{{/each}}
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col">
-				<div class="card card-box" id="task-box">
-					<a href="/{{userID}}/teamlist/{{currTeam.teamID}}/tasks">
-						<p class="card-header">Team Tasks<i class="fa fa-caret-right float-right" id="arrowIcon"></i></p>
-					</a>
-					<div class="card-block">
-						{{#each currTeam.tasks}}
-						<div class="item">
-							<div class="item-title">{{title}}</div>
-							<div class="item-info font-italic">{{description}}</div>
-						</div>
-						{{/each}}
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	{{else}}
-	<!-- Page B, ACTUAL -->
-	<div class="container">
-		<div class="row">
-			<div class="col mb-3">
-				<a href="/{{userID}}/teamlist/" id="backIcon"><i class="fa fa-caret-left" id="backArrow"></i></a>
+				<a href="/teamlist" id="backIcon"><i class="fa fa-caret-left" id="backArrow"></i></a>
 				<p id="teamName">{{currTeam.teamName}}</p> 
 			</div>
 		</div>
@@ -128,7 +43,7 @@
 					<div class="card-body">
 						<div class="tab-content" id="myTabContent">
 							<div class="tab-pane fade show active" id="events" role="tabpanel" aria-labelledby="events-tab">
-								<a type="button" class="menu-item btn btn-primary btn-lg btn-block font-bold" id="eventsButton" href="/{{userID}}/teamlist/{{currTeam.teamID}}/events">manage events</a>
+								<a type="button" class="menu-item btn btn-primary btn-lg btn-block font-bold" id="eventsButton" href="/teamlist/{{currTeam.teamID}}/events">manage events</a>
 								{{#each currTeam.events}}
 								<div class="item">
 									<div class="item-title">{{title}}</div>
@@ -142,7 +57,7 @@
 								{{/unless}}
 							</div>
 							<div class="tab-pane fade" id="tasks" role="tabpanel" aria-labelledby="tasks-tab">
-								<a type="button" class="menu-item btn btn-primary btn-lg btn-block font-bold" id="tasksButton" href="/{{userID}}/teamlist/{{currTeam.teamID}}/tasks">manage tasks</a>
+								<a type="button" class="menu-item btn btn-primary btn-lg btn-block font-bold" id="tasksButton" href="/teamlist/{{currTeam.teamID}}/tasks">manage tasks</a>
 								{{#each currTeam.tasks}}
 								<div class="item">
 									<div class="item-title">{{title}}</div>
@@ -159,7 +74,7 @@
 								<div class="card" id="addMenu">
 									<div class="card-header text-center pointer font-bold" id="inviteButton">invite user</div>
 									<div class="card-body" id="inviteUserForm">
-										<form role="form" method="get" action="/{{userID}}/teamlist/{{currTeam.teamID}}/invite">
+										<form role="form" method="get" action="/teamlist/{{currTeam.teamID}}/invite">
 										    <div class="form-group">
 										      <input type="text" class="form-control" placeholder="user email" name="email">
 										    </div>
@@ -174,16 +89,11 @@
 			</div>
 		</div>
 	</div>
-	{{/if}}
 	
 	<!-- Scripts -->
 	{{> bootstrapJS}}
 	<script src="/js/main.js"></script>
-	{{#if viewingA}}
 	<script src="/js/team.js"></script>
-	{{else}}
-	<script src="/js/teamB.js"></script>
-	{{/if}}
 </body>
 
 </html>

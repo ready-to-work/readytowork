@@ -22,7 +22,7 @@
 				<div class="card" id="addMenu">
 					<div class="card-header font-bold pointer" id="addButton">create new team</div>
 					<div class="card-body" id="addTeamForm">
-						<form role="form" method="get" action="/{{userID}}/teamlist/add">
+						<form role="form" method="get" action="/teamlist/add">
 						    <div class="form-group">
 						      <input type="text" class="form-control" placeholder="team name" name="name">
 						    </div>
@@ -40,7 +40,7 @@
 			<div class="col">
 				{{#each teamlist}}
 				<div class="card card-box" id="team-box">
-					<a href="/{{../userID}}/teamlist/{{teamID}}/">
+					<a href="/teamlist/{{teamID}}/">
 						<div class="card-header" id="teamName">{{teamName}}</div>
 						<div id="nextIcon"><i class="fa fa-caret-right" id="nextArrow"></i></div>
 					</a> 

@@ -1,4 +1,4 @@
-// JS for team.handlebars
+// JS for teamB.handlebars
 
 'use strict';
 var flag = true;
@@ -10,27 +10,5 @@ $(document).ready(function() {
 	$("#inviteUserForm").hide();
 	$("#inviteButton").click(function() {
 		$("#inviteUserForm").slideToggle();
-	});
-
-	// GA, Scroll
-	$(window).scroll(function() {
-		ga("send", "event", 'teampage', 'scroll');
-	});
-
-	// GA, Clicks
-	$("#inviteButton").click(function() {
-		ga("send", "event", 'teampage', 'clickInvite');
-	});
-
-	$("#task-box").click(function() {
-		ga("send", "event", 'teampage', 'clickTasks');
-	});
-
-	$("#event-box").click(function() {
-		ga("send", "event", 'teampage', 'clickEvents');
-	});
-
-	$("#backIcon").click(function() {
-		ga("send", "event", 'teampage', 'clickBack');
 	});
 });

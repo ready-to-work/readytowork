@@ -8,8 +8,17 @@ var TEAMS = require('../dummy_data/teams.json')
 var data = {};
 
 exports.view = function(req, res){
-	var userID = req.params.userid;
-	data.userID = userID; // COPY PASTE FOR EVERY PAGE FOR NAVBAR
+	if (!req.session.userID) res.redirect('/');
+	var userID = req.session.userID;
+	data.userID = userID;
+
+	// Check if they are actually a member of this team
+	var isMember = false;
+	for (var i in TEAMS[req.params.teamid].members)
+	{
+		if (TEAMS[req.params.teamid].members[i].userID == userID) isMember = true;
+	}
+	if (!isMember) res.redirect('/teamlist');
 
 	data.currTeam = TEAMS[req.params.teamid];
 
@@ -29,16 +38,21 @@ exports.view = function(req, res){
 };
 
 exports.addEvent = function(req, res) { 
-	console.log("Adding a new task");
-	var userID = req.params.userid;
+	console.log("Adding a new event");
+
+	var userID = req.session.userID;
 	var teamID = req.params.teamid;
+
+	//date value is: YYYY-MM-DD
+	var newStartDate = req.query.startDate.substring(5,7) + "/" + req.query.startDate.substring(8) + "/" + req.query.startDate.substring(0,4);
+	var newEndDate = req.query.endDate.substring(5,7) + "/" + req.query.endDate.substring(8) + "/" + req.query.endDate.substring(0,4);
 
 	var newEvent = {
 		"id": TEAMS.nextEventID,
 		"title": req.query.title,
-		"startDate": req.query.startDate,
+		"startDate": newStartDate,
 		"startTime": req.query.startTime,
-		"endDate": req.query.endDate,
+		"endDate": newEndDate,
 		"endTime": req.query.endTime,
 		"location": req.query.location,
 		"description": req.query.description,
@@ -48,22 +62,26 @@ exports.addEvent = function(req, res) { 
 	TEAMS.nextEventID++;
 	TEAMS[teamID].events.push(newEvent);
 
-  	res.redirect("/" + userID + "/teamlist/" + teamID + "/events");
+  	res.redirect("/teamlist/" + teamID + "/events");
 };
 
 exports.editEvent = function(req, res) { 
-	console.log("Editing a new task");
+	console.log("Editing an event");
 	
-	var userid = req.params.userid;
-	var teamid = req.params.teamid;
+	var userID = req.session.userID;
+	var teamID = req.params.teamid;
 
-	var currTeam = TEAMS[teamid];
+	//date value is: YYYY-MM-DD
+	var newStartDate = req.query.startDate.substring(5,7) + "/" + req.query.startDate.substring(8) + "/" + req.query.startDate.substring(0,4);
+	var newEndDate = req.query.endDate.substring(5,7) + "/" + req.query.endDate.substring(8) + "/" + req.query.endDate.substring(0,4);
+
+	var currTeam = TEAMS[teamID];
 	var newEvent = {
 		"id": req.query.id,
 		"title": req.query.title,
-		"startDate": req.query.startDate,
+		"startDate": newStartDate,
 		"startTime": req.query.startTime,
-		"endDate": req.query.endDate,
+		"endDate": newEndDate,
 		"endTime": req.query.endTime,
 		"location": req.query.location,
 		"description": req.query.description,
@@ -77,6 +95,6 @@ exports.editEvent = function(req, res) { 
 		}
 	}
 
-  	res.redirect("/" + userid + "/teamlist/" + teamid + "/events");
+  	res.redirect("/teamlist/" + teamID + "/events");
 	
 };
