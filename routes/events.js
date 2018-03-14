@@ -24,6 +24,41 @@ exports.view = function(req, res){
 
 	for (var i in data.currTeam.events)
 	{
+		// Convert dates to readable format
+		if (data.currTeam.events[i].hasOwnProperty('startDate'))
+		{
+			var dateString = data.currTeam.events[i].startDate;
+			data.currTeam.events[i].parsedStartDate = dateString.substring(5,7) + "/" + dateString.substring(8) + "/" + dateString.substring(0,4);
+		}
+		if (data.currTeam.events[i].hasOwnProperty('endDate'))
+		{
+			dateString = data.currTeam.events[i].endDate;
+			data.currTeam.events[i].parsedEndDate = dateString.substring(5,7) + "/" + dateString.substring(8) + "/" + dateString.substring(0,4);
+		}
+		if (data.currTeam.events[i].hasOwnProperty('startTime'))
+		{
+			var timeString = data.currTeam.events[i].startTime;
+			var hr = timeString.substring(0,2);
+			var useAM = true;
+			if (hr > 11) useAM = false;
+			if (hr == "00") hr = "12";
+			if (hr > 12) hr = hr - 12;
+			if (useAM) data.currTeam.events[i].parsedStartTime = hr + ":" + timeString.substring(3,5) + " AM";
+			else data.currTeam.events[i].parsedStartTime = hr + ":" + timeString.substring(3,5) + " PM";
+		}
+		if (data.currTeam.events[i].hasOwnProperty('endTime'))
+		{
+			timeString = data.currTeam.events[i].endTime;
+			hr = timeString.substring(0,2);
+			useAM = true;
+			if (hr > 11) useAM = false;
+			if (hr == "00") hr = "12";
+			if (hr > 12) hr = hr - 12;
+			if (useAM) data.currTeam.events[i].parsedEndTime = hr + ":" + timeString.substring(3,5) + " AM";
+			else data.currTeam.events[i].parsedEndTime = hr + ":" + timeString.substring(3,5) + " PM";
+		}
+
+		// Track people who are going to the event
 		data.currTeam.events[i].goingNames = [];
 
 		for (var j in data.currTeam.events[i].going)
@@ -34,6 +69,23 @@ exports.view = function(req, res){
 		}
 	}
 
+	// Get today's date and time for autofill during event creation
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; //January is 0!
+	var yyyy = today.getFullYear();
+	if (dd<10) dd = '0'+dd;
+	if (mm<10) mm = '0'+mm;
+
+	data.todaysDate = yyyy + '-' + mm + '-' + dd;
+
+	var hr = today.getHours();
+	var min = today.getMinutes();
+	if (hr<10) hr = '0'+hr;
+	if (min<10) min = '0'+min;
+
+	data.todaysTime = hr + ':' + min + ':00';
+
   	res.render('events', data);
 };
 
@@ -43,16 +95,12 @@ exports.addEvent = function(req, res) { 
 	var userID = req.session.userID;
 	var teamID = req.params.teamid;
 
-	//date value is: YYYY-MM-DD
-	var newStartDate = req.query.startDate.substring(5,7) + "/" + req.query.startDate.substring(8) + "/" + req.query.startDate.substring(0,4);
-	var newEndDate = req.query.endDate.substring(5,7) + "/" + req.query.endDate.substring(8) + "/" + req.query.endDate.substring(0,4);
-
 	var newEvent = {
 		"id": TEAMS.nextEventID,
 		"title": req.query.title,
-		"startDate": newStartDate,
+		"startDate": req.query.startDate,
 		"startTime": req.query.startTime,
-		"endDate": newEndDate,
+		"endDate": req.query.endDate,
 		"endTime": req.query.endTime,
 		"location": req.query.location,
 		"description": req.query.description,
@@ -71,17 +119,13 @@ exports.editEvent = function(req, res) { 
 	var userID = req.session.userID;
 	var teamID = req.params.teamid;
 
-	//date value is: YYYY-MM-DD
-	var newStartDate = req.query.startDate.substring(5,7) + "/" + req.query.startDate.substring(8) + "/" + req.query.startDate.substring(0,4);
-	var newEndDate = req.query.endDate.substring(5,7) + "/" + req.query.endDate.substring(8) + "/" + req.query.endDate.substring(0,4);
-
 	var currTeam = TEAMS[teamID];
 	var newEvent = {
 		"id": req.query.id,
 		"title": req.query.title,
-		"startDate": newStartDate,
+		"startDate": req.query.startDate,
 		"startTime": req.query.startTime,
-		"endDate": newEndDate,
+		"endDate": req.query.endDate,
 		"endTime": req.query.endTime,
 		"location": req.query.location,
 		"description": req.query.description,

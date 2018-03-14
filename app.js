@@ -31,8 +31,18 @@ app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(express.cookieParser('TeeHeeExDee'));
 app.use(express.session());
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(app.router);
+app.use(express.static(path.join(__dirname, 'public')));
+
+// // Handle 404
+// app.use(function(req, res) {
+//  res.send('404: Page not Found', 404);
+// });
+
+// // Handle 500
+// app.use(function(error, req, res, next) {
+//  res.send('500: Internal Server Error', 500);
+// });
 
 // Development only
 if ('development' == app.get('env')) {
@@ -61,11 +71,6 @@ app.get('/teamlist/:teamid/events/edit', events.editEvent);
 app.get('/teamlist/:teamid/tasks', tasks.view);
 app.get('/teamlist/:teamid/tasks/add', tasks.addTask);
 app.get('/teamlist/:teamid/tasks/edit', tasks.editTask);
-
-//The 404 Route (ALWAYS Keep this as the last route)
-app.get('*', function(req, res){
-  res.send('Error 404. Not a valid request!', 404);
-});
 
 // Start server
 http.createServer(app).listen(app.get('port'), function(){

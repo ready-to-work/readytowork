@@ -24,10 +24,10 @@
 			{
 				"id": 1,
 				"title": "Friday Studio",
-				"startDate": "3/2/2018",
-				"startTime": "11:30 AM",
-				"endDate": "3/2/2018",
-				"endTime": "12:40 PM",
+				"startDate": "2018-03-02",
+				"startTime": "11:30:00",
+				"endDate": "2018-03-02",
+				"endTime": "12:40:00",
 				"location": "CSB 272",
 				"description": "Studio for COGS 120.",
 				"going":  [3, 4, 5]
@@ -35,10 +35,10 @@
 			{
 				"id": 3,
 				"title": "Team Meeting",
-				"startDate": "3/5/2018",
-				"startTime": "4:00 PM",
-				"endDate": "3/5/2018",
-				"endTime": "5:00 PM",
+				"startDate": "2018-03-05",
+				"startTime": "16:00:00",
+				"endDate": "2018-03-05",
+				"endTime": "17:00:00",
 				"location": "Price Center, Third Floor",
 				"description": "Meeting time for COGS 120.",
 				"going":  [3, 4, 5]
@@ -46,10 +46,10 @@
 			{
 				"id": 4,
 				"title": "Presentation",
-				"startDate": "3/16/2018",
-				"startTime": "4:30 PM",
-				"endDate": "3/16/2018",
-				"endTime": "6:45 PM",
+				"startDate": "2018-03-16",
+				"startTime": "16:30:00",
+				"endDate": "2018-03-16",
+				"endTime": "18:45:00",
 				"location": "Multipurpose Rooom",
 				"description": "Presenting our app, will have one slide, poster, and talking.",
 				"going":  [3, 4, 5]
@@ -57,10 +57,10 @@
 			{
 				"id": 5,
 				"title": "Hackathon",
-				"startDate": "3/10/2018",
-				"startTime": "9:00 PM",
-				"endDate": "3/11/2018",
-				"endTime": "3:00 AM",
+				"startDate": "2018-03-10",
+				"startTime": "21:00:00",
+				"endDate": "2018-03-11",
+				"endTime": "03:00:00",
 				"location": "Home",
 				"description": "Coding final touches. Should finish up on possible stretch goals and features.",
 				"going":  [3]
@@ -71,8 +71,8 @@
 				"id": 1,
 				"title": "Complete Website",
 				"priority": "1",
-				"dueDate": "3/15/18",
-				"dueTime": "11:59 PM",
+				"dueDate": "2018-03-15",
+				"dueTime": "23:59:00",
 				"description": "Finish building ReadyToWork website.",
 				"assigned": [3, 4, 5]
 			},
@@ -80,8 +80,8 @@
 				"id": 3,
 				"title": "Submit Assignment",
 				"priority": "2",
-				"dueDate": "3/8/18",
-				"dueTime": "11:59 PM",
+				"dueDate": "2018-03-08",
+				"dueTime": "23:59:00",
 				"description": "Submit assignment on Gradescope.",
 				"assigned": [3, 4, 5]
 			},
@@ -89,8 +89,8 @@
 				"id": 4,
 				"title": "Work on Branding",
 				"priority": "3",
-				"dueDate": "3/8/18",
-				"dueTime": "11:59 PM",
+				"dueDate": "2018-03-08",
+				"dueTime": "23:59:00",
 				"description": "Make favicon, clean up styling. Double check if website styling is consistent.",
 				"assigned": [3, 4, 5]
 			},
@@ -98,8 +98,8 @@
 				"id": 5,
 				"title": "Last Minute Runthrough",
 				"priority": "2",
-				"dueDate": "3/15/18",
-				"dueTime": "5:00 PM",
+				"dueDate": "2018-03-15",
+				"dueTime": "17:00:00",
 				"description": "Run through presentation and application. Check for bugs with the deployed site. Get some sleep.",
 				"assigned": [3, 4, 5]
 			}
@@ -124,10 +124,10 @@
 			{
 				"id": 2,
 				"title": "Example Event",
-				"startDate": "1/1/2018",
-				"startTime": "1:00 AM",
-				"endDate": "1/1/2018",
-				"endTime": "1:00 PM",
+				"startDate": "2018-01-01",
+				"startTime": "01:00:00",
+				"endDate": "2018-01-01",
+				"endTime": "13:00:00",
 				"location": "Example Location",
 				"description": "This is an example event.",
 				"going": [1, 2]
@@ -138,8 +138,8 @@
 				"id": 2,
 				"title": "Example Task",
 				"priority": "1",
-				"dueDate": "1/1/2018",
-				"dueTime": "1:00 AM",
+				"dueDate": "2018-01-01",
+				"dueTime": "01:00:00",
 				"description": "This is a sample task.",
 				"assigned": [1, 2]
 			}

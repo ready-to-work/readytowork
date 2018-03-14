@@ -36,17 +36,73 @@ exports.view = function(req, res){
 		}
 		if (isInvited) continue;
 
-		// Check for events and tasks
+		// Check for events
 		for (var k in currTeam.events)
 		{
 			var currEvent = currTeam.events[k];
 			currEvent.teamName = currTeam.teamName;
+
+			// Convert dates to readable format
+			if (currEvent.hasOwnProperty('startDate'))
+			{
+				var dateString = currEvent.startDate;
+				currEvent.parsedStartDate = dateString.substring(5,7) + "/" + dateString.substring(8) + "/" + dateString.substring(0,4);
+			}
+			if (currEvent.hasOwnProperty('endDate'))
+			{
+				dateString = currEvent.endDate;
+				currEvent.parsedEndDate = dateString.substring(5,7) + "/" + dateString.substring(8) + "/" + dateString.substring(0,4);
+			}
+			if (currEvent.hasOwnProperty('startTime'))
+			{
+				var timeString = currEvent.startTime;
+				var hr = timeString.substring(0,2);
+				var useAM = true;
+				if (hr > 11) useAM = false;
+				if (hr == "00") hr = "12";
+				if (hr > 12) hr = hr - 12;
+				if (useAM) currEvent.parsedStartTime = hr + ":" + timeString.substring(3,5) + " AM";
+				else currEvent.parsedStartTime = hr + ":" + timeString.substring(3,5) + " PM";
+			}
+			if (currEvent.hasOwnProperty('endTime'))
+			{
+				timeString = currEvent.endTime;
+				hr = timeString.substring(0,2);
+				useAM = true;
+				if (hr > 11) useAM = false;
+				if (hr == "00") hr = "12";
+				if (hr > 12) hr = hr - 12;
+				if (useAM) currEvent.parsedEndTime = hr + ":" + timeString.substring(3,5) + " AM";
+				else currEvent.parsedEndTime = hr + ":" + timeString.substring(3,5) + " PM";
+			}
+
 			data.currEvents.push(currEvent);
 		}
+
+		// Check for tasks
 		for (var l in currTeam.tasks)
 		{
 			var currTask = currTeam.tasks[l];
 			currTask.teamName = currTeam.teamName;
+
+			// Convert dates to readable format
+			if (currTask.hasOwnProperty('dueDate'))
+			{
+				var dateString = currTask.dueDate;
+				currTask.parsedDueDate = dateString.substring(5,7) + "/" + dateString.substring(8) + "/" + dateString.substring(0,4);
+			}
+			if (currTask.hasOwnProperty('dueTime'))
+			{
+				var timeString = currTask.dueTime;
+				var hr = timeString.substring(0,2);
+				var useAM = true;
+				if (hr > 11) useAM = false;
+				if (hr == "00") hr = "12";
+				if (hr > 12) hr = hr - 12;
+				if (useAM) currTask.parsedDueTime = hr + ":" + timeString.substring(3,5) + " AM";
+				else currTask.parsedDueTime = hr + ":" + timeString.substring(3,5) + " PM";
+			}
+
 			data.currTasks.push(currTask);
 		}
 	}
