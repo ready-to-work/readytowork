@@ -41,6 +41,18 @@ exports.view = function(req, res){
 		{
 			var currEvent = currTeam.events[k];
 			currEvent.teamName = currTeam.teamName;
+			currEvent.teamID = currTeam.teamID;
+
+			// Check if event happens within a week or has ended
+			if (currEvent.hasOwnProperty('startDate') && currEvent.hasOwnProperty('endDate'))
+			{
+				var todaysDate = new Date();
+				var weekDate = new Date();
+				weekDate.setDate(todaysDate.getDate() + 7);
+				var currStartDate = new Date(currEvent.startDate.substring(0,4), currEvent.startDate.substring(5,7) - 1, currEvent.startDate.substring(8));
+				var currEndDate = new Date(currEvent.endDate.substring(0,4), currEvent.endDate.substring(5,7) - 1, currEvent.endDate.substring(8));
+				if (currStartDate > weekDate || currEndDate < todaysDate) continue;
+			}
 
 			// Convert dates to readable format
 			if (currEvent.hasOwnProperty('startDate'))
@@ -84,6 +96,10 @@ exports.view = function(req, res){
 		{
 			var currTask = currTeam.tasks[l];
 			currTask.teamName = currTeam.teamName;
+			currTask.teamID = currTeam.teamID;
+
+			// Check if task is complete
+			if (currTask.completed) continue;
 
 			// Convert dates to readable format
 			if (currTask.hasOwnProperty('dueDate'))
@@ -106,6 +122,39 @@ exports.view = function(req, res){
 			data.currTasks.push(currTask);
 		}
 	}
+
+	// Combine alerts and tasks into one
+	data.alerts = [];
+
+	for (var i in data.currEvents)
+	{
+		data.currEvents[i].isEvent = true;
+		data.currEvents[i].isTask = false;
+		data.currEvents[i].sortDate = data.currEvents[i].startDate;
+		data.currEvents[i].sortTime = data.currEvents[i].startTime;
+		data.alerts.push(data.currEvents[i]);
+	}
+	for (var i in data.currTasks)
+	{
+		data.currTasks[i].isEvent = false;
+		data.currTasks[i].isTask = true;
+		data.currTasks[i].sortDate = data.currTasks[i].dueDate;
+		data.currTasks[i].sortTime = data.currTasks[i].dueTime;
+		data.alerts.push(data.currTasks[i]);
+	}
+
+	// Sort alerts by date
+	data.alerts.sort(function(a, b) {
+		var a_date = a.sortDate;
+		var a_time = a.sortTime;
+		var b_date = b.sortDate;
+		var b_time = b.sortTime;
+
+		a_date = new Date(Date.parse(a_date + " " + a_time));
+		b_date = new Date(Date.parse(b_date + " " + b_time));
+
+		return a_date - b_date;
+	});
 
   	res.render('home', data);
 };

@@ -58,7 +58,7 @@
 		background-color: $color-black;
 		padding: 1rem;
 		margin-bottom: 1rem;
-
+		
 		font-size: $font-size-norm;
 
 		.item-title {
@@ -69,4 +69,8 @@
 			color: $color-white;
 		}
 	}
+}
+
+.no-underline {
+	text-decoration: none !important;
 }

@@ -50,7 +50,7 @@
 				"startTime": "16:30:00",
 				"endDate": "2018-03-16",
 				"endTime": "18:45:00",
-				"location": "Multipurpose Rooom",
+				"location": "Multipurpose Room",
 				"description": "Presenting our app, will have one slide, poster, and talking.",
 				"going":  [3, 4, 5]
 			},
@@ -74,7 +74,8 @@
 				"dueDate": "2018-03-15",
 				"dueTime": "23:59:00",
 				"description": "Finish building ReadyToWork website.",
-				"assigned": [3, 4, 5]
+				"assigned": [3, 4, 5],
+				"completed": false
 			},
 			{
 				"id": 3,
@@ -83,7 +84,8 @@
 				"dueDate": "2018-03-08",
 				"dueTime": "23:59:00",
 				"description": "Submit assignment on Gradescope.",
-				"assigned": [3, 4, 5]
+				"assigned": [3, 4, 5],
+				"completed": true
 			},
 			{
 				"id": 4,
@@ -92,7 +94,8 @@
 				"dueDate": "2018-03-08",
 				"dueTime": "23:59:00",
 				"description": "Make favicon, clean up styling. Double check if website styling is consistent.",
-				"assigned": [3, 4, 5]
+				"assigned": [3, 4, 5],
+				"completed": true
 			},
 			{
 				"id": 5,
@@ -101,7 +104,8 @@
 				"dueDate": "2018-03-15",
 				"dueTime": "17:00:00",
 				"description": "Run through presentation and application. Check for bugs with the deployed site. Get some sleep.",
-				"assigned": [3, 4, 5]
+				"assigned": [3, 4, 5],
+				"completed": false
 			}
 		],
 		"description": "Team for COGS 120 project."
@@ -141,7 +145,8 @@
 				"dueDate": "2018-01-01",
 				"dueTime": "01:00:00",
 				"description": "This is a sample task.",
-				"assigned": [1, 2]
+				"assigned": [1, 2],
+				"completed": false
 			}
 		],
 		"description": "Example team."

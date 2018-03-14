@@ -36,17 +36,23 @@
 								</div>
 							</div>
 							{{/each}}
-							{{#each currEvents}}
-							<div class="item">
-								<div class="item-title"><span class="font-bold">{{teamName}}:</span><br/>{{title}}</div>
-								<div class="item-info font-italic">on {{parsedStartDate}}, {{parsedStartTime}} at {{location}}</div>
-							</div>
-							{{/each}}
-							{{#each currTasks}}
-							<div class="item">
-								<div class="item-title"><span class="font-bold">{{teamName}}:</span><br/>{{title}}</div>
-								<div class="item-info font-italic">due {{parsedDueDate}}, {{parsedDueTime}} with priority {{priority}}</div>
-							</div>
+							{{#each alerts}}
+								{{#if isEvent}}
+									<a href="/teamlist/{{teamID}}/events" class="no-underline">
+										<div class="item">
+											<div class="item-title"><span class="font-bold">{{teamName}} event:</span><br/>{{title}}</div>
+											<div class="item-info font-italic">on {{parsedStartDate}}, {{parsedStartTime}} at {{location}}</div>
+										</div>
+									</a>
+								{{/if}}
+								{{#if isTask}}
+									<a href="/teamlist/{{teamID}}/tasks" class="no-underline">
+										<div class="item">
+											<div class="item-title"><span class="font-bold">{{teamName}} task:</span><br/>{{title}}</div>
+											<div class="item-info font-italic">due {{parsedDueDate}}, {{parsedDueTime}} with priority {{priority}}</div>
+										</div>
+									</a>
+								{{/if}}
 							{{/each}}
 							{{#unless currEvents}} {{#unless currTasks}}
 								<div class="item">
