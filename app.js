@@ -31,8 +31,8 @@ app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(express.cookieParser('TeeHeeExDee'));
 app.use(express.session());
-app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(app.router);
 
 // // Handle 404
 // app.use(function(req, res) {

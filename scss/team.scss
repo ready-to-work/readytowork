@@ -111,6 +111,10 @@
 
 			.item-info {
 				color: $color-white;
+
+				.member-name {
+					margin-bottom: 0;
+				}
 			}
 		}
 	}

@@ -82,6 +82,18 @@
 										</form>
 									</div>
 								</div>
+
+								<div class="item">
+									<div class="item-title">team members</div>
+									<div class="item-info">
+										{{#each currTeam.adminList}}
+										<p class="member-name">{{firstName}} {{lastName}} <span class="font-italic">({{role}})</span></p>
+										{{/each}}
+										{{#each currTeam.memberList}}
+										<p class="member-name">{{firstName}} {{lastName}} <span class="font-italic">({{role}})</span></p>
+										{{/each}}
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

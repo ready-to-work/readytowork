@@ -52,10 +52,10 @@
 							</div>
 						</div>
 						<div class="item">
-							<div class="item-title mb-1">team members</div>
+							<div class="item-title mb-1">team admins</div>
 							<div class="item-info">
 								{{#each members}}
-								<p>{{firstName}} {{lastName}} <span class="font-italic">({{role}})</span></p>
+								{{#if isAdmin}}<p>{{firstName}} {{lastName}}</p>{{/if}}
 								{{/each}}
 							</div>
 						</div>

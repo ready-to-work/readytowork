@@ -22,6 +22,7 @@ exports.view = function(req, res){
 		// Add on member names
 		for (var j in currTeam.members)
 		{
+			if (currTeam.members[j].role == "admin") currTeam.members[j].isAdmin = true;
 			currTeam.members[j].firstName = USERS[currTeam.members[j].userID].firstName;
 			currTeam.members[j].lastName = USERS[currTeam.members[j].userID].lastName;
 		}

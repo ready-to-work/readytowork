@@ -21,6 +21,32 @@ exports.view = function(req, res){
 
 	data.currTeam = TEAMS[req.params.teamid];
 
+	// Add on member names
+	data.currTeam.adminList = [];
+	data.currTeam.memberList = [];
+	for (var j in data.currTeam.members)
+	{
+		if (data.currTeam.members[j].role == "admin")
+		{
+			data.currTeam.adminList.push({
+				"firstName": USERS[data.currTeam.members[j].userID].firstName,
+				"lastName": USERS[data.currTeam.members[j].userID].lastName,
+				"role": "admin"
+			});
+		}
+		else if (data.currTeam.members[j].role == "member")
+		{
+			data.currTeam.memberList.push({
+				"firstName": USERS[data.currTeam.members[j].userID].firstName,
+				"lastName": USERS[data.currTeam.members[j].userID].lastName,
+				"role": "member"
+			});
+		}
+	}
+
+	console.log(data.currTeam.adminList);
+	console.log(data.currTeam.memberList);
+
 	res.render('team', data);
 };
 
