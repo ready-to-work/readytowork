@@ -63,6 +63,8 @@ app.get('/teamlist', teamlist.view);
 app.get('/teamlist/add', teamlist.addTeam);
 app.get('/profile', profile.view);
 app.get('/settings', settings.view);
+app.post('/settings/changename', settings.changeName);
+app.post('/settings/changepassword', settings.changePassword);
 app.get('/teamlist/:teamid/', team.view);
 app.get('/teamlist/:teamid/invite', team.invite);
 app.get('/teamlist/:teamid/events', events.view);

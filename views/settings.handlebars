@@ -8,7 +8,7 @@
 
 	<!-- Stylesheets -->
 	{{> bootstrapCSS}}
-	<link rel="stylesheet" href="/css/team.css">
+	<link rel="stylesheet" href="/css/settings.css">
 </head>
 
 <body>
@@ -16,16 +16,73 @@
 	{{> navbar}}
 	
 	<div class="container">
+		<!--
 		<div class="row">
-			<div class="col">
-				<h1>This is a settings page.</h1>
+			<div class="col mb-3">
+				<a href="/" id="backIcon"><i class="fa fa-caret-left" id="backArrow"></i></a>
+				<p id="name">settings</p> 
 			</div>
 		</div>
+		-->
+
+		<div class="row">
+			<div class="col">
+				<div class="card">
+					<div class="card-header font-bold pointer" id="changeNameButton">change name</div>
+					<div class="card-body" id="changeNameBody">
+						<form role="form" method="post" id="changeNameForm" action="/settings/changename">
+							<label class="form-control-label">first name:</label>
+						    <div class="form-group">
+						      <input type="text" class="form-control" value="{{firstName}}" name="firstName">
+						    </div>
+						    <label class="form-control-label">last name:</label>
+						    <div class="form-group">
+						      <input type="text" class="form-control" value="{{lastName}}" name="lastName">
+						    </div>
+						    {{#unless nameFilled}}<p class="error font-italic" id="nameError">all fields must be filled</p>{{/unless}}
+						    {{#if nameSuccess}}<p class="error font-italic" id="nameSuccess">name successfully changed</p>{{/if}}
+						    <input type="submit" id="submitBtn" class="btn btn-block" value="confirm change"></input>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<div class="card mt-3">
+					<div class="card-header font-bold pointer" id="changePassButton">change password</div>
+					<div class="card-body" id="changePassBody">
+						<form role="form" method="post" id="changePassForm" action="/settings/changepassword">
+							<label class="form-control-label">current password:</label>
+						    <div class="form-group">
+						      <input type="password" class="form-control" name="currPass">
+						    </div>
+						    <label class="form-control-label">new password:</label>
+						    <div class="form-group">
+						      <input type="password" class="form-control" name="newPass">
+						    </div>
+						    <label class="form-control-label">confirm new password:</label>
+						    <div class="form-group">
+						      <input type="password" class="form-control" name="newPassConfirm">
+						    </div>
+						    {{#unless passFilled}}<p class="error font-italic" id="passError">all fields must be filled</p>{{/unless}}
+						    {{#unless currPassMatch}}<p class="error font-italic" id="currPassError">current password is incorrect</p>{{/unless}}
+						    {{#unless newPassMatch}}<p class="error font-italic" id="newPassError">new passwords do not match</p>{{/unless}}
+						    {{#if passSuccess}}<p class="error font-italic" id="passSuccess">password successfully changed</p>{{/if}}
+						    <input type="submit" id="submitBtn" class="btn btn-block" value="confirm change"></input>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</div>
 	
 	<!-- Scripts -->
 	{{> bootstrapJS}}
 	<script src="/js/main.js"></script>
+	<script src="/js/settings.js"></script>
 </body>
 
 </html>
