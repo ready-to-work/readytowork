@@ -74,6 +74,10 @@ a, a:link, a:visited, a:hover, a:active {
 	cursor: pointer;
 }
 
+.no-underline {
+	text-decoration: none !important;
+}
+
 .navbar {
 	background-color: $color-primary;
 

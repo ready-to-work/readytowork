@@ -3,7 +3,7 @@
 'use strict';
 
 $(document).ready(function() {
-	console.log("Currently on Task List Page.");
+	console.log("Currently on Settings Page.");
 
 	// Hide forms by default, unless redirected
 	$("#changeNameBody").hide();

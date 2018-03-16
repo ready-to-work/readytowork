@@ -8,7 +8,7 @@
 
 	<!-- Stylesheets -->
 	{{> bootstrapCSS}}
-	<link rel="stylesheet" href="/css/team.css">
+	<link rel="stylesheet" href="/css/profile.css">
 </head>
 
 <body>
@@ -16,9 +16,95 @@
 	{{> navbar}}
 
 	<div class="container">
+
+		<div class="row">
+			<div class="col mb-3">
+				<a href="/" id="backIcon"><i class="fa fa-caret-left" id="backArrow"></i></a>
+				<p id="name">profile</p> 
+			</div>
+		</div>
+
 		<div class="row">
 			<div class="col">
-				<h1>This is a personalized profile page.</h1>
+				<div class="card" id="teamCard">
+					<div class="card-header" id="navHeader"> 
+						<ul class="nav nav-fill nav-tabs card-header-tabs"  id="myTab" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link mr-2 active" id="events-tab" data-toggle="tab" href="#events" role="tab" aria-controls="events" aria-selected="true">events</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link mr-2" id="tasks-tab" data-toggle="tab" href="#tasks" role="tab" aria-controls="tasks" aria-selected="false">tasks</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" id="invites-tab" data-toggle="tab" href="#invites" role="tab" aria-controls="invites" aria-selected="false">invites</a>
+							</li>
+						</ul>
+					</div>
+					<div class="card-body">
+						<div class="tab-content" id="myTabContent">
+
+							<div class="tab-pane fade show active" id="events" role="tabpanel" aria-labelledby="events-tab">
+								{{#each currEvents}}
+									{{#unless past}}
+									<a href="/teamlist/{{teamID}}/events" class="no-underline">
+										<div class="item">
+											<div class="item-title"><span class="font-bold">{{teamName}} event:</span><br/>{{title}}</div>
+											<div class="item-info font-italic">on {{parsedStartDate}}, {{parsedStartTime}} at {{location}}</div>
+										</div>
+									</a>
+									{{/unless}}
+								{{/each}}
+
+								{{#unless currEvents}}
+								<div class="item">
+									<div class="item-info font-italic text-center">Looks like you have no events. Be free!</div>
+								</div>
+								{{/unless}}
+							</div>
+
+							<div class="tab-pane fade" id="tasks" role="tabpanel" aria-labelledby="tasks-tab">
+								{{#each currTasks}}
+									{{#unless complete}}
+									<a href="/teamlist/{{teamID}}/tasks" class="no-underline">
+										<div class="item">
+											<div class="item-title"><span class="font-bold">{{teamName}} task:</span><br/>{{title}}</div>
+											<div class="item-info font-italic">due {{parsedDueDate}}, {{parsedDueTime}} with priority {{priority}}</div>
+										</div>
+									</a>
+									{{/unless}}
+								{{/each}}
+
+								{{#unless currTasks}}
+								<div class="item">
+									<div class="item-info font-italic text-center">Looks like you have no tasks. Be free!</div>
+								</div>
+								{{/unless}}
+							</div>
+
+							<div class="tab-pane fade" id="invites" role="tabpanel" aria-labelledby="invites-tab">
+								{{#each currInvites}}
+								<div class="item">
+									<div class="item-title">invitation from: <span class="font-bold">{{teamName}}</span></div>
+									<div class="row">
+										<div class="col">
+											<a type="button" class="menu-item btn btn-primary btn-lg btn-block" id="acceptBtn" href="/home/accept/{{teamID}}">accept</a>
+										</div>
+										<div class="col">
+											<a type="button" class="menu-item btn btn-primary btn-lg btn-block" href="/home/reject/{{teamID}}">reject</a>
+										</div>
+									</div>
+								</div>
+								{{/each}}
+
+								{{#unless currTeam.invites}}
+								<div class="item">
+									<div class="item-info font-italic text-center">Looks like you have no invites. Be free!</div>
+								</div>
+								{{/unless}}
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
