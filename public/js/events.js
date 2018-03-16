@@ -11,4 +11,10 @@ $(document).ready(function() {
 	$("#addButton").click(function() {
 		$("#addEventForm").slideToggle();
 	});
+
+	// Toggle past
+	$("#pastBody").hide();
+	$("#pastButton").click(function() {
+		$("#pastBody").slideToggle();
+	});
 });

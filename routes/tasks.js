@@ -12,6 +12,9 @@ exports.view = function(req, res){
 	var userID = req.session.userID;
 	data.userID = userID;
 
+	data.completeTasks = [];
+	data.incompleteTasks = [];
+
 	// Check if they are actually a member of this team
 	var isMember = false;
 	for (var i in TEAMS[req.params.teamid].members)
@@ -50,6 +53,16 @@ exports.view = function(req, res){
 			data.currTeam.tasks[i].assignedNames.push(
 				USERS[data.currTeam.tasks[i].assigned[j]].firstName + " " +
 				USERS[data.currTeam.tasks[i].assigned[j]].lastName);
+		}
+
+		// Separate complete and incomplete tasks
+		if (data.currTeam.tasks[i].completed)
+		{
+			data.completeTasks.push(data.currTeam.tasks[i]);
+		}
+		else
+		{
+			data.incompleteTasks.push(data.currTeam.tasks[i]);
 		}
 	}
 
@@ -120,5 +133,40 @@ exports.editTask = function(req, res) { 
 	}
 
   	res.redirect("/teamlist/" + teamID + "/tasks");
-	
+};
+
+exports.completeTask = function(req, res)
+{
+	var userID = req.session.userID;
+	var teamID = req.params.teamid;
+	var taskID = req.params.taskid;
+	var currTeam = TEAMS[teamID];
+
+	for (var i in currTeam.tasks)
+	{
+		if (currTeam.tasks[i].id == taskID)
+		{
+			currTeam.tasks[i].completed = true;
+		}
+	}
+
+	res.redirect("/teamlist/" + teamID + "/tasks");
+};
+
+exports.deleteTask = function(req, res)
+{
+	var userID = req.session.userID;
+	var teamID = req.params.teamid;
+	var taskID = req.params.taskid;
+	var currTeam = TEAMS[teamID];
+
+	for (var i in currTeam.tasks)
+	{
+		if (currTeam.tasks[i].id == taskID)
+		{
+			currTeam.tasks.splice(i, 1);
+		}
+	}
+
+	res.redirect("/teamlist/" + teamID + "/tasks");
 };

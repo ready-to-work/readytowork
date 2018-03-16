@@ -22,7 +22,7 @@
 	font-size: $font-size-big;
 }
 
-#addMenu {
+#addMenu, #completeMenu {
 	color: $color-dark;
 	background-color: $color-primary;
 	border: $border-width $color-primary solid;
@@ -71,6 +71,14 @@
 		text-decoration: none !important;
 
 		padding: 0.5rem;
+	}
+
+	#completeBody {
+		padding-top: 0;
+
+		.card-header {
+			text-align: left;
+		}
 	}
 }
 

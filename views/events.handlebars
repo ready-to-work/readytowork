@@ -61,7 +61,38 @@
 
 		<div class="row">
 			<div class="col">
-				{{#each currTeam.events}}
+				<div class="card mt-3" id="pastMenu">
+					<div class="card-header pointer" id="pastButton">past events</div>
+					<div class="card-body" id="pastBody">
+						{{#each pastEvents}}
+						<div class="card event-card">
+							<a href="#{{title}}Edit" data-toggle="modal" data-target="#{{title}}Edit" class="modal-link"> 
+								<p class="card-header"><i class="far fa-edit mr-3" id="editBtn"></i>{{title}}</p> 
+							</a>
+							<div class="card-body">
+								{{#if parsedStartDate}}
+								<p><span class="font-bold">start: </span>{{parsedStartDate}}{{#if parsedStartTime}}, {{parsedStartTime}}{{/if}}</p>
+								{{/if}}
+								{{#if parsedEndDate}}
+								<p><span class="font-bold">end: </span>{{parsedEndDate}}{{#if parsedEndTime}}, {{parsedEndTime}}{{/if}}</p>
+								{{/if}}
+								{{#if location}}
+								<p><span class="font-bold">location: </span>{{location}}</p>
+								{{/if}}
+								{{#if description}}
+								<p class="font-italic">{{description}}</p>
+								{{/if}}
+							</div>
+						</div>
+						{{/each}}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				{{#each presentEvents}}
 				<div class="card event-card">
 					<!-- this makes the title a link that pops the modal -->
 					<a href="#{{title}}Edit" data-toggle="modal" data-target="#{{title}}Edit" class="modal-link"> 
@@ -132,7 +163,7 @@
 								    <input type="submit" id="submitBtn" class="btn btn-block font-bold" value="submit change"></input>
 								</form>
 
-								<button class="align-middle float-right" type="button" id="trashBtn"><i class="fa fa-trash"></i></button>
+								<a class="float-right" type="button" id="trashBtn" href="/teamlist/{{../currTeam.teamID}}/events/{{id}}/delete"><i class="fa fa-trash"></i></a>
 							</div>
 						</div>
 					</div>		

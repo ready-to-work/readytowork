@@ -12,6 +12,9 @@ exports.view = function(req, res){
 	var userID = req.session.userID;
 	data.userID = userID;
 
+	data.pastEvents = [];
+	data.presentEvents = [];
+
 	// Check if they are actually a member of this team
 	var isMember = false;
 	for (var i in TEAMS[req.params.teamid].members)
@@ -66,6 +69,26 @@ exports.view = function(req, res){
 			data.currTeam.events[i].goingNames.push(
 				USERS[data.currTeam.events[i].going[j]].firstName + " " +
 				USERS[data.currTeam.events[i].going[j]].lastName);
+		}
+
+		// Separate past and present events
+		var currEvent = data.currTeam.events[i];
+		var isPast = false;
+
+		if (currEvent.hasOwnProperty('startDate') && currEvent.hasOwnProperty('endDate'))
+		{
+			var todaysDate = new Date();
+			var currEndDate = new Date(Date.parse(currEvent.endDate + " " + currEvent.endTime));
+			if (currEndDate < todaysDate) isPast = true;
+		}
+
+		if (isPast)
+		{
+			data.pastEvents.push(data.currTeam.events[i]);
+		}
+		else
+		{
+			data.presentEvents.push(data.currTeam.events[i]);
 		}
 	}
 
@@ -139,6 +162,23 @@ exports.editEvent = function(req, res) { 
 		}
 	}
 
-  	res.redirect("/teamlist/" + teamID + "/events");
-	
+  	res.redirect("/teamlist/" + teamID + "/events");	
+};
+
+exports.deleteEvent = function(req, res)
+{
+	var userID = req.session.userID;
+	var teamID = req.params.teamid;
+	var eventID = req.params.eventid;
+	var currTeam = TEAMS[teamID];
+
+	for (var i in currTeam.events)
+	{
+		if (currTeam.events[i].id == taskID)
+		{
+			currTeam.events.splice(i, 1);
+		}
+	}
+
+	res.redirect("/teamlist/" + teamID + "/events");
 };

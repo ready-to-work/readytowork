@@ -61,7 +61,35 @@
 
 		<div class="row">
 			<div class="col">
-				{{#each currTeam.tasks}}
+				<div class="card mt-3" id="completeMenu">
+					<div class="card-header pointer" id="completeButton">completed tasks</div>
+					<div class="card-body" id="completeBody">
+						{{#each completeTasks}}
+						<div class="card task-card">
+							<a href="#{{title}}Edit" data-toggle="modal" data-target="#{{title}}Edit" class="modal-link"> 
+								<p class="card-header"><i class="far fa-edit mr-3" id="editBtn"></i>{{title}}</p> 
+							</a>
+							<div class="card-body">
+								{{#if priority}}
+								<p><span class="font-bold">priority: </span>{{priority}}</p>
+								{{/if}}
+								{{#if parsedDueDate}}
+								<p><span class="font-bold">due: </span>{{parsedDueDate}}{{#if parsedDueTime}}, {{parsedDueTime}}{{/if}}</p>
+								{{/if}}
+								{{#if description}}
+								<p class="font-italic">{{description}}</p>
+								{{/if}}
+							</div>
+						</div>
+						{{/each}}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				{{#each incompleteTasks}}
 				<div class="card task-card">
 					<!-- this makes the title a link that pops the modal -->
 					<a href="#{{title}}Edit" data-toggle="modal" data-target="#{{title}}Edit" class="modal-link"> 
@@ -85,7 +113,7 @@
 				{{/each}}
 				
 				<!-- Modal popup form -->
-				{{#each currTeam.tasks}}
+				{{#each incompleteTasks}}
 				<div class="modal fade" id="{{title}}Edit" tabindex="-1" role="dialog"  aria-hidden="true">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
@@ -126,8 +154,57 @@
 								    </div>
 								    <input type="submit" id="submitBtn" class="btn-block" value="submit change"></input>
 
-								    <button class="float-left" type="button" id="doneBtn"><i class="far fa-check-square"></i></button>
-									<button class="float-right" type="button" id="trashBtn"><i class="fa fa-trash"></i></button>
+								    <a class="float-left" type="button" id="doneBtn" href="/teamlist/{{../currTeam.teamID}}/tasks/{{id}}/complete"><i class="far fa-check-square"></i></a>
+
+									<a class="float-right" type="button" id="trashBtn" href="/teamlist/{{../currTeam.teamID}}/tasks/{{id}}/delete"><i class="fa fa-trash"></i></a>
+								</form>
+							</div>
+						</div>
+					</div>		
+				</div>
+				{{/each}}
+
+				<!-- Modal popup form -->
+				{{#each completeTasks}}
+				<div class="modal fade" id="{{title}}Edit" tabindex="-1" role="dialog"  aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button class="modal-close align-middle" type="button" data-dismiss="modal" aria-label="close"><span class="fa fa-times"></span></button>
+								<h4 class="modal-title font-bold" id="exampleModalLabel">edit "{{title}}"</h4>
+							</div>
+							<div class="modal-body">
+								<form role="form" method="get" id="{{title}}form" action="/teamlist/{{../currTeam.teamID}}/tasks/edit">
+								    <div class="form-group">
+								    	<label for="title" class="form-control-label">title:</label>
+								      	<input type="text" class="form-control" placeholder="title" value="{{title}}" name="title">
+								    </div>
+								    <div class="form-group">
+								    	<label class="form-control-label">description:</label>
+								      	<input type="text" class="form-control" placeholder="description" value="{{description}}" name="description">
+								    </div>
+								    <div class="form-group">
+								      	<label class="form-control-label">due date:</label>
+								      	<input type="date" class="form-control" placeholder="due date" value="{{dueDate}}" name="dueDate">
+								    </div>
+								    <div class="form-group">
+								      	<label class="form-control-label">due time:</label>
+								      	<input type="time" class="form-control" placeholder="due time" value="{{dueTime}}" name="dueTime">
+								    </div>
+								    <div class="form-group">
+								    	<label class="form-control-label">priority:</label><br/>
+								      	<select name="priority" form="{{title}}form">
+									    	<option>1</option>
+									    	<option>2</option>
+									    	<option>3</option>
+									    	<option>4</option>
+									    	<option>5</option>
+									    </select>
+								    </div>
+								    <div class="form-group">
+								    	<input type="hidden" class="form-control" name="id" value="{{id}}">
+								    </div>
+								    <input type="submit" id="submitBtn" class="btn-block" value="submit change"></input></a>
 								</form>
 							</div>
 						</div>
@@ -138,7 +215,7 @@
 		</div>
 	</div>
 
-	<div style="display:  none;">
+	<div style="display: none;">
 		<input type="hidden" id="currTeamId" value="{{currTeam.teamID}}">
 		<input type="hidden" id="currUserId" value="{{userID}}">
 	</div>

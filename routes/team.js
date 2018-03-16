@@ -25,6 +25,46 @@ exports.view = function(req, res){
 
 	data.currTeam = TEAMS[req.params.teamid];
 
+	var currTeam = data.currTeam;
+	data.currUser = USERS[userID];
+	data.currEvents = [];
+	data.currTasks = [];
+
+	// Check for events
+	for (var k in currTeam.events)
+	{
+		var currEvent = currTeam.events[k];
+		currEvent.teamName = currTeam.teamName;
+		currEvent.teamID = currTeam.teamID;
+		//currEvent.past = false;
+
+		// Check if event has ended
+		if (currEvent.hasOwnProperty('startDate') && currEvent.hasOwnProperty('endDate'))
+		{
+			var todaysDate = new Date();
+			var currEndDate = new Date(Date.parse(currEvent.endDate + " " + currEvent.endTime));
+			//if (currEndDate < todaysDate) currEvent.past = true;
+			if (currEndDate < todaysDate) continue;
+		}
+
+		data.currEvents.push(currEvent);
+	}
+
+	// Check for tasks
+	for (var l in currTeam.tasks)
+	{
+		var currTask = currTeam.tasks[l];
+		currTask.teamName = currTeam.teamName;
+		currTask.teamID = currTeam.teamID;
+		//currTask.complete = false;
+
+		// Check if task is complete
+		//if (currTask.completed) currTask.complete = true;
+		if (currTask.completed) continue;
+
+		data.currTasks.push(currTask);
+	}
+
 	// Add on member names
 	data.currTeam.adminList = [];
 	data.currTeam.memberList = [];

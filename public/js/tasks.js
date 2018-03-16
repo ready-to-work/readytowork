@@ -11,4 +11,10 @@ $(document).ready(function() {
 	$("#addButton").click(function() {
 		$("#addTaskForm").slideToggle();
 	});
+
+	// Toggle completed tasks
+	$("#completeBody").hide();
+	$("#completeButton").click(function() {
+		$("#completeBody").slideToggle();
+	});
 });
