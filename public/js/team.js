@@ -11,4 +11,15 @@ $(document).ready(function() {
 	$("#inviteButton").click(function() {
 		$("#inviteUserForm").slideToggle();
 	});
+
+	// Toggle leave menu
+	$("#leaveBody").hide();
+	$("#leaveConfirmBody").hide();
+	$("#leaveButton").click(function() {
+		$("#leaveBody").slideToggle();
+		$("#leaveConfirmBody").slideUp();
+	});
+	$("#leaveConfirmButton").click(function() {
+		$("#leaveConfirmBody").slideToggle();
+	});
 });

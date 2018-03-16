@@ -67,6 +67,7 @@ app.post('/settings/changename', settings.changeName);
 app.post('/settings/changepassword', settings.changePassword);
 app.get('/teamlist/:teamid/', team.view);
 app.get('/teamlist/:teamid/invite', team.invite);
+app.get('/teamlist/:teamid/leave', team.leave);
 app.get('/teamlist/:teamid/events', events.view);
 app.get('/teamlist/:teamid/events/add', events.addEvent);
 app.get('/teamlist/:teamid/events/edit', events.editEvent);

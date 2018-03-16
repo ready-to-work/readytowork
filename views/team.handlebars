@@ -83,6 +83,18 @@
 									</div>
 								</div>
 
+								<div class="card mt-3" id="leaveMenu">
+									<div class="card-header text-center pointer font-bold" id="leaveButton">leave team</div>
+									<div class="card-body" id="leaveBody">
+										<div class="card-header text-center pointer font-italic" id="leaveConfirmButton">are you sure?</div>
+										<div class="card-body" id="leaveConfirmBody">
+											<form role="form" method="get" action="/teamlist/{{currTeam.teamID}}/leave">
+											    <input type="submit" id="submitBtn" class="btn btn-block" value="leave {{currTeam.teamName}}"></input>
+											</form>
+										</div>
+									</div>
+								</div>
+
 								<div class="item">
 									<div class="item-title">team members</div>
 									<div class="item-info">

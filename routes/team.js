@@ -98,3 +98,40 @@ exports.invite = function(req, res){
 
 	res.redirect("/teamlist/" + teamID + "/");
 };
+
+exports.leave = function(req, res)
+{
+	if (!req.session.userID) res.redirect('/');
+	var userID = req.session.userID;
+
+	// Check if they are actually a member of this team
+	var isMember = false;
+	for (var i in TEAMS[req.params.teamid].members)
+	{
+		if (TEAMS[req.params.teamid].members[i].userID == userID) isMember = true;
+	}
+	if (!isMember) res.redirect('/teamlist');
+
+	var currTeam = TEAMS[req.params.teamid];
+	var currUser = USERS[userID];
+
+	// Remove user from team
+	for (var i = 0; i < currTeam.members.length; i++)
+	{
+		if (currTeam.members[i].userID == userID)
+		{
+			currTeam.members.splice(i, 1);
+		}
+	}
+
+	// Remove team from user
+	for (var i = 0; i < currUser.teams.length; i++)
+	{
+		if (currUser.teams[i] == req.params.teamid)
+		{
+			currUser.teams.splice(i, 1);
+		}
+	}
+
+	res.redirect("/teamlist");
+};

@@ -54,7 +54,7 @@
 		background-color: $color-secondary;
 		padding: 1rem;
 
-		#addMenu {
+		#addMenu, #leaveMenu {
 			border: 0;
 			border-radius: 0;
 
@@ -88,7 +88,7 @@
 			}
 		}
 
-		.btn, #inviteButton {
+		.btn, #inviteButton, #leaveButton {
 			border: 0;
 			border-radius: 0;
 			color: $color-dark;
@@ -97,6 +97,19 @@
 			font-size: $font-size-norm;
 			padding: 1rem;
 			-webkit-appearance: none;
+		}
+
+		#leaveConfirmButton {
+			background-color: $color-secondary;
+		}
+
+		#leaveConfirmBody {
+			background-color: $color-black !important;
+
+			#submitBtn {
+				background-color: $color-black;
+				color: $color-primary;
+			}
 		}
 
 		.item {
