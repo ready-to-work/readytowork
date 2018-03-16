@@ -99,6 +99,8 @@ exports.view = function(req, res){
 };
 
 exports.invite = function(req, res){
+	if (!req.session.userID) res.redirect('/');
+	
 	var userID = req.session.userID;
 	var teamID = req.params.teamid;
 	var inviteEmail = req.query.email;

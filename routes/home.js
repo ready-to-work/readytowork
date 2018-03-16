@@ -160,6 +160,8 @@ exports.view = function(req, res){
 };
 
 exports.accept = function(req, res){
+	if (!req.session.userID) res.redirect('/');
+
 	var userID = req.session.userID;
 	var teamID = req.params.teamid;
 
@@ -178,6 +180,8 @@ exports.accept = function(req, res){
 }
 
 exports.reject = function(req, res){
+	if (!req.session.userID) res.redirect('/');
+	
 	var userID = req.session.userID;
 	var teamID = req.params.teamid;
 

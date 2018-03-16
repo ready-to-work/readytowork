@@ -114,6 +114,7 @@ exports.view = function(req, res){
 
 exports.addEvent = function(req, res) { 
 	console.log("Adding a new event");
+	if (!req.session.userID) res.redirect('/');
 
 	var userID = req.session.userID;
 	var teamID = req.params.teamid;
@@ -138,6 +139,7 @@ exports.addEvent = function(req, res) { 
 
 exports.editEvent = function(req, res) { 
 	console.log("Editing an event");
+	if (!req.session.userID) res.redirect('/');
 	
 	var userID = req.session.userID;
 	var teamID = req.params.teamid;
@@ -167,6 +169,8 @@ exports.editEvent = function(req, res) { 
 
 exports.deleteEvent = function(req, res)
 {
+	if (!req.session.userID) res.redirect('/');
+	
 	var userID = req.session.userID;
 	var teamID = req.params.teamid;
 	var eventID = req.params.eventid;
@@ -174,7 +178,7 @@ exports.deleteEvent = function(req, res)
 
 	for (var i in currTeam.events)
 	{
-		if (currTeam.events[i].id == taskID)
+		if (currTeam.events[i].id == eventID)
 		{
 			currTeam.events.splice(i, 1);
 		}

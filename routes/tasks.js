@@ -88,6 +88,7 @@ exports.view = function(req, res){
 
 exports.addTask = function(req, res) { 
 	console.log("Adding a new task");
+	if (!req.session.userID) res.redirect('/');
 
 	var userID = req.session.userID;
 	var teamID = req.params.teamid;
@@ -110,6 +111,7 @@ exports.addTask = function(req, res) { 
 
 exports.editTask = function(req, res) { 
 	console.log("Editing a task");
+	if (!req.session.userID) res.redirect('/');
 	
 	var userID = req.session.userID;
 	var teamID = req.params.teamid;
@@ -137,6 +139,8 @@ exports.editTask = function(req, res) { 
 
 exports.completeTask = function(req, res)
 {
+	if (!req.session.userID) res.redirect('/');
+
 	var userID = req.session.userID;
 	var teamID = req.params.teamid;
 	var taskID = req.params.taskid;
@@ -155,6 +159,8 @@ exports.completeTask = function(req, res)
 
 exports.deleteTask = function(req, res)
 {
+	if (!req.session.userID) res.redirect('/');
+	
 	var userID = req.session.userID;
 	var teamID = req.params.teamid;
 	var taskID = req.params.taskid;

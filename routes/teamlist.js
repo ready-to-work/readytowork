@@ -41,6 +41,8 @@ exports.view = function(req, res){
 
 exports.addTeam = function(req, res) { 
 	console.log("Adding a new team");
+	if (!req.session.userID) res.redirect('/');
+	
 	var userID = req.session.userID;
 
 	if (!req.query.name || !req.query.description)
