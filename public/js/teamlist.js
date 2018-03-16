@@ -7,6 +7,8 @@ $(document).ready(function() {
 
 	// Toggle add team
 	$("#addTeamForm").hide();
+	if ($("#teamError").length ||
+		$("#teamSuccess").length ) $("#addTeamForm").show();
 	$("#addButton").click(function() {
 		$("#addTeamForm").slideToggle();
 	});

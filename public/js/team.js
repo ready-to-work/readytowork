@@ -8,6 +8,13 @@ $(document).ready(function() {
 
 	// Toggle invite user menu
 	$("#inviteUserForm").hide();
+	if ($("#emptyInvite").length ||
+		$("#invalidInvite").length ||
+		$("#inviteSuccess").length )
+	{
+		$("#members-tab").trigger('click');
+		$("#inviteUserForm").show();
+	}
 	$("#inviteButton").click(function() {
 		$("#inviteUserForm").slideToggle();
 	});

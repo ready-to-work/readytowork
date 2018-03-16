@@ -78,6 +78,9 @@
 										    <div class="form-group">
 										      <input type="text" class="form-control" placeholder="user email" name="email">
 										    </div>
+										    {{#if emptyInvite}}<p class="error font-italic" id="emptyInvite">all fields must be filled</p>{{/if}}
+										    {{#if invalidInvite}}<p class="error font-italic" id="invalidInvite">invalid email provided</p>{{/if}}
+										    {{#if inviteSuccess}}<p class="error font-italic" id="inviteSuccess">user successfully invited</p>{{/if}}
 										    <input type="submit" id="submitBtn" class="btn btn-block" value="invite"></input>
 										</form>
 									</div>

@@ -7,6 +7,10 @@ var USERS = require('../dummy_data/users.json');
 var TEAMS = require('../dummy_data/teams.json');
 var data = {};
 
+data.emptyInvite = false;
+data.invalidInvite = false;
+data.inviteSuccess = false;
+
 exports.view = function(req, res){
 	if (!req.session.userID) res.redirect('/');
 	var userID = req.session.userID;
@@ -48,6 +52,10 @@ exports.view = function(req, res){
 	console.log(data.currTeam.memberList);
 
 	res.render('team', data);
+
+	data.emptyInvite = false;
+	data.invalidInvite = false;
+	data.inviteSuccess = false;
 };
 
 exports.invite = function(req, res){
@@ -58,8 +66,21 @@ exports.invite = function(req, res){
 	var alreadyInvited = false;
 	var prevRejected = false;
 
+	if (!req.query.email)
+	{
+		data.emptyInvite = true;
+		res.redirect("/teamlist/" + teamID + "/");
+		return;
+	}
+
 	// Find user ID of the email
 	if(LOGINS.hasOwnProperty(inviteEmail)) inviteID = LOGINS[inviteEmail].userID;
+	else
+	{
+		data.invalidInvite = true;
+		res.redirect("/teamlist/" + teamID + "/");
+		return;
+	}
 
 	// Add member to the team
 	if (inviteID)
@@ -96,6 +117,7 @@ exports.invite = function(req, res){
 		}
 	}
 
+	data.inviteSuccess = true;
 	res.redirect("/teamlist/" + teamID + "/");
 };
 

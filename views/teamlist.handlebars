@@ -37,6 +37,8 @@
 						    <div class="form-group">
 						      <input type="text" class="form-control" placeholder="team description" name="description">
 						    </div>
+						    {{#unless teamFilled}}<p class="error font-italic" id="teamError">all fields must be filled</p>{{/unless}}
+						    {{#if teamSuccess}}<p class="error font-italic" id="teamSuccess">team successfully created</p>{{/if}}
 						    <input type="submit" id="submitBtn" class="btn btn-block" value="create"></input>
 						</form>
 					</div>
