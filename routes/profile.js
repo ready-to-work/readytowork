@@ -48,10 +48,8 @@ exports.view = function(req, res){
 			if (currEvent.hasOwnProperty('startDate') && currEvent.hasOwnProperty('endDate'))
 			{
 				var todaysDate = new Date();
-				var weekDate = new Date();
-				weekDate.setDate(todaysDate.getDate() + 7);
 				var currEndDate = new Date(currEvent.endDate.substring(0,4), currEvent.endDate.substring(5,7) - 1, currEvent.endDate.substring(8));
-				// if (currEndDate < todaysDate) currEvent.past = true;
+				if (currEndDate < todaysDate) currEvent.past = true;
 			}
 
 			// Convert dates to readable format
