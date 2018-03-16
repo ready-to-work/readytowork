@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	{{> head}}
+
+	<title>ready to work.</title>
+
+	<!-- Stylesheets -->
+	{{> bootstrapCSS}}
+	<link rel="stylesheet" href="/css/index.css">
+
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="d-inline-block mx-auto">
+				<h1 class="font-bold title">ready</h1>
+				<h1 class="font-bold title">to...</h1>
+				<h1 class="font-bold title">error {{error}}</h1>
+				<p>Whoops. Looks like there was an error.</p>
+				<p>Return to our <a href="/">home page</a>.</p>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Scripts -->
+	{{> bootstrapJS}}
+	<script src="/js/main.js"></script>
+	<script src="/js/index.js"></script>
+</body>
+
+</html>

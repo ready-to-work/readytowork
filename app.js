@@ -16,6 +16,7 @@ var settings = require('./routes/settings');
 var team = require('./routes/team');
 var events = require('./routes/events');
 var tasks = require('./routes/tasks');
+var error = require('./routes/error');
 
 var app = express();
 
@@ -34,15 +35,15 @@ app.use(express.session());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(app.router);
 
-// // Handle 404
-// app.use(function(req, res) {
-//  res.send('404: Page not Found', 404);
-// });
+// Handle 404
+app.use(function(req, res) {
+	res.redirect('/404');
+});
 
-// // Handle 500
-// app.use(function(error, req, res, next) {
-//  res.send('500: Internal Server Error', 500);
-// });
+// Handle 500
+app.use(function(error, req, res, next) {
+	res.redirect('/500');
+});
 
 // Development only
 if ('development' == app.get('env')) {
@@ -74,6 +75,9 @@ app.get('/teamlist/:teamid/events/edit', events.editEvent);
 app.get('/teamlist/:teamid/tasks', tasks.view);
 app.get('/teamlist/:teamid/tasks/add', tasks.addTask);
 app.get('/teamlist/:teamid/tasks/edit', tasks.editTask);
+
+app.get('/404', error.error404);
+app.get('/500', error.error500);
 
 // Start server
 http.createServer(app).listen(app.get('port'), function(){
