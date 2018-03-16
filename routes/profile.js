@@ -128,31 +128,31 @@ exports.view = function(req, res){
 		}
 	}
 
-	// Sort events by date
-	data.currEvents.sort(function(a, b) {
-		var a_date = a.sortDate;
-		var a_time = a.sortTime;
-		var b_date = b.sortDate;
-		var b_time = b.sortTime;
+	// // Sort events by date
+	// data.currEvents.sort(function(a, b) {
+	// 	var a_date = a.sortDate;
+	// 	var a_time = a.sortTime;
+	// 	var b_date = b.sortDate;
+	// 	var b_time = b.sortTime;
 
-		a_date = new Date(Date.parse(a_date + " " + a_time));
-		b_date = new Date(Date.parse(b_date + " " + b_time));
+	// 	a_date = new Date(Date.parse(a_date + " " + a_time));
+	// 	b_date = new Date(Date.parse(b_date + " " + b_time));
 
-		return a_date - b_date;
-	});
+	// 	return a_date - b_date;
+	// });
 
-	// Sort tasks by date
-	data.currTasks.sort(function(a, b) {
-		var a_date = a.sortDate;
-		var a_time = a.sortTime;
-		var b_date = b.sortDate;
-		var b_time = b.sortTime;
+	// // Sort tasks by date
+	// data.currTasks.sort(function(a, b) {
+	// 	var a_date = a.sortDate;
+	// 	var a_time = a.sortTime;
+	// 	var b_date = b.sortDate;
+	// 	var b_time = b.sortTime;
 
-		a_date = new Date(Date.parse(a_date + " " + a_time));
-		b_date = new Date(Date.parse(b_date + " " + b_time));
+	// 	a_date = new Date(Date.parse(a_date + " " + a_time));
+	// 	b_date = new Date(Date.parse(b_date + " " + b_time));
 
-		return a_date - b_date;
-	});
+	// 	return a_date - b_date;
+	// });
 	
 	res.render('profile', data);
 };
