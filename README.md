@@ -2,9 +2,10 @@
 
 ready to work.™ is a web app built for project managers, group leaders, or even roommates. Keep track of your work deadlines, study group meetings, or even weekend picnics. Keep your teammates or colleagues updated as well! By avoiding the headache of decentralized information, we will always keep your team on the same page and ready to work!
 
-**Disclaimer:** Passwords are not securely stored. We are not responsible for any liabilities or damage that may occur with the usage of this application.
+**disclaimer:** Passwords are not securely stored. We are not responsible for any liabilities or damage that may occur with the usage of this application.
 
 #### [ready to work link](https://a10-readytowork.herokuapp.com/)
+* Timezone is set on Heroku, so it's currently only accurate for America/Los_Angeles.
 
 #### features
 * Accounts with Facebook login
