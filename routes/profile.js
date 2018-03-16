@@ -48,7 +48,7 @@ exports.view = function(req, res){
 			if (currEvent.hasOwnProperty('startDate') && currEvent.hasOwnProperty('endDate'))
 			{
 				var todaysDate = new Date();
-				var currEndDate = new Date(currEvent.endDate.substring(0,4), currEvent.endDate.substring(5,7) - 1, currEvent.endDate.substring(8));
+				var currEndDate = new Date(Date.parse(currEvent.endDate + " " + currEvent.endTime));
 				if (currEndDate < todaysDate) currEvent.past = true;
 			}
 

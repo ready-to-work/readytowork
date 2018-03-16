@@ -49,8 +49,8 @@ exports.view = function(req, res){
 				var todaysDate = new Date();
 				var weekDate = new Date();
 				weekDate.setDate(todaysDate.getDate() + 7);
-				var currStartDate = new Date(currEvent.startDate.substring(0,4), currEvent.startDate.substring(5,7) - 1, currEvent.startDate.substring(8));
-				var currEndDate = new Date(currEvent.endDate.substring(0,4), currEvent.endDate.substring(5,7) - 1, currEvent.endDate.substring(8));
+				var currStartDate = new Date(Date.parse(currEvent.startDate + " " + currEvent.startTime));
+				var currEndDate = new Date(Date.parse(currEvent.endDate + " " + currEvent.endTime));
 				if (currStartDate > weekDate || currEndDate < todaysDate) continue;
 			}
 
