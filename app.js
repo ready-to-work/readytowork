@@ -35,15 +35,15 @@ app.use(express.session());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(app.router);
 
-// // Handle 404
-// app.use(function(req, res) {
-// 	res.redirect('/404');
-// });
+// Handle 404
+app.use(function(req, res) {
+	res.redirect('/404');
+});
 
-// // Handle 500
-// app.use(function(error, req, res, next) {
-// 	res.redirect('/500');
-// });
+// Handle 500
+app.use(function(error, req, res, next) {
+	res.redirect('/500');
+});
 
 // Development only
 if ('development' == app.get('env')) {
