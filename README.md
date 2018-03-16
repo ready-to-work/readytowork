@@ -27,4 +27,4 @@ ready to work.™ is a web app built for project managers, group leaders, or eve
 
 #### made for
 * COGS 120, Winter 2018
-* Course taken at UC San Diego
+* Course taken at UC San Diego 
