@@ -45,14 +45,14 @@
 
 							<div class="tab-pane fade show active" id="events" role="tabpanel" aria-labelledby="events-tab">
 								{{#each currEvents}}
-									{{#unless past}}
+									<!--{{#unless past}}-->
 									<a href="/teamlist/{{teamID}}/events" class="no-underline">
 										<div class="item">
 											<div class="item-title"><span class="font-bold">{{teamName}} event:</span><br/>{{title}}</div>
 											<div class="item-info font-italic">on {{parsedStartDate}}, {{parsedStartTime}} at {{location}}</div>
 										</div>
 									</a>
-									{{/unless}}
+									<!--{{/unless}}-->
 								{{/each}}
 
 								{{#unless currEvents}}
@@ -64,14 +64,14 @@
 
 							<div class="tab-pane fade" id="tasks" role="tabpanel" aria-labelledby="tasks-tab">
 								{{#each currTasks}}
-									{{#unless complete}}
+									<!--{{#unless complete}}-->
 									<a href="/teamlist/{{teamID}}/tasks" class="no-underline">
 										<div class="item">
 											<div class="item-title"><span class="font-bold">{{teamName}} task:</span><br/>{{title}}</div>
 											<div class="item-info font-italic">due {{parsedDueDate}}, {{parsedDueTime}} with priority {{priority}}</div>
 										</div>
 									</a>
-									{{/unless}}
+									<!--{{/unless}}-->
 								{{/each}}
 
 								{{#unless currTasks}}

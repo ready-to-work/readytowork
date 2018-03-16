@@ -42,14 +42,15 @@ exports.view = function(req, res){
 			var currEvent = currTeam.events[k];
 			currEvent.teamName = currTeam.teamName;
 			currEvent.teamID = currTeam.teamID;
-			currEvent.past = false;
+			//currEvent.past = false;
 
 			// Check if event has ended
 			if (currEvent.hasOwnProperty('startDate') && currEvent.hasOwnProperty('endDate'))
 			{
 				var todaysDate = new Date();
 				var currEndDate = new Date(Date.parse(currEvent.endDate + " " + currEvent.endTime));
-				if (currEndDate < todaysDate) currEvent.past = true;
+				//if (currEndDate < todaysDate) currEvent.past = true;
+				if (currEndDate < todaysDate) continue;
 			}
 
 			// Convert dates to readable format
@@ -97,10 +98,11 @@ exports.view = function(req, res){
 			var currTask = currTeam.tasks[l];
 			currTask.teamName = currTeam.teamName;
 			currTask.teamID = currTeam.teamID;
-			currTask.complete = false;
+			//currTask.complete = false;
 
 			// Check if task is complete
-			if (currTask.completed) currTask.complete = true;
+			//if (currTask.completed) currTask.complete = true;
+			if (currTask.completed) continue;
 
 			// Convert dates to readable format
 			if (currTask.hasOwnProperty('dueDate'))
