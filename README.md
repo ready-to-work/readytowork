@@ -4,7 +4,7 @@ ready to work.™ is a web app built for project managers, group leaders, or eve
 
 **disclaimer:** Passwords are not securely stored. We are not responsible for any liabilities or damage that may occur with the usage of this application.
 
-#### [ready to work link](https://a10-readytowork.herokuapp.com/)
+#### [ready to work link](https://readytowork.herokuapp.com/)
 * Timezone is set on Heroku, so it's currently only accurate for America/Los_Angeles.
 
 #### features
